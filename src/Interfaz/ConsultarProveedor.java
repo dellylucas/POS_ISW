@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Controlador.Fachada;
+import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
