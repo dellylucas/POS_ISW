@@ -12,8 +12,8 @@
 	import javax.swing.JTextField;
 
 	import ConexionBD.DAO_Crear;
-	import Controlador.Fachada;
 import Modelo.Empleado;
+import Modelo.Fachada;
 import Modelo.Proveedor;
 	import Modelo.Tienda;
 	public class CrearEmpleado extends JFrame implements ActionListener{
@@ -34,7 +34,7 @@ import Modelo.Proveedor;
 		private Empleado empleado;
 
 //		private DAO_Crear dao;
-		private Tienda a = Fachada.getInstance().getTienda();
+		private Tienda a = Fachada.getTienda();
 
 		
 		public CrearEmpleado(Empleado empleado){

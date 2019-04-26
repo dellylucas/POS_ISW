@@ -11,14 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Controlador.Fachada;
+import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
 
 public class ConsultarProveedor extends JFrame implements ActionListener{
 	
@@ -43,7 +39,7 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 	private Proveedor proveedor = new Proveedor();
 //	private Disponibilidad dispo = new Disponibilidad();
 //	private Especialidad espe= new Especialidad();
-    private Tienda a = Fachada.getInstance().getTienda();
+    private Tienda a = Fachada.getTienda();
 	
 	public ConsultarProveedor(){
 		super();

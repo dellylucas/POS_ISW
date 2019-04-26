@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ConexionBD.DAO_Modificar;
-import Controlador.Fachada;
+import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
@@ -44,7 +44,7 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 	private Proveedor proveedor = new Proveedor();
 
 //	private DAO_Modificar dao = new DAO_Modificar();
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 	
 	public ModificarProveedor(){
 		super();
