@@ -41,7 +41,7 @@ public class EliminarProducto extends JFrame implements ActionListener{
 //	private Especialidad espec = new Especialidad();
 //	private Disponibilidad dispo = new Disponibilidad();
 //	private DAO_Eliminar dao = new DAO_Eliminar();
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 	private JTextField txtPrecioVenta;
 	private JTextField txtfechaIngreso;
 	private JTextField txtFechaVencimiento;

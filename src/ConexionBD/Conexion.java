@@ -2,6 +2,8 @@ package ConexionBD;
 
 import java.sql.*;
 
+import javax.swing.JOptionPane;
+
 public class Conexion {
 	static String bd = "ALL_RETAILER";
 	static String login = "sa";
@@ -20,11 +22,14 @@ public class Conexion {
 				System.out.println("Conexión a base de datos " + bd + " OK\n");
 			}
 		} catch (SQLException e) {
-			System.out.println(e);
+
+			JOptionPane.showMessageDialog(null, e.toString());
 		} catch (ClassNotFoundException e) {
-			System.out.println(e);
+
+			JOptionPane.showMessageDialog(null, e.toString());
 		} catch (Exception e) {
-			System.out.println(e);
+
+			JOptionPane.showMessageDialog(null, e.toString());
 		}
 	}
 

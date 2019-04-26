@@ -39,7 +39,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	private JMenuItem eliminarProducto;
 	private JMenuItem cerrarSesion;
 	private JLabel label;
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 	private JMenuItem CrearProveedor;
 	private JMenuItem ConsultarProveedor;
 	private JMenuItem EliminarProveedor;
@@ -49,22 +49,16 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		super();
 		setIconImage(Toolkit.getDefaultToolkit().getImage
 		(ClassLoader.getSystemResource("Imagenes/Hospital.jpg")));
-		this.setTitle("SuperMercado ALL RETAILER(Ventana Admin)");
+		this.setTitle("SuperMercado "+a.getNombre()+" ALL RETAILER (Administrador)");
+		this.setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagenes/SupermercadoVentanaPrincipal.jpg"))));
 		this.setSize(500, 400);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.crearFondo();
+
 		this.crearMenu();
 	}
-	private void crearFondo() {
-		label = new JLabel();
-		label.setIcon(new ImageIcon(
-		(ClassLoader.getSystemResource("Imagenes/ImagenVentanaAdministrador.jpg"))));
-		label.setBounds(0, 0, 494, 350);
-		getContentPane().add(label);
-	}
+
 	private void crearMenu() {
 		menu = new JMenuBar();
 		setJMenuBar(menu);
@@ -249,7 +243,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						}
 			
 						if(e.getSource()==cerrarSesion){
-							VentanaPrincipal ventana = new VentanaPrincipal();
+							VentanaPrincipal ventana = new VentanaPrincipal(a);
 							ventana.setVisible(true);
 							setVisible(false);
 						}

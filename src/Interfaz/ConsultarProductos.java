@@ -41,7 +41,7 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 	private Producto producto = new Producto();
 //	private Disponibilidad dispo = new Disponibilidad();
 //	private Especialidad espe= new Especialidad();
-    private Tienda a = Fachada.getInstance().getTienda();
+    private Tienda a = Fachada.getTienda();
 	
 	public ConsultarProductos(){
 		super();

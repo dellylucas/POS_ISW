@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.swing.JOptionPane;
+
 import Modelo.Fachada;
 
 public class DAO_Crear {
@@ -19,17 +22,41 @@ public class DAO_Crear {
 
 		try {
 			Statement GetFachada = conex.createStatement();
-			 resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDAS");
+			 resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDA WHERE id !=0");
 			
             while (resultSet.next()) {
                  nombre =  resultSet.getString(1);
             }
 
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		return nombre;
 	}
+
+	/*public String ObtenerUsers() {
+		String nombre="Ninguno";
+		ResultSet resultSet = null;
+
+		try {
+			Statement GetFachada = conex.createStatement();
+			 resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDA WHERE id !=0");
+			
+            while (resultSet.next()) {
+                 nombre =  resultSet.getString(1);
+            }
+
+		} catch (SQLException e) {
+
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+		return nombre;
+	}*/
 	/*
 	public void crearMedicoDAO(Medicos medico) {
 		Conexion conex = new Conexion();

@@ -44,7 +44,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	private Producto producto = new Producto();
 
 //	private DAO_Modificar dao = new DAO_Modificar();
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 	
 	public ModificarProducto(){
 		super();

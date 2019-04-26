@@ -13,6 +13,8 @@ package Interfaz;
 	import javax.swing.JPasswordField;
 	import javax.swing.JTextField;
 
+import Modelo.Fachada;
+
 	public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
 		private JLabel contraseña;
@@ -75,7 +77,7 @@ package Interfaz;
 		public void actionPerformed(ActionEvent e) {
 			
 			if(e.getSource()==btnSalir){
-				VentanaPrincipal login = new VentanaPrincipal();
+				VentanaPrincipal login = new VentanaPrincipal(Fachada.tienda);
 				login.setVisible(true);
 				setVisible(false);
 			}
