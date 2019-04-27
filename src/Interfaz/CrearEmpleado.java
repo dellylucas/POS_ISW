@@ -1,4 +1,3 @@
-
 	package Interfaz;
 
 	import java.awt.Toolkit;
@@ -171,4 +170,4 @@ import Modelo.Proveedor;
 			
 		}
 	}
-
+	

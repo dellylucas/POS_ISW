@@ -208,6 +208,4 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 	
 		
 	}
-	
-	
 }
