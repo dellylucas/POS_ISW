@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ConexionBD.DAO_Eliminar;
-import Controlador.Fachada;
+import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 //import Modelo.CentroMedico;
@@ -41,7 +41,7 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 	private JComboBox listaProveedor;
 	private Proveedor proveedor = new Proveedor();
 //	private DAO_Eliminar dao = new DAO_Eliminar();
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 
 	
 	public EliminarProveedor(){

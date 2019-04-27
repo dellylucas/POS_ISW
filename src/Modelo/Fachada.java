@@ -3,16 +3,16 @@ package Modelo;
 public class Fachada {
 	public static Tienda tienda;
 
-	public static Tienda getInstance(String nombre) {
+	public static Tienda getInstance() {
 		if (tienda == null) {
 			tienda = new Tienda();
-			tienda.setNombre(nombre);
 		}
 		return tienda;
 	}
 
-	public Tienda getTienda() {
+	public static Tienda getTienda() {
 		return tienda;
 	}
+
 
 }

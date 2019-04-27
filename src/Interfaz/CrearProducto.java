@@ -37,7 +37,7 @@ public class CrearProducto extends JFrame implements ActionListener{
 //	private Especialidad especialidad;
 //	private Disponibilidad dispo;
 	private DAO_Crear dao;
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 	private JTextField txtPrecioVenta;
 	private JTextField txtFechaIngreso;
 	private JTextField txtFechaVencimiento;

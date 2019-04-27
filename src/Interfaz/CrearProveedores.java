@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ConexionBD.DAO_Crear;
-import Controlador.Fachada;
-
+import Modelo.Fachada;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 public class CrearProveedores extends JFrame implements ActionListener{
@@ -34,7 +33,7 @@ public class CrearProveedores extends JFrame implements ActionListener{
 	private Proveedor proveedor;
 
 	private DAO_Crear dao;
-	private Tienda a = Fachada.getInstance().getTienda();
+	private Tienda a = Fachada.getTienda();
 
 	
 	public CrearProveedores(Proveedor proveedor){
