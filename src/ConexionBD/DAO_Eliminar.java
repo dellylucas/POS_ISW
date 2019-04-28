@@ -3,12 +3,11 @@ package ConexionBD;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Modelo.Medicos;
-import Modelo.Servicios;
+
 
 public class DAO_Eliminar {
 	
-	public DAO_Eliminar(){
+	/*public DAO_Eliminar(){
 		
 	}
 	
@@ -62,5 +61,5 @@ public class DAO_Eliminar {
 		} catch (SQLException e1) {
 			
 		}
-	}
+	}*/
 }

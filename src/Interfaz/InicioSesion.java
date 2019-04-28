@@ -17,9 +17,9 @@ import Modelo.Fachada;
 
 	public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
-		private JLabel contraseña;
+		private JLabel contraseÃ±a;
 		private JTextField txtUsuario;
-		private JPasswordField txtContraseña;
+		private JPasswordField txtContraseÃ±a;
 		private JButton btnIniciarSesion;
 		private JButton btnSalir;
 		
@@ -44,10 +44,10 @@ import Modelo.Fachada;
 			this.usuario.setBounds(10, 5, 200, 80);
 			getContentPane().add(usuario);
 			
-			this.contraseña=new JLabel();
-			this.contraseña.setText("Contraseña");
-			this.contraseña.setBounds(10, 35, 200, 80);
-			getContentPane().add(contraseña);
+			this.contraseÃ±a=new JLabel();
+			this.contraseÃ±a.setText("ContraseÃ±a");
+			this.contraseÃ±a.setBounds(10, 35, 200, 80);
+			getContentPane().add(contraseÃ±a);
 		}
 
 		private void crearIngresoDeDatos() {
@@ -55,9 +55,9 @@ import Modelo.Fachada;
 			this.txtUsuario.setBounds(90, 35, 180, 20);
 			getContentPane().add(txtUsuario);
 			
-			this.txtContraseña=new JPasswordField();
-			this.txtContraseña.setBounds(90, 65, 180, 20);
-			getContentPane().add(txtContraseña);
+			this.txtContraseÃ±a=new JPasswordField();
+			this.txtContraseÃ±a.setBounds(90, 65, 180, 20);
+			getContentPane().add(txtContraseÃ±a);
 		}
 
 		private void crearBotones() {
@@ -82,21 +82,21 @@ import Modelo.Fachada;
 				setVisible(false);
 			}
 			
-			String contraseña = new String (txtContraseña.getPassword());
-			if( txtUsuario.getText().equals("admin") && contraseña.equals("1234")){
+			String contraseÃ±a = new String (txtContraseÃ±a.getPassword());
+			if( txtUsuario.getText().equals("admin") && contraseÃ±a.equals("1234")){
 				VentanaAdministrador ventana = new VentanaAdministrador();
 				ventana.setVisible(true);
 				setVisible(false);
 				JOptionPane.showMessageDialog(null, "Bienvenido");
 			}else{
-				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
+				JOptionPane.showMessageDialog(null, "Usuario y contraseÃ±a incorrectos");
 				limpiarFormulario();
 			}
 		}
 
 		public void limpiarFormulario() {
 			txtUsuario.setText("");
-			txtContraseña.setText("");
+			txtContraseÃ±a.setText("");
 		}	
 	}
 

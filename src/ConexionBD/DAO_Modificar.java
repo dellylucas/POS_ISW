@@ -3,13 +3,10 @@ package ConexionBD;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Modelo.Disponibilidad;
-import Modelo.Especialidad;
-import Modelo.Medicos;
-import Modelo.Servicios;
+
 
 public class DAO_Modificar {
-	
+/*
 	public DAO_Modificar(){
 		
 	}
@@ -80,5 +77,5 @@ public class DAO_Modificar {
 		} catch (SQLException e1) {
 			System.out.println(e1.getMessage());
 		}
-	}
+	}*/
 }
