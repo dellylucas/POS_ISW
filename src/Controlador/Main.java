@@ -12,8 +12,8 @@ import ConexionBD.DAO_Crear;
 		
 		public static void main(String[] args) {
 			String nombreTienda;
-			Conexion conex = new Conexion();
-			DAO_Consultar dao = new DAO_Consultar(conex.getConnection());
+
+			DAO_Consultar dao = new DAO_Consultar();
 			nombreTienda=dao.ObtenerFachada();
 			Fachada.getInstance().setNombre(nombreTienda);
 			VentanaPrincipal login = new VentanaPrincipal(Fachada.tienda);

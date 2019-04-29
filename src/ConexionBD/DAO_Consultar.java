@@ -8,14 +8,13 @@ import java.sql.Statement;
 
 public class DAO_Consultar {
     private Connection conex ;
-    public DAO_Consultar(Connection conn) {
-        this.conex = conn;
+    private ResultSet resultSet;
+    public DAO_Consultar() {
+        this.conex = Conexion.getConnection();
     }
 
     public String ObtenerFachada() {
         String nombre="Sin Conexion Base de Datos";
-        ResultSet resultSet = null;
-
         try {
             Statement GetFachada = conex.createStatement();
             resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDA WHERE id !=0");
@@ -26,9 +25,28 @@ public class DAO_Consultar {
 
         } catch (SQLException | NullPointerException e) {
 
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, "Sin Conexion Base de Datos");
         }
         return nombre;
     }
+    public int ConsultarLogin(String user,String pass) {
+       int rolid=0;
+        try {
+            Statement queryLogin = conex.createStatement();
+            resultSet = queryLogin.executeQuery("select rp.rolId " +
+                                                    "from PERSONA p " +
+                                                    "join ROL_PERSONA rp ON p.id = rp.personaId " +
+                                                    "WHERE P.usuario = '" +user+"' "+
+                                                    "AND p.clave = '" +pass+"'");
 
+            while (resultSet.next()) {
+                rolid =  resultSet.getInt(1);
+            }
+
+        } catch (SQLException | NullPointerException e) {
+
+            JOptionPane.showMessageDialog(null, "Sin Conexion Base de Datos");
+        }
+        return rolid;
+    }
 }

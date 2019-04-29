@@ -13,7 +13,9 @@ package Interfaz;
 	import javax.swing.JPasswordField;
 	import javax.swing.JTextField;
 
-import Modelo.Fachada;
+	import ConexionBD.Conexion;
+	import ConexionBD.DAO_Consultar;
+	import Modelo.Fachada;
 
 	public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
@@ -80,14 +82,31 @@ import Modelo.Fachada;
 				VentanaPrincipal login = new VentanaPrincipal(Fachada.tienda);
 				login.setVisible(true);
 				setVisible(false);
+				limpiarFormulario();
+				return;
 			}
 			
-			String contraseña = new String (txtContraseña.getPassword());
-			if( txtUsuario.getText().equals("admin") && contraseña.equals("1234")){
+			String pass = new String (txtContraseña.getPassword());
+			String user = txtUsuario.getText();
+			DAO_Consultar dao = new DAO_Consultar();
+			int rolid=dao.ConsultarLogin(user,pass);
+			/**
+			 * 1	SuperAdmin
+			 * 2	Administrador
+			 * 3	Empleado			 *
+			 */
+
+			if(rolid == 1){
+				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
+				limpiarFormulario();
+			}else if(rolid == 2){
 				VentanaAdministrador ventana = new VentanaAdministrador();
 				ventana.setVisible(true);
 				setVisible(false);
-				JOptionPane.showMessageDialog(null, "Bienvenido");
+			}else if(rolid == 3){
+				VentanaEmpleado ventana = new VentanaEmpleado();
+				ventana.setVisible(true);
+				setVisible(false);
 			}else{
 				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
 				limpiarFormulario();
