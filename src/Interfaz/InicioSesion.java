@@ -86,24 +86,24 @@ package Interfaz;
 				return;
 			}
 			
-			String pass = new String (txtContraseña.getPassword());
+			//String pass = new String (txtContraseña.getPassword());
 			String user = txtUsuario.getText();
-			DAO_Consultar dao = new DAO_Consultar();
-			int rolid=dao.ConsultarLogin(user,pass);
+			/*DAO_Consultar dao = new DAO_Consultar();
+			int rolid=dao.ConsultarLogin(user,pass);*/
 			/**
 			 * 1	SuperAdmin
 			 * 2	Administrador
 			 * 3	Empleado			 *
 			 */
 
-			if(rolid == 1){//desabilitado primera entrega
+			if(user.equals("1")){//desabilitado primera entrega
 				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
 				limpiarFormulario();
-			}else if(rolid == 2){
+			}else if(user.equals("2")){
 				VentanaAdministrador ventana = new VentanaAdministrador();
 				ventana.setVisible(true);
 				setVisible(false);
-			}else if(rolid == 3){
+			}else if(user.equals("3")){
 				VentanaEmpleado ventana = new VentanaEmpleado();
 				ventana.setVisible(true);
 				setVisible(false);
