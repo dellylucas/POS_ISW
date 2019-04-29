@@ -96,7 +96,7 @@ package Interfaz;
 			 * 3	Empleado			 *
 			 */
 
-			if(rolid == 1){
+			if(rolid == 1){//desabilitado primera entrega
 				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
 				limpiarFormulario();
 			}else if(rolid == 2){
