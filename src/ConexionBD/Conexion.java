@@ -5,36 +5,30 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class Conexion {
-	static String bd = "ALL_RETAILER";
-	static String login = "sa";
-	static String password = "123";
-	static Connection connection = null;
-	//ResultSet resultSet = null;
-	  String connectionUrl =
-			   "jdbc:sqlserver://" + "PCDFL9" + ":" + "1433" + ";user=" + login
-			    + ";password=" + password + ";databasename=" + bd + "";
+	private static String bd = "ALL_RETAILER";
+	private static String login = "sa";
+	private static String password = "123";
+	private static String server = "PCDFL9";
+	public static Connection connection;
 
 	public Conexion() {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			String connectionUrl = "jdbc:sqlserver://" + server + ":" + "1433" + ";user=" + login
+					+ ";password=" + password + ";databasename=" + bd;
 			connection = DriverManager.getConnection(connectionUrl);
 			if (connection != null) {
-				System.out.println("Conexión a base de datos " + bd + " OK\n");
+				System.out.println("Conexion a base de datos " + bd + " OK\n");
 			}
-		} catch (SQLException e) {
-
-			JOptionPane.showMessageDialog(null, e.toString());
-		} catch (ClassNotFoundException e) {
-
+		} catch (SQLException | ClassNotFoundException e) {
 			JOptionPane.showMessageDialog(null, e.toString());
 		} catch (Exception e) {
-
 			JOptionPane.showMessageDialog(null, e.toString());
 		}
 	}
 
-	public Connection getConnection() {
-		return connection;
+	public static Connection getConnection() {
+		if (connection==null){ new Conexion(); } return connection;
 	}
 
 	public void desconectar() {

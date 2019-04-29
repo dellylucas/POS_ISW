@@ -15,27 +15,7 @@ public class DAO_Crear {
 		this.conex = conn;
 	}
 	
-	@SuppressWarnings("null")
-	public String ObtenerFachada() {
-		String nombre="Ninguno";
-		ResultSet resultSet = null;
 
-		try {
-			Statement GetFachada = conex.createStatement();
-			 resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDA WHERE id !=0");
-			
-            while (resultSet.next()) {
-                 nombre =  resultSet.getString(1);
-            }
-
-		} catch (SQLException e) {
-
-			JOptionPane.showMessageDialog(null, e.getMessage());
-		} catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, e.getMessage());
-		}
-		return nombre;
-	}
 
 	/*public String ObtenerUsers() {ww
 		String nombre="Ninguno";

@@ -27,7 +27,6 @@ private JMenuItem misionVision;
 private JMenuItem politica;
 private JMenuItem telefono;
 private JMenuItem ubicacion;
-//private CentroMedico a = Fachada.getInstance().getCentroMedico();
 
 public VentanaPrincipal(Tienda tienda){
 	super();
