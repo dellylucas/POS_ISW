@@ -1,3 +1,4 @@
+
 	package Interfaz;
 
 	import java.awt.Toolkit;
@@ -137,7 +138,6 @@ import Modelo.Proveedor;
 					empleado.setTelefono(txtTelefonoEmpleado.getText());
 					empleado.setDireccion(txtDireccionEmpleado.getText());
 					empleado.setCorreo(txtCorreoEmpleado.getText());
-					
 					a.crearEmpleado(empleado);
 //					dao.crearProductoDAO(producto);
 //					especialidad.setNombreEspecialidad(txtEspecialidad.getText());
@@ -170,4 +170,4 @@ import Modelo.Proveedor;
 			
 		}
 	}
-	
+

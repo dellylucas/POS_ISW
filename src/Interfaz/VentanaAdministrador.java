@@ -13,6 +13,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import Modelo.Empleado;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
@@ -30,13 +31,19 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	private JMenuBar menu;
 	private JMenu producto;
 	private JMenu proveedores;
-	private JMenu cargar;
+	private JMenu empleados;
 	private JMenu contratos;
 	private JMenu salir;
 	private JMenuItem crearProducto;
 	private JMenuItem consultarProducto;
 	private JMenuItem modificarProducto;
 	private JMenuItem eliminarProducto;
+	
+	private JMenuItem crearEmpleado;
+	private JMenuItem consultarEmpleado;
+	private JMenuItem modificarEmpleado;
+	private JMenuItem eliminarEmpleado;
+	
 	private JMenuItem cerrarSesion;
 	private JLabel label;
 	private Tienda a = Fachada.getTienda();
@@ -49,16 +56,22 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		super();
 		setIconImage(Toolkit.getDefaultToolkit().getImage
 		(ClassLoader.getSystemResource("Imagenes/Hospital.jpg")));
-		this.setTitle("SuperMercado "+a.getNombre()+" ALL RETAILER (Administrador)");
-		this.setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagenes/SupermercadoVentanaPrincipal.jpg"))));
+		this.setTitle("SuperMercado ALL RETAILER(Ventana Admin)");
 		this.setSize(500, 400);
 		this.setLocationRelativeTo(null);
+		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		this.crearFondo();
 		this.crearMenu();
 	}
-
+	private void crearFondo() {
+		label = new JLabel();
+		label.setIcon(new ImageIcon(
+		(ClassLoader.getSystemResource("Imagenes/ImagenVentanaAdministrador.jpg"))));
+		label.setBounds(0, 0, 494, 350);
+		getContentPane().add(label);
+	}
 	private void crearMenu() {
 		menu = new JMenuBar();
 		setJMenuBar(menu);
@@ -94,8 +107,8 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		EliminarProveedor.addActionListener(this);
 		proveedores.add(EliminarProveedor);
 		
-		cargar = new JMenu("Empleados");
-		menu.add(cargar);
+		empleados = new JMenu("Empleados");
+		menu.add(empleados);
 		
 		contratos = new JMenu("Compras");
 		menu.add(contratos);
@@ -128,30 +141,29 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		producto.add(eliminarProducto);
 
 		
-//		CrearProveedor = new JMenuItem("Crear");
-//		CrearProveedor.setIcon(new ImageIcon(
-//		(ClassLoader.getSystemResource("Imagenes/Crear.png"))));
-//		CrearProveedor.addActionListener(this);
-//		proveedores.add(EliminarProveedor);
-//		
-//		ConsultarProveedor = new JMenuItem("Consultar");
-//		ConsultarProveedor.setIcon(new ImageIcon(
-//		(ClassLoader.getSystemResource("Imagenes/Consultar.png"))));
-//		ConsultarProveedor.addActionListener(this);
-//		proveedores.add(ConsultarProveedor);
-//		
-//		modificarProveedor = new JMenuItem("Modificar");
-//		modificarProveedor.setIcon(new ImageIcon(
-//		(ClassLoader.getSystemResource("Imagenes/Modificar.png"))));
-//		modificarProveedor.addActionListener(this);
-//		proveedores.add(modificarProveedor);
-//		
-//		 EliminarProveedor= new JMenuItem("Eliminar");
-//		EliminarProveedor.setIcon(new ImageIcon(
-//		(ClassLoader.getSystemResource("Imagenes/Borrar.png"))));
-//		EliminarProveedor.addActionListener(this);
-	
-//		proveedores.add(EliminarProveedor);
+		crearEmpleado = new JMenuItem("Crear");
+		crearEmpleado.setIcon(new ImageIcon(
+		(ClassLoader.getSystemResource("Imagenes/Crear.png"))));
+		crearEmpleado.addActionListener(this);
+		empleados.add(crearEmpleado);
+		
+		consultarEmpleado = new JMenuItem("Consultar");
+		consultarEmpleado.setIcon(new ImageIcon(
+		(ClassLoader.getSystemResource("Imagenes/Consultar.png"))));
+		consultarEmpleado.addActionListener(this);
+		empleados.add(consultarEmpleado);
+		
+		modificarEmpleado = new JMenuItem("Modificar");
+		modificarEmpleado.setIcon(new ImageIcon(
+		(ClassLoader.getSystemResource("Imagenes/Modificar.png"))));
+		modificarEmpleado.addActionListener(this);
+		empleados.add(modificarEmpleado);
+		
+		eliminarEmpleado= new JMenuItem("Eliminar");
+		eliminarEmpleado.setIcon(new ImageIcon(
+		(ClassLoader.getSystemResource("Imagenes/Borrar.png"))));
+		eliminarEmpleado.addActionListener(this);
+		empleados.add(eliminarEmpleado);
 		
 	}
 //		
@@ -167,11 +179,18 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	Producto productos = new Producto();
 	Proveedor proveedor = new Proveedor();
+	Empleado empleado = new Empleado();
 	
 	
 	if(e.getSource()==CrearProveedor){
-		//CrearProveedores ventana = new CrearProveedores(proveedor);
-		//ventana.setVisible(true);
+		CrearProveedores ventana = new CrearProveedores(proveedor);
+		ventana.setVisible(true);
+		setVisible(false);
+	}
+	
+	if(e.getSource()==crearEmpleado){
+		CrearEmpleado ventana = new CrearEmpleado(empleado);
+		ventana.setVisible(true);
 		setVisible(false);
 	}
 
@@ -216,9 +235,9 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 							if(a.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
-								/*ConsultarProveedor ventana = new ConsultarProveedor();
+								ConsultarProveedor ventana = new ConsultarProveedor();
 								ventana.setVisible(true);
-								setVisible(false);*/
+								setVisible(false);
 							}
 						}
 						
@@ -226,9 +245,9 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 							if(a.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
-								/*ModificarProveedor ventana = new ModificarProveedor();
+								ModificarProveedor ventana = new ModificarProveedor();
 								ventana.setVisible(true);
-								setVisible(false);*/
+								setVisible(false);
 							}
 						}
 						
@@ -236,14 +255,47 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 							if(a.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
-								/*EliminarProveedor ventana = new EliminarProveedor();
+								EliminarProveedor ventana = new EliminarProveedor();
 								ventana.setVisible(true);
-								setVisible(false);*/
+								setVisible(false);
 							}
 						}
-			
+						
+					if(e.getSource()==consultarEmpleado){
+							if(a.getLstSEmpleados().isEmpty()){
+								JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
+							}else{
+								ConsultarEmpleado ventana = new ConsultarEmpleado();
+								ventana.setVisible(true);
+								setVisible(false);
+							}
+						}
+						
+						if(e.getSource()==modificarEmpleado){
+							if(a.getLstSEmpleados().isEmpty()){
+								JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
+							}else{
+								ModificarEmpleado ventana = new ModificarEmpleado();
+								ventana.setVisible(true);
+								setVisible(false);
+							}
+						}
+						
+						
+						if(e.getSource()==eliminarEmpleado){
+							if(a.getLstSEmpleados().isEmpty()){
+								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
+							}else{
+								EliminarEmpleado ventana = new EliminarEmpleado();
+								ventana.setVisible(true);
+								setVisible(false);
+							}
+						}
+						
+						
+						
 						if(e.getSource()==cerrarSesion){
-							VentanaPrincipal ventana = new VentanaPrincipal(a);
+							VentanaPrincipal ventana = new VentanaPrincipal(Fachada.getTienda());
 							ventana.setVisible(true);
 							setVisible(false);
 						}
