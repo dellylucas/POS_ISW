@@ -93,7 +93,7 @@ package Interfaz;
 			/**
 			 * 1	SuperAdmin
 			 * 2	Administrador
-			 * 3	Empleado			 *
+			 * 3	Empleado
 			 */
 
 			if(user.equals("1")){//desabilitado primera entrega

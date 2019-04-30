@@ -7,14 +7,39 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-import Modelo.Fachada;
+import Modelo.Producto;
 
 public class DAO_Crear {
 	private Connection conex ;
-	public DAO_Crear(Connection conn) {
-		this.conex = conn;
+	private ResultSet resultSet;
+
+	public DAO_Crear() {
+		this.conex = Conexion.getConnection();
 	}
-	
+
+	public boolean Producto(Producto pro) {
+
+		try {
+			Statement addProduct = conex.createStatement();
+			addProduct.executeUpdate(
+					"INSERT INTO PRODUCTO  VALUES ('"
+							+ pro.getId() + "' , '"
+							+ pro.getNombre() + "' , '"
+							+ pro.getCantidad() + "' , '"
+							+ pro.getPrecioIngreso() + "' , '"
+							+ pro.getPrecioVenta() + "' , '"
+							+ pro.getFechaIngreso()+ "' , '"
+							+ pro.getFechaVencimiento() + "' , '"
+							+ pro.getProveedorId() + "')");
+			addProduct.close();
+
+		} catch (SQLException | NullPointerException e) {
+
+			JOptionPane.showMessageDialog(null, "Error insertando "+e.toString());
+		}
+		return true;
+	}
+
 
 
 	/*public String ObtenerUsers() {ww
