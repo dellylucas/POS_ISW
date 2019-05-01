@@ -1,81 +1,64 @@
 package ConexionBD;
 
+import Modelo.Empleado;
+import Modelo.Producto;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 
 
 public class DAO_Modificar {
-/*
-	public DAO_Modificar(){
-		
-	}
-	
-	public void modificarMedicoDAO(Medicos medico) {
-		Conexion conex = new Conexion();
-		try {
-			Statement estatuto = conex.getConnection().createStatement();
-			estatuto.executeUpdate("UPDATE medicos SET NombreMedico = '" 
-			+ medico.getNombreMedico() + "', ApellidoMedico = '" 
-			+ medico.getApellidoMedico() + "', TelefonoMedico = '" 
-			+ medico.getTelefonoMedico()+ "' WHERE IdentificacionMedico = '"
-			+ medico.getIdentificacion() + "' ");
-			estatuto.close();
-			conex.desconectar();
-			
-		} catch (SQLException e1) {
-			System.out.println(e1.getMessage());
-		}
-	}
-	
-	public void modificarEspecialidadDAO(Especialidad especialidad,Medicos medico) {
-		Conexion conex = new Conexion();
-		try {
-			Statement estatuto = conex.getConnection().createStatement();
-			estatuto.executeUpdate("UPDATE especialidad SET NombreEspecialidad = '" 
-			+ especialidad.getNombreEspecialidad() +
-			"' WHERE IdentificacionMedico = '"
-			+ medico.getIdentificacion() + "' ");
-			estatuto.close();
-			conex.desconectar();
-			
-		} catch (SQLException e1) {
-			System.out.println(e1.getMessage());
-		}
-	}
-	
-	public void modificarDisponibilidadDAO(Disponibilidad dispo,Medicos medico) {
-		Conexion conex = new Conexion();
-		try {
-			Statement estatuto = conex.getConnection().createStatement();
-			estatuto.executeUpdate("UPDATE disponibilidad SET FechaDisponibilidad = '" 
-			+ dispo.getFecha() + "', HoraInicio = '" 
-			+ dispo.getHora_inicio() + "', HoraFin = '" 
-			+ dispo.getHora_fin() + "' WHERE IdentificacionMedico = '"
-			+ medico.getIdentificacion()+ "' ");
-			estatuto.close();
-			conex.desconectar();
-			
-		} catch (SQLException e1) {
-			System.out.println(e1.getMessage());
-		}
-	}
-	
-	public void modificarServicioDAO(Servicios servicio) {
-		Conexion conex = new Conexion();
-		try {
-			Statement estatuto = conex.getConnection().createStatement();
-			estatuto.executeUpdate("UPDATE servicios SET DescripcionServicio = '" 
-			+ servicio.getDescripcionServicio() + "', ComplejidadServicio = '" 
-			+ servicio.getComplejidadServicio() + "', DuracionServicio = '" 
-			+ servicio.getDuracionServicio() + "', CostoServicio = '" 
-			+ servicio.getCostoServicio()+ "' WHERE NombreServicio = '"
-			+ servicio.getNombreServicio() + "' ");
-			estatuto.close();
-			conex.desconectar();
-			
-		} catch (SQLException e1) {
-			System.out.println(e1.getMessage());
-		}
-	}*/
+
+
+    private Connection conex ;
+    private ResultSet resultSet;
+
+    public DAO_Modificar() {
+        this.conex = Conexion.getConnection();
+    }
+
+    public void Producto(Producto pro) {
+
+        try {
+            String queryIn="UPDATE PRODUCTO SET nombre ='"
+                    + pro.getNombre() + "' , cantidad="
+                    + pro.getCantidad() + " , precioIngreso="
+                    + pro.getPrecioIngreso() + " , precioVenta="
+                    + pro.getPrecioVenta() + " , fechaIngreso='"
+                    + pro.getFechaIngreso() + "' , fechaVencimiento='"
+                    + pro.getFechaVencimiento() + "' WHERE ID='"
+                    + pro.getId() + "' --' ";
+            Statement addProduct = conex.createStatement();
+            addProduct.executeUpdate(queryIn);
+            addProduct.close();
+
+        } catch (SQLException | NullPointerException e) {
+
+            JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
+        }
+    }
+    public void Empleado(Empleado emp) {
+
+        try {
+            String queryIn="UPDATE PERSONA SET nombre ='"
+                    + emp.getNombre() + "' , correo='"
+                    + emp.getCorreo() + "' , direccion='"
+                    + emp.getDireccion() + "' , telefono='"
+                    + emp.getTelefono() + "' , usuario='"
+                    + emp.getUsuario() + "' , clave='"
+                    + emp.getClave() + "' WHERE ID='"
+                    + emp.getId() + "' --' ";
+            Statement addProduct = conex.createStatement();
+            addProduct.executeUpdate(queryIn);
+            addProduct.close();
+
+        } catch (SQLException | NullPointerException e) {
+
+            JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
+        }
+    }
 }

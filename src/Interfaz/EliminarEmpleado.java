@@ -4,6 +4,7 @@
 	import java.awt.Toolkit;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
+	import java.sql.SQLException;
 
 	import javax.swing.DefaultComboBoxModel;
 	import javax.swing.JButton;
@@ -13,15 +14,11 @@
 	import javax.swing.JOptionPane;
 	import javax.swing.JTextField;
 
+	import ConexionBD.DAO_Consultar;
 	import ConexionBD.DAO_Eliminar;
-import Modelo.Empleado;
+	import Modelo.Empleado;
 import Modelo.Fachada;
-import Modelo.Producto;
-	import Modelo.Proveedor;
-	//import Modelo.CentroMedico;
-	//import Modelo.Disponibilidad;
-	//import Modelo.Especialidad;
-	//import Modelo.Medicos;
+
 	import Modelo.Tienda;
 
 	public class EliminarEmpleado extends JFrame implements ActionListener{
@@ -48,8 +45,6 @@ import Modelo.Producto;
 		
 		public EliminarEmpleado(){
 			super();
-//			setIconImage(Toolkit.getDefaultToolkit().getImage
-//			(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 			this.setTitle("Eliminar Proveedor");
 			this.setSize(400, 300);
 			this.setLocationRelativeTo(null);
@@ -155,10 +150,16 @@ import Modelo.Producto;
 			}
 			
 			if(e.getSource()==btnEliminarEmpleado){
-				
-				
-				a.eliminarEmpleado(id);
-//				dao.eliminarMedicoDAO(producto);
+
+
+				DAO_Eliminar daoelim = new DAO_Eliminar();
+				try {
+					daoelim.Empleado(id);
+				} catch (SQLException ex) {
+					System.out.println(ex.toString());
+				}
+				DAO_Consultar daoConsulta = new DAO_Consultar();
+				a.setLstProductos(daoConsulta.Productos());
 				EliminarEmpleado eli= new EliminarEmpleado();
 				this.setVisible(false);
 				eli.setVisible(true);

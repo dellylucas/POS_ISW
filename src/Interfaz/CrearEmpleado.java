@@ -14,7 +14,7 @@
 	import ConexionBD.DAO_Crear;
 import Modelo.Empleado;
 import Modelo.Fachada;
-import Modelo.Proveedor;
+	import Modelo.Persona;
 	import Modelo.Tienda;
 	public class CrearEmpleado extends JFrame implements ActionListener{
 		private JLabel idEmpleado;
@@ -22,29 +22,31 @@ import Modelo.Proveedor;
 		private JLabel telefonoEmpleado;
 		private JLabel direccionEmpleado;
 		private JLabel correoEmpleado;
+		private JLabel usuarioEmpleado;
+		private JLabel claveEmpleado;
 
 		private JTextField txtIdEmpleado;
 		private JTextField txtNombreEmpleado;
 		private JTextField txtTelefonoEmpleado;
 		private JTextField txtDireccionEmpleado;
 		private JTextField txtCorreoEmpleado;
+		private JTextField txtusuarioEmpleado;
+		private JTextField txtclaveEmpleado;
+
 
 		private JButton btnCrearEmpleado;
 		private JButton btnVolver;
 		private Empleado empleado;
 
-//		private DAO_Crear dao;
+		private DAO_Crear dao;
 		private Tienda a = Fachada.getTienda();
 
 		
-		public CrearEmpleado(Empleado empleado){
+		public CrearEmpleado(){
 			super();
-//			setIconImage(Toolkit.getDefaultToolkit().getImage
-//			(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 			this.setTitle("Crear Empleado");
 			this.setSize(400, 350);
 			this.setLocationRelativeTo(null);
-			this.setResizable(false);
 			getContentPane().setLayout(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.crearEtiquetas();
@@ -76,7 +78,17 @@ import Modelo.Proveedor;
 			this.correoEmpleado.setText("Correo");
 			this.correoEmpleado.setBounds(10, 154, 79, 29);
 			getContentPane().add(correoEmpleado);
-			
+
+			this.usuarioEmpleado=new JLabel();
+			this.usuarioEmpleado.setText("Usuario");
+			this.usuarioEmpleado.setBounds(10, 154+(154-121), 79, 29);
+			getContentPane().add(usuarioEmpleado);
+
+			this.claveEmpleado=new JLabel();
+			this.claveEmpleado.setText("clave");
+			this.claveEmpleado.setBounds(10, 154+(2*(154-121)), 79, 29);
+			getContentPane().add(claveEmpleado);
+
 				}
 		
 		private void crearIngreseDatos() {
@@ -99,9 +111,14 @@ import Modelo.Proveedor;
 			this.txtCorreoEmpleado=new JTextField();
 			this.txtCorreoEmpleado.setBounds(90, 161, 180, 20);
 			getContentPane().add(txtCorreoEmpleado);
-			
-		
-			
+
+			this.txtusuarioEmpleado=new JTextField();
+			this.txtusuarioEmpleado.setBounds(90, 161+(161-125), 180, 20);
+			getContentPane().add(txtusuarioEmpleado);
+
+			this.txtclaveEmpleado=new JTextField();
+			this.txtclaveEmpleado.setBounds(90, 161+(2*(161-125)), 180, 20);
+			getContentPane().add(txtclaveEmpleado);
 
 		}
 		
@@ -127,27 +144,24 @@ import Modelo.Proveedor;
 			if (e.getSource() == btnCrearEmpleado) {
 				if (txtIdEmpleado.getText().equals("") || txtNombreEmpleado.getText().equals("")
 						|| txtTelefonoEmpleado.getText().equals("") || txtDireccionEmpleado.getText().equals("")
-						|| txtCorreoEmpleado.getText().equals("")){
+						|| txtCorreoEmpleado.getText().equals("")|| txtclaveEmpleado.getText().equals("")
+						|| txtusuarioEmpleado.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Completa el formulario");
 				} else {
-					empleado = new Empleado();
+					empleado = new Empleado(
+							null,null,null,null,null,null,null
+					);
 
-//					dao = new DAO_Crear();
+					dao = new DAO_Crear();
 					empleado.setId(txtIdEmpleado.getText());
 					empleado.setNombre(txtNombreEmpleado.getText());
 					empleado.setTelefono(txtTelefonoEmpleado.getText());
 					empleado.setDireccion(txtDireccionEmpleado.getText());
 					empleado.setCorreo(txtCorreoEmpleado.getText());
-					a.crearEmpleado(empleado);
-//					dao.crearProductoDAO(producto);
-//					especialidad.setNombreEspecialidad(txtEspecialidad.getText());
-//					medico.crearEspecialidad(especialidad);
-//					dao.crearEspecialidadDAO(especialidad);
-//					dispo.setFecha(txtFechaMed.getText());
-//					dispo.setHora_inicio(txtHoraInicio.getText());
-//					dispo.setHora_fin(txtHoraFin.getText());
-//					medico.crearDisponibilidad(dispo);
-//					dao.crearDisponibilidadDAO(dispo);
+					empleado.setUsuario(txtusuarioEmpleado.getText());
+					empleado.setClave(txtclaveEmpleado.getText());
+					dao.Empleado(empleado);
+
 					JOptionPane.showMessageDialog(null, "Empleado Creado Exitosamente");
 					limpiarFormulario();
 				}
@@ -166,8 +180,8 @@ import Modelo.Proveedor;
 			txtTelefonoEmpleado.setText("");
 			txtDireccionEmpleado.setText("");
 			txtCorreoEmpleado.setText("");
-			
-			
+			txtusuarioEmpleado.setText("");
+			txtclaveEmpleado.setText("");
 		}
 	}
 

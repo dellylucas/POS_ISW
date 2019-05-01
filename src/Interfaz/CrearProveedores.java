@@ -38,8 +38,7 @@ public class CrearProveedores extends JFrame implements ActionListener{
 	
 	public CrearProveedores(Proveedor proveedor){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
+
 		this.setTitle("Crear Proveedor");
 		this.setSize(400, 350);
 		this.setLocationRelativeTo(null);
@@ -147,15 +146,6 @@ public class CrearProveedores extends JFrame implements ActionListener{
 				proveedor.setTipoDeProducto(txtTipoDeProducto.getText());
 				
 				a.crearProveedor(proveedor);
-//				dao.crearProductoDAO(producto);
-//				especialidad.setNombreEspecialidad(txtEspecialidad.getText());
-//				medico.crearEspecialidad(especialidad);
-//				dao.crearEspecialidadDAO(especialidad);
-//				dispo.setFecha(txtFechaMed.getText());
-//				dispo.setHora_inicio(txtHoraInicio.getText());
-//				dispo.setHora_fin(txtHoraFin.getText());
-//				medico.crearDisponibilidad(dispo);
-//				dao.crearDisponibilidadDAO(dispo);
 				JOptionPane.showMessageDialog(null, "Proveedor Creado Exitosamente");
 				limpiarFormulario();
 			}

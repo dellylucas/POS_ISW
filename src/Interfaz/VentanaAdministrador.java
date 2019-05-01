@@ -13,19 +13,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import ConexionBD.DAO_Consultar;
 import Modelo.Empleado;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
-import javax.swing.JToolBar;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
-//import Parser.ReadJSONFile;
-//import Parser.ReadXMLFile;
 
 public class VentanaAdministrador extends JFrame implements ActionListener{
 	private JMenuBar menu;
@@ -38,7 +32,8 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	private JMenuItem consultarProducto;
 	private JMenuItem modificarProducto;
 	private JMenuItem eliminarProducto;
-	
+
+	private DAO_Consultar daoConsulta;
 	private JMenuItem crearEmpleado;
 	private JMenuItem consultarEmpleado;
 	private JMenuItem modificarEmpleado;
@@ -46,7 +41,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	
 	private JMenuItem cerrarSesion;
 	private JLabel label;
-	private Tienda a = Fachada.getTienda();
+	private Tienda tienda = Fachada.getTienda();
 	private JMenuItem CrearProveedor;
 	private JMenuItem ConsultarProveedor;
 	private JMenuItem EliminarProveedor;
@@ -54,8 +49,6 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	
 	public VentanaAdministrador(){
 		super();
-		setIconImage(Toolkit.getDefaultToolkit().getImage
-		(ClassLoader.getSystemResource("Imagenes/Hospital.jpg")));
 		this.setTitle("SuperMercado ALL RETAILER(Ventana Admin)");
 		this.setSize(500, 400);
 		this.setLocationRelativeTo(null);
@@ -64,6 +57,9 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearFondo();
 		this.crearMenu();
+		daoConsulta = new DAO_Consultar();
+		tienda.setLstProductos(daoConsulta.Productos());
+		tienda.setLstSEmpleados(daoConsulta.Empleados());
 	}
 	private void crearFondo() {
 		label = new JLabel();
@@ -114,6 +110,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		menu.add(contratos);
 		
 		salir = new JMenu("Salir");
+		salir.addActionListener(this);
 		menu.add(salir);
 		
 		crearProducto = new JMenuItem("Crear Producto");
@@ -166,20 +163,11 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		empleados.add(eliminarEmpleado);
 		
 	}
-//		
-//		cerrarSesion = new JMenuItem("Cerrar Sesion");
-//		cerrarSesion.setIcon(new ImageIcon(
-//		(ClassLoader.getSystemResource("Imagenes/Salir.png"))));
-//		cerrarSesion.addActionListener(this);
-//		salir.add(cerrarSesion);
 
-	
-	
 
 	public void actionPerformed(ActionEvent e) {
 	Producto productos = new Producto();
 	Proveedor proveedor = new Proveedor();
-	Empleado empleado = new Empleado();
 	
 	
 	if(e.getSource()==CrearProveedor){
@@ -189,7 +177,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	}
 	
 	if(e.getSource()==crearEmpleado){
-		CrearEmpleado ventana = new CrearEmpleado(empleado);
+		CrearEmpleado ventana = new CrearEmpleado();
 		ventana.setVisible(true);
 		setVisible(false);
 	}
@@ -201,17 +189,17 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		}
 		
 		if(e.getSource()==consultarProducto){
-			if(a.getLstProductos().isEmpty()){
+			if(tienda.getLstProductos().isEmpty()){
 				JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
 			}else{
-				ConsultarProductos ventana = new ConsultarProductos();
+				ConsultarProductos ventana = new ConsultarProductos(2);
 				ventana.setVisible(true);
 				setVisible(false);
 			}
 		}
 		
 		if(e.getSource()==modificarProducto){
-			if(a.getLstProductos().isEmpty()){
+			if(tienda.getLstProductos().isEmpty()){
 				JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
 			}else{
 				ModificarProducto ventana = new ModificarProducto();
@@ -221,7 +209,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		}
 		
 		if(e.getSource()==eliminarProducto){
-			if(a.getLstProductos().isEmpty()){
+			if(tienda.getLstProductos().isEmpty()){
 				JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
 			}else{
 				EliminarProducto ventana = new EliminarProducto();
@@ -232,7 +220,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 
 						
 						if(e.getSource()==ConsultarProveedor){
-							if(a.getLstProveedor().isEmpty()){
+							if(tienda.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
 								ConsultarProveedor ventana = new ConsultarProveedor();
@@ -242,7 +230,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						}
 						
 						if(e.getSource()==modificarProveedor){
-							if(a.getLstProveedor().isEmpty()){
+							if(tienda.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
 								ModificarProveedor ventana = new ModificarProveedor();
@@ -252,7 +240,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						}
 						
 						if(e.getSource()==EliminarProveedor){
-							if(a.getLstProveedor().isEmpty()){
+							if(tienda.getLstProveedor().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
 								EliminarProveedor ventana = new EliminarProveedor();
@@ -262,7 +250,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						}
 						
 					if(e.getSource()==consultarEmpleado){
-							if(a.getLstSEmpleados().isEmpty()){
+							if(tienda.getLstSEmpleados().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
 							}else{
 								ConsultarEmpleado ventana = new ConsultarEmpleado();
@@ -272,7 +260,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						}
 						
 						if(e.getSource()==modificarEmpleado){
-							if(a.getLstSEmpleados().isEmpty()){
+							if(tienda.getLstSEmpleados().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
 							}else{
 								ModificarEmpleado ventana = new ModificarEmpleado();
@@ -283,7 +271,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						
 						
 						if(e.getSource()==eliminarEmpleado){
-							if(a.getLstSEmpleados().isEmpty()){
+							if(tienda.getLstSEmpleados().isEmpty()){
 								JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
 							}else{
 								EliminarEmpleado ventana = new EliminarEmpleado();
@@ -294,7 +282,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						
 						
 						
-						if(e.getSource()==cerrarSesion){
+						if(e.getSource()==salir){
 							VentanaPrincipal ventana = new VentanaPrincipal(Fachada.getTienda());
 							ventana.setVisible(true);
 							setVisible(false);

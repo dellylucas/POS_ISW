@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,14 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import ConexionBD.DAO_Consultar;
 import ConexionBD.DAO_Modificar;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Tienda;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
 
 public class ModificarProducto extends JFrame implements ActionListener{
 	private JButton btnVolver;
@@ -40,17 +36,13 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	private JTextField txtFechaIngreso;
 	private JTextField txtFechaDeVencimiento;
 	private JComboBox listaProductos;
-
+	private DAO_Modificar dao_modificar;
 	private Producto producto = new Producto();
-
-//	private DAO_Modificar dao = new DAO_Modificar();
-	private Tienda a = Fachada.getTienda();
+	private Tienda tienda = Fachada.getTienda();
 	
 	public ModificarProducto(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
-		this.setTitle("Modificar Medico");
+		this.setTitle("Modificar Productos");
 		this.setSize(500, 350);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -136,9 +128,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		this.btnVolver.setBounds(300, 290, 120, 20);
 		btnVolver.addActionListener(this);
 		getContentPane().add(btnVolver);
-		
 
-		
 		this.btnModificarProducto=new JButton();
 		this.btnModificarProducto.setText("Modificar Producto");
 		this.btnModificarProducto.setBounds(20, 290, 150, 20);
@@ -159,7 +149,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		String nombreProducto = (String) listaProductos.getSelectedItem();
-		producto = a.buscarProducto(producto, nombreProducto);
+		producto = tienda.buscarProducto(producto, nombreProducto);
 		if(e.getSource()==btnVolver){
 			VentanaAdministrador ventana = new VentanaAdministrador();
 			ventana.setVisible(true);
@@ -178,13 +168,8 @@ public class ModificarProducto extends JFrame implements ActionListener{
 			producto.setPrecioVenta(txtPrecioVenta.getText());
 			producto.setFechaIngreso(txtFechaIngreso.getText());
 			producto.setFechaVencimiento(txtFechaDeVencimiento.getText());
-//			dao.modificarMedicoDAO(medico);
-//			espe.setNombreEspecialidad(txtPrecioVenta.getText());
-//			dao.modificarEspecialidadDAO(espe,medico);
-//			dispo.setFecha(txtFechaIngreso.getText());
-//			dispo.setHora_inicio(txtFechaDeVencimiento.getText());
-//			dispo.setHora_fin(txtHoraFin.getText());
-//			dao.modificarDisponibilidadDAO(dispo,medico);
+			dao_modificar = new DAO_Modificar();
+			dao_modificar.Producto(producto);
 			ModificarProducto eli= new ModificarProducto();
 			this.setVisible(false);
 			eli.setVisible(true);
@@ -194,9 +179,10 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	}
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-		
-		for (int i = 0; i < a.getLstProductos().size(); i++) {
-			mlista.addElement(a.getLstProductos().get(i).getId());
+		DAO_Consultar daoConsulta = new DAO_Consultar();
+		tienda.setLstProductos(daoConsulta.Productos());
+		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
+			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}
 		listaProductos.setModel(mlista);
 	getContentPane().add(listaProductos);
@@ -204,7 +190,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	
 	private void llenarProducto() {
 		String id = (String) listaProductos.getSelectedItem();
-		producto = a.buscarProducto(producto, id);
+		producto = tienda.buscarProducto(producto, id);
 		txtIdProducto.setText(producto.getId());
 		txtNombreProducto.setText(producto.getNombre());
 		txtCantidadProducto.setText(producto.getCantidad());

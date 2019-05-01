@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,12 +14,8 @@ import javax.swing.JTextField;
 import ConexionBD.DAO_Modificar;
 import Modelo.Empleado;
 import Modelo.Fachada;
-import Modelo.Proveedor;
 import Modelo.Tienda;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
+
 
 public class ModificarEmpleado extends JFrame implements ActionListener{
 	private JButton btnVolver;
@@ -31,12 +26,16 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 	private JLabel telefonoEmpleado;
 	private JLabel direccionEmpleado;
 	private JLabel correoEmpleadoo;
+	private JLabel usuarioEmpleado;
+	private JLabel claveEmpleado;
 	
 	private JTextField txtIdEmpleado;
 	private JTextField txtNombreEmpleador;
 	private JTextField txtTelefonoEmpleado;
 	private JTextField txtDireccionEmpleado;
 	private JTextField txtCorreoEmpleado;
+	private JTextField txtusuarioEmpleado;
+	private JTextField txtclaveEmpleado;
 	
 
 	private JComboBox listaEmpleado;
@@ -48,8 +47,6 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 	
 	public ModificarEmpleado(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 		this.setTitle("Modificar Empleado");
 		this.setSize(500, 350);
 		this.setLocationRelativeTo(null);
@@ -85,9 +82,17 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 		this.correoEmpleadoo.setText("Correo");
 		this.correoEmpleadoo.setBounds(10, 140, 200, 80);
 		getContentPane().add(correoEmpleadoo);
-		
 
 
+		this.usuarioEmpleado=new JLabel();
+		this.usuarioEmpleado.setText("Usuario");
+		this.usuarioEmpleado.setBounds(10, 154+(154-121), 79, 29);
+		getContentPane().add(usuarioEmpleado);
+
+		this.claveEmpleado=new JLabel();
+		this.claveEmpleado.setText("clave");
+		this.claveEmpleado.setBounds(10, 154+(2*(154-121)), 79, 29);
+		getContentPane().add(claveEmpleado);
 		
 
 	}
@@ -113,6 +118,13 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 		this.txtCorreoEmpleado.setBounds(90, 171, 180, 20);
 		getContentPane().add(txtCorreoEmpleado);
 
+		this.txtusuarioEmpleado=new JTextField();
+		this.txtusuarioEmpleado.setBounds(90, 161+(161-125), 180, 20);
+		getContentPane().add(txtusuarioEmpleado);
+
+		this.txtclaveEmpleado=new JTextField();
+		this.txtclaveEmpleado.setBounds(90, 161+(2*(161-125)), 180, 20);
+		getContentPane().add(txtclaveEmpleado);
 
 		
 
@@ -163,15 +175,12 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 			empleado.setTelefono(txtTelefonoEmpleado.getText());
 			empleado.setDireccion(txtDireccionEmpleado.getText());
 			empleado.setCorreo(txtCorreoEmpleado.getText());
-			
+			empleado.setUsuario(txtusuarioEmpleado.getText());
+			empleado.setClave(txtclaveEmpleado.getText());
+
+			DAO_Modificar dao_modificar = new DAO_Modificar();
+			dao_modificar.Empleado(empleado);
 		
-//			dao.modificarMedicoDAO(medico);
-//			espe.setNombreEspecialidad(txtPrecioVenta.getText());
-//			dao.modificarEspecialidadDAO(espe,medico);
-//			dispo.setFecha(txtFechaIngreso.getText());
-//			dispo.setHora_inicio(txtFechaDeVencimiento.getText());
-//			dispo.setHora_fin(txtHoraFin.getText());
-//			dao.modificarDisponibilidadDAO(dispo,medico);
 			ModificarEmpleado eli= new ModificarEmpleado();
 			this.setVisible(false);
 			eli.setVisible(true);
@@ -197,8 +206,8 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 		txtTelefonoEmpleado.setText(empleado.getTelefono());
 		txtDireccionEmpleado.setText(empleado.getDireccion());
 		txtCorreoEmpleado.setText(empleado.getCorreo());
-
-	
+		txtusuarioEmpleado.setText(empleado.getUsuario());
+		txtclaveEmpleado.setText(empleado.getClave());
 		
 	}
 	

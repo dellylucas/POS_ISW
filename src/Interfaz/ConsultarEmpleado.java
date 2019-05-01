@@ -33,7 +33,7 @@ import Modelo.Proveedor;
 		private JTextField txtCorreoEmpleado;
 		
 		private JComboBox listaEmpleado;
-		;
+
 		private JTextField txtFechaVencimiento;
 		private Empleado empleado = new Empleado();
 
@@ -41,9 +41,7 @@ import Modelo.Proveedor;
 		
 		public ConsultarEmpleado(){
 			super();
-//			setIconImage(Toolkit.getDefaultToolkit().getImage
-//			(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
-			this.setTitle("Consultar Proveedor");
+			this.setTitle("Consultar Empleado");
 			this.setSize(460, 350);
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);

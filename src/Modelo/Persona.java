@@ -1,7 +1,25 @@
 package Modelo;
 
-public class Persona {
+public class Persona extends Login{
 	private String id;
+	private String nombre;
+	private String telefono;
+	private String ciudad;
+	private String direccion;
+	private String correo;
+
+	public Persona(String id, String nombre, String correo,String direccion,String telefono,  String usu,String cla) {
+		super(usu,cla);
+		this.id = id;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.correo = correo;
+	}
+
+	public Persona() {
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -38,11 +56,5 @@ public class Persona {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	private String nombre;
-	private String telefono;
-	private String ciudad;
-	private String direccion;
-	private String correo;
-	
 
 }

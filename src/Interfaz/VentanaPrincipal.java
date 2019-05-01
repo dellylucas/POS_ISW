@@ -30,7 +30,7 @@ private JMenuItem ubicacion;
 
 public VentanaPrincipal(Tienda tienda){
 	super();
-			setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Hospital.jpg")));
+
 			this.setTitle("SuperMercado "+tienda.getNombre()+" -- ALL RETAILER(Pagina Principal)");
 			this.setSize(500, 400);
 			this.setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagenes/SupermercadoVentanaPrincipal.jpg"))));

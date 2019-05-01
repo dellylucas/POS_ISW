@@ -24,18 +24,7 @@ public Producto buscarProducto(Producto producto, String id) {
 	}
  return producto;
 }
-public void eliminarProducto(String id) {
-	for (int i = 0; i < lstProductos.size(); i++) {
-		if (lstProductos.get(i).getId().equals(id)) {
-			lstProductos.remove(i);
-		}
-	}
-	
-	}
-public void crearProducto(Producto producto) {
-	lstProductos.add(producto);
-}
- 
+
 public Proveedor buscarProveedor(Proveedor proveedor, String id) {
 	for (int i = 0; i < getLstProveedor().size(); i++) {
 		if (getLstProveedor().get(i).getId().equals(id)) {

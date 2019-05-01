@@ -12,14 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Eliminar;
+
 import Modelo.Fachada;
-import Modelo.Producto;
 import Modelo.Proveedor;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
 import Modelo.Tienda;
 
 public class EliminarProveedor extends JFrame implements ActionListener{
@@ -46,8 +41,6 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 	
 	public EliminarProveedor(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 		this.setTitle("Eliminar Proveedor");
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
@@ -163,7 +156,6 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 			
 			
 			a.eliminarProveedor(id);
-//			dao.eliminarMedicoDAO(producto);
 			EliminarProveedor eli= new EliminarProveedor();
 			this.setVisible(false);
 			eli.setVisible(true);

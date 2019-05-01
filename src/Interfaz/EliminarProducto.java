@@ -1,8 +1,8 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -12,13 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import ConexionBD.DAO_Consultar;
 import ConexionBD.DAO_Eliminar;
 import Modelo.Fachada;
 import Modelo.Producto;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
 import Modelo.Tienda;
 
 public class EliminarProducto extends JFrame implements ActionListener{
@@ -38,19 +35,15 @@ public class EliminarProducto extends JFrame implements ActionListener{
 	private JComboBox listaproductos;
 	private String identificacion,nombre,fecha;
 	private Producto producto = new Producto();
-//	private Especialidad espec = new Especialidad();
-//	private Disponibilidad dispo = new Disponibilidad();
-//	private DAO_Eliminar dao = new DAO_Eliminar();
-	private Tienda a = Fachada.getTienda();
+	private DAO_Eliminar daoelim ;
+	private Tienda tienda = Fachada.getTienda();
 	private JTextField txtPrecioVenta;
 	private JTextField txtfechaIngreso;
 	private JTextField txtFechaVencimiento;
 	
 	public EliminarProducto(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
-		this.setTitle("Eliminar Medico");
+		this.setTitle("Eliminar Producto");
 		this.setSize(400, 300);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -171,10 +164,15 @@ public class EliminarProducto extends JFrame implements ActionListener{
 		}
 		
 		if(e.getSource()==btnEliminarProducto){
-			
-			
-			a.eliminarProducto(id);
-//			dao.eliminarMedicoDAO(producto);
+
+			daoelim = new DAO_Eliminar();
+			try {
+				daoelim.Producto(id);
+			} catch (SQLException ex) {
+				System.out.println(ex.toString());
+			}
+			DAO_Consultar daoConsulta = new DAO_Consultar();
+			tienda.setLstProductos(daoConsulta.Productos());
 			EliminarProducto eli= new EliminarProducto();
 			this.setVisible(false);
 			eli.setVisible(true);
@@ -189,8 +187,8 @@ public class EliminarProducto extends JFrame implements ActionListener{
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
 		
-		for (int i = 0; i < a.getLstProductos().size(); i++) {
-			mlista.addElement(a.getLstProductos().get(i).getId());
+		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
+			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}
 		listaproductos.setModel(mlista);
 	}
@@ -198,7 +196,7 @@ public class EliminarProducto extends JFrame implements ActionListener{
 	
 	private void llenarProducto() {
 		String id = (String) listaproductos.getSelectedItem();
-		producto = a.buscarProducto(producto, id);
+		producto = tienda.buscarProducto(producto, id);
 		txtId.setText(producto.getId());
 		txtNombreProducto.setText(producto.getNombre());
 		txtCantidadProductos.setText(producto.getCantidad());

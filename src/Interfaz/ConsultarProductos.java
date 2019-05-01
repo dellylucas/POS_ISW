@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,18 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import ConexionBD.DAO_Consultar;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Tienda;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
 
 public class ConsultarProductos extends JFrame implements ActionListener{
 	
 	private JButton btnVolver;
-	private JButton btnVerProducto;
 	private JLabel idProducto;
 	private JLabel nombreProducto;
 	private JLabel precioIngreso;
@@ -39,23 +34,20 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 	private JTextField txtPrecioVenta;
 	private JTextField txtFechaVencimiento;
 	private Producto producto = new Producto();
-//	private Disponibilidad dispo = new Disponibilidad();
-//	private Especialidad espe= new Especialidad();
-    private Tienda a = Fachada.getTienda();
-	
-	public ConsultarProductos(){
+    private Tienda tienda = Fachada.getTienda();
+	private int rolid;
+
+	public ConsultarProductos(int rol){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 		this.setTitle("Consultar Productos");
 		this.setSize(460, 350);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearEtiquetas();
 		this.crearIngresoDatos();
 		this.crearBotones();
+		this.rolid=rol;
 	}
 	
 	private void crearEtiquetas() {
@@ -128,14 +120,10 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 		btnVolver.addActionListener(this);
 		getContentPane().add(btnVolver);
 		
-		this.btnVerProducto=new JButton();
-		this.btnVerProducto.setText("Visualizar Producto");
-		this.btnVerProducto.setBounds(200, 20, 140, 20);
-		btnVerProducto.addActionListener(this);
-		getContentPane().add(btnVerProducto);
-		
+
 		this.listaProductos = new JComboBox();
 		this.listaProductos.setBounds(10, 20, 149, 20);
+		this.listaProductos.addActionListener(this);
 		getContentPane().add(listaProductos);
 		this.leerProducto();
 		
@@ -151,35 +139,39 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 		txtFechaVencimiento.setBounds(121, 200, 180, 20);
 		getContentPane().add(txtFechaVencimiento);
 		
-		this.llenarMedico();
+		this.llenarProductos();
 	}
 
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
-			ventana.setVisible(true);
+			if (rolid==2){
+				VentanaAdministrador ventana = new VentanaAdministrador();
+				ventana.setVisible(true);
+			} else if(rolid==3){
+				VentanaEmpleado ventana = new VentanaEmpleado();
+				ventana.setVisible(true);
+			}
 			setVisible(false);
 		}
 		
-		if(e.getSource()==btnVerProducto){
-			llenarMedico();
+		if(e.getSource()==listaProductos){
+			llenarProductos();
 		}
+
 	}
 	
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-		
-		for (int i = 0; i < a.getLstProductos().size(); i++) {
-			mlista.addElement(a.getLstProductos().get(i).getId());
+
+		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
+			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}
 		listaProductos.setModel(mlista);
 	}
-	
-	
-	
-	private void llenarMedico() {
+
+	private void llenarProductos() {
 		String id = (String) listaProductos.getSelectedItem();
-		producto = a.buscarProducto(producto, id);
+		producto = tienda.buscarProducto(producto, id);
 		txtIdProducto.setText(producto.getId());
 		txtNombreProducto.setText(producto.getNombre());
 		txtCantidadProducto.setText(producto.getCantidad());
