@@ -16,6 +16,7 @@ import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
+
 public class ConsultarProveedor extends JFrame implements ActionListener{
 	
 	private JButton btnVolver;
@@ -37,14 +38,11 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 	;
 	private JTextField txtFechaVencimiento;
 	private Proveedor proveedor = new Proveedor();
-//	private Disponibilidad dispo = new Disponibilidad();
-//	private Especialidad espe= new Especialidad();
+
     private Tienda a = Fachada.getTienda();
 	
 	public ConsultarProveedor(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 		this.setTitle("Consultar Proveedor");
 		this.setSize(460, 350);
 		this.setLocationRelativeTo(null);

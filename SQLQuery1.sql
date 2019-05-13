@@ -100,7 +100,7 @@ BEGIN
 			cantidad			INT,
 			precioIngreso		INT,
 			precioVenta			INT,
-			fechaIngreso		DATETIME,
+			fechaIngreso		DATETIME NOT NULL DEFAULT Getdate(),
 			fechaVencimiento	DATETIME,
 			proveedorId			NVARCHAR(30) null,
 			CONSTRAINT FK01_PRODUCTO FOREIGN KEY (proveedorId) REFERENCES PROVEEDOR (id)

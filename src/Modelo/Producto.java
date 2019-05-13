@@ -8,8 +8,30 @@ public class Producto {
 	private String precioVenta;
 	private String fechaIngreso;
 	private String fechaVencimiento;
-	
-	
+	private String proveedorId;
+
+	public Producto() {
+	}
+
+	public Producto(String id, String nombre, String cantidad, String precioIngreso, String precioVenta, String fechaIngreso, String fechaVencimiento, String proveedorId) {
+		this.id = id;
+		this.nombre = nombre;
+		this.cantidad = cantidad;
+		this.precioIngreso = precioIngreso;
+		this.precioVenta = precioVenta;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaVencimiento = fechaVencimiento;
+		this.proveedorId = proveedorId;
+	}
+
+	public String getProveedorId() {
+		return proveedorId;
+	}
+
+	public void setProveedorId(String proveedorId) {
+		this.proveedorId = proveedorId;
+	}
+
 	public String getId() {
 		return id;
 	}

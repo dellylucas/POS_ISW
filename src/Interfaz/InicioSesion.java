@@ -19,9 +19,9 @@ package Interfaz;
 
 	public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
-		private JLabel contraseña;
+		private JLabel contrasena;
 		private JTextField txtUsuario;
-		private JPasswordField txtContraseña;
+		private JPasswordField txtContrasena;
 		private JButton btnIniciarSesion;
 		private JButton btnSalir;
 		
@@ -46,10 +46,10 @@ package Interfaz;
 			this.usuario.setBounds(10, 5, 200, 80);
 			getContentPane().add(usuario);
 			
-			this.contraseña=new JLabel();
-			this.contraseña.setText("Contraseña");
-			this.contraseña.setBounds(10, 35, 200, 80);
-			getContentPane().add(contraseña);
+			this.contrasena=new JLabel();
+			this.contrasena.setText("Contrasena");
+			this.contrasena.setBounds(10, 35, 200, 80);
+			getContentPane().add(contrasena);
 		}
 
 		private void crearIngresoDeDatos() {
@@ -57,9 +57,9 @@ package Interfaz;
 			this.txtUsuario.setBounds(90, 35, 180, 20);
 			getContentPane().add(txtUsuario);
 			
-			this.txtContraseña=new JPasswordField();
-			this.txtContraseña.setBounds(90, 65, 180, 20);
-			getContentPane().add(txtContraseña);
+			this.txtContrasena=new JPasswordField();
+			this.txtContrasena.setBounds(90, 65, 180, 20);
+			getContentPane().add(txtContrasena);
 		}
 
 		private void crearBotones() {
@@ -86,36 +86,37 @@ package Interfaz;
 				return;
 			}
 			
-			//String pass = new String (txtContraseña.getPassword());
+			String pass = new String (txtContrasena.getPassword());
 			String user = txtUsuario.getText();
-			/*DAO_Consultar dao = new DAO_Consultar();
-			int rolid=dao.ConsultarLogin(user,pass);*/
+			
+			DAO_Consultar dao = new DAO_Consultar();
+			int rolid=dao.ConsultarLogin(user,pass);
 			/**
 			 * 1	SuperAdmin
 			 * 2	Administrador
-			 * 3	Empleado			 *
+			 * 3	Empleado
 			 */
 
-			if(user.equals("1")){//desabilitado primera entrega
-				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
+			if(rolid==1){//desabilitado primera entrega
+				JOptionPane.showMessageDialog(null, "Usuario y contrasena incorrectos");
 				limpiarFormulario();
-			}else if(user.equals("2")){
+			}else if(rolid==2){
 				VentanaAdministrador ventana = new VentanaAdministrador();
 				ventana.setVisible(true);
 				setVisible(false);
-			}else if(user.equals("3")){
+			}else if(rolid==3){
 				VentanaEmpleado ventana = new VentanaEmpleado();
 				ventana.setVisible(true);
 				setVisible(false);
 			}else{
-				JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos");
+				JOptionPane.showMessageDialog(null, "Usuario y contrasena incorrectos");
 				limpiarFormulario();
 			}
 		}
 
 		public void limpiarFormulario() {
 			txtUsuario.setText("");
-			txtContraseña.setText("");
+			txtContrasena.setText("");
 		}	
 	}
 

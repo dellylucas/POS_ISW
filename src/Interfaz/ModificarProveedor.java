@@ -17,10 +17,7 @@ import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
-//import Modelo.CentroMedico;
-//import Modelo.Disponibilidad;
-//import Modelo.Especialidad;
-//import Modelo.Medicos;
+
 
 public class ModificarProveedor extends JFrame implements ActionListener{
 	private JButton btnVolver;
@@ -48,8 +45,6 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 	
 	public ModificarProveedor(){
 		super();
-//		setIconImage(Toolkit.getDefaultToolkit().getImage
-//		(ClassLoader.getSystemResource("Imagenes/Medico.jpg")));
 		this.setTitle("Modificar Proveedor");
 		this.setSize(500, 350);
 		this.setLocationRelativeTo(null);
@@ -172,13 +167,6 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 			proveedor.setCiudad(txtCiudadProveedor.getText());
 			proveedor.setTipoDeProducto(txtTipoDeProducto.getText());
 		
-//			dao.modificarMedicoDAO(medico);
-//			espe.setNombreEspecialidad(txtPrecioVenta.getText());
-//			dao.modificarEspecialidadDAO(espe,medico);
-//			dispo.setFecha(txtFechaIngreso.getText());
-//			dispo.setHora_inicio(txtFechaDeVencimiento.getText());
-//			dispo.setHora_fin(txtHoraFin.getText());
-//			dao.modificarDisponibilidadDAO(dispo,medico);
 			ModificarProveedor eli= new ModificarProveedor();
 			this.setVisible(false);
 			eli.setVisible(true);
@@ -208,4 +196,6 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 	
 		
 	}
+	
+	
 }
