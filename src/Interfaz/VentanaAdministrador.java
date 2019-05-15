@@ -1,7 +1,6 @@
 package Interfaz;
 
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,8 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import ConexionBD.DAO_Consultar;
-import Modelo.Empleado;
+import ConexionBD.Dao_Empleado;
+import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Proveedor;
@@ -33,7 +32,8 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	private JMenuItem modificarProducto;
 	private JMenuItem eliminarProducto;
 
-	private DAO_Consultar daoConsulta;
+	private Dao_Producto daoProduct;
+	private Dao_Empleado daoEmpleado;
 	private JMenuItem crearEmpleado;
 	private JMenuItem consultarEmpleado;
 	private JMenuItem modificarEmpleado;
@@ -57,9 +57,10 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearFondo();
 		this.crearMenu();
-		daoConsulta = new DAO_Consultar();
-		tienda.setLstProductos(daoConsulta.Productos());
-		tienda.setLstSEmpleados(daoConsulta.Empleados());
+		daoProduct = new Dao_Producto();
+		daoEmpleado = new Dao_Empleado();
+		tienda.setLstProductos(daoProduct.ConsultaTodos());
+		tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos());
 	}
 	private void crearFondo() {
 		label = new JLabel();

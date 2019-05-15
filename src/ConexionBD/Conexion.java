@@ -9,7 +9,7 @@ public class Conexion {
 	private static String login = "sa";
 	private static String password = "123";
 	private static String server = "PCDFL9";
-	public static Connection connection;
+	static  Connection connection ;
 
 	public Conexion() {
 		try {
@@ -20,18 +20,18 @@ public class Conexion {
 			if (connection != null) {
 				System.out.println("Conexion a base de datos " + bd + " OK\n");
 			}
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException | ClassNotFoundException  e) {
 			JOptionPane.showMessageDialog(null, e.toString());
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, e.toString());
 		}
 	}
 
-	public static Connection getConnection() {
+	private static Connection getConnection() {
 		if (connection==null){ new Conexion(); } return connection;
 	}
 
-	public void desconectar() {
-		connection = null;
+	public void desconectar() throws SQLException {
+		connection.close();
 	}
 }

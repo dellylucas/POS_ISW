@@ -13,8 +13,7 @@ package Interfaz;
 	import javax.swing.JPasswordField;
 	import javax.swing.JTextField;
 
-	import ConexionBD.Conexion;
-	import ConexionBD.DAO_Consultar;
+    import ConexionBD.Dao_Login;
 	import Modelo.Fachada;
 
 	public class InicioSesion extends JFrame implements ActionListener{
@@ -89,8 +88,8 @@ package Interfaz;
 			String pass = new String (txtContrasena.getPassword());
 			String user = txtUsuario.getText();
 			
-			DAO_Consultar dao = new DAO_Consultar();
-			int rolid=dao.ConsultarLogin(user,pass);
+			Dao_Login dao = new Dao_Login();
+			int rolid=dao.Consultar(user,pass);
 			/**
 			 * 1	SuperAdmin
 			 * 2	Administrador

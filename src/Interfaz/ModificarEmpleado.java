@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Modificar;
+import ConexionBD.Dao_Empleado;
 import Modelo.Empleado;
 import Modelo.Fachada;
 import Modelo.Tienda;
@@ -42,7 +42,6 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 
 	private Empleado empleado = new Empleado();
 
-//	private DAO_Modificar dao = new DAO_Modificar();
 	private Tienda a = Fachada.getTienda();
 	
 	public ModificarEmpleado(){
@@ -178,8 +177,8 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 			empleado.setUsuario(txtusuarioEmpleado.getText());
 			empleado.setClave(txtclaveEmpleado.getText());
 
-			DAO_Modificar dao_modificar = new DAO_Modificar();
-			dao_modificar.Empleado(empleado);
+			Dao_Empleado daoEmpleado = new Dao_Empleado();
+			daoEmpleado.Modifica(empleado);
 		
 			ModificarEmpleado eli= new ModificarEmpleado();
 			this.setVisible(false);

@@ -9,8 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Consultar;
-import ConexionBD.DAO_Crear;
+import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Tienda;
@@ -29,7 +28,7 @@ public class CrearProducto extends JFrame implements ActionListener{
 	private JButton btnVolver;
 	private Producto producto;
 
-	private DAO_Crear daoCrear;
+	private Dao_Producto daoProducto;
 	private Tienda tienda = Fachada.getTienda();
 	private JTextField txtPrecioVenta;
 	private JTextField txtFechaVencimiento;
@@ -133,14 +132,14 @@ public class CrearProducto extends JFrame implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Completa el formulario");
 			} else {
 				producto = new Producto();
-				daoCrear = new DAO_Crear();
+				daoProducto = new Dao_Producto();
 				producto.setId(txtIdProducto.getText());
 				producto.setNombre(txtNombreProducto.getText());
 				producto.setCantidad(txtCantidad.getText());
 				producto.setPrecioIngreso(txtPrecioIngreso.getText());
 				producto.setPrecioVenta(txtPrecioVenta.getText());
 				producto.setFechaVencimiento(txtFechaVencimiento.getText());
-				daoCrear.Producto(producto);
+				daoProducto.Crear(producto);
 
 				JOptionPane.showMessageDialog(null, "Producto Creado Exitosamente");
 

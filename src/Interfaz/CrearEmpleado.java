@@ -1,21 +1,20 @@
 
-	package Interfaz;
+package Interfaz;
 
-	import java.awt.Toolkit;
-	import java.awt.event.ActionEvent;
-	import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-	import javax.swing.JButton;
-	import javax.swing.JFrame;
-	import javax.swing.JLabel;
-	import javax.swing.JOptionPane;
-	import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
-	import ConexionBD.DAO_Crear;
+import ConexionBD.Dao_Empleado;
 import Modelo.Empleado;
 import Modelo.Fachada;
-	import Modelo.Persona;
-	import Modelo.Tienda;
+import Modelo.Tienda;
+
 	public class CrearEmpleado extends JFrame implements ActionListener{
 		private JLabel idEmpleado;
 		private JLabel nombreEmpleado;
@@ -38,7 +37,7 @@ import Modelo.Fachada;
 		private JButton btnVolver;
 		private Empleado empleado;
 
-		private DAO_Crear dao;
+		private Dao_Empleado daoEmpleado;
 		private Tienda a = Fachada.getTienda();
 
 		
@@ -152,7 +151,7 @@ import Modelo.Fachada;
 							null,null,null,null,null,null,null
 					);
 
-					dao = new DAO_Crear();
+					daoEmpleado = new Dao_Empleado();
 					empleado.setId(txtIdEmpleado.getText());
 					empleado.setNombre(txtNombreEmpleado.getText());
 					empleado.setTelefono(txtTelefonoEmpleado.getText());
@@ -160,7 +159,7 @@ import Modelo.Fachada;
 					empleado.setCorreo(txtCorreoEmpleado.getText());
 					empleado.setUsuario(txtusuarioEmpleado.getText());
 					empleado.setClave(txtclaveEmpleado.getText());
-					dao.Empleado(empleado);
+					daoEmpleado.Crear(empleado);
 
 					JOptionPane.showMessageDialog(null, "Empleado Creado Exitosamente");
 					limpiarFormulario();

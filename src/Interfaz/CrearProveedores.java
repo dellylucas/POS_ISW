@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Crear;
 import Modelo.Fachada;
 import Modelo.Proveedor;
 import Modelo.Tienda;
@@ -32,8 +30,7 @@ public class CrearProveedores extends JFrame implements ActionListener{
 	private JButton btnVolver;
 	private Proveedor proveedor;
 
-	private DAO_Crear dao;
-	private Tienda a = Fachada.getTienda();
+	private Tienda tienda = Fachada.getTienda();
 
 	
 	public CrearProveedores(Proveedor proveedor){
@@ -137,7 +134,6 @@ public class CrearProveedores extends JFrame implements ActionListener{
 			} else {
 				proveedor = new Proveedor();
 
-//				dao = new DAO_Crear();
 				proveedor.setId(txtIdProveedor.getText());
 				proveedor.setNombre(txtNombreProveedor.getText());
 				proveedor.setTelefono(txtTelefonoProveedor.getText());
@@ -145,7 +141,7 @@ public class CrearProveedores extends JFrame implements ActionListener{
 				proveedor.setCiudad(txtciudadProveedor.getText());
 				proveedor.setTipoDeProducto(txtTipoDeProducto.getText());
 				
-				a.crearProveedor(proveedor);
+				tienda.crearProveedor(proveedor);
 				JOptionPane.showMessageDialog(null, "Proveedor Creado Exitosamente");
 				limpiarFormulario();
 			}

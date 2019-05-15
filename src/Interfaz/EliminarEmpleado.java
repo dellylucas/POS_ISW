@@ -1,7 +1,6 @@
 
 	package Interfaz;
 
-	import java.awt.Toolkit;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import java.sql.SQLException;
@@ -14,8 +13,7 @@
 	import javax.swing.JOptionPane;
 	import javax.swing.JTextField;
 
-	import ConexionBD.DAO_Consultar;
-	import ConexionBD.DAO_Eliminar;
+	import ConexionBD.Dao_Empleado;
 	import Modelo.Empleado;
 import Modelo.Fachada;
 
@@ -37,9 +35,9 @@ import Modelo.Fachada;
 		private JTextField txtDireccionEmpleado;
 		private JTextField txtCorreoEmpleado;
 
+		private Dao_Empleado daoEmpleado;
 		private JComboBox listaEmpleado;
 		private Empleado empleado = new Empleado();
-//		private DAO_Eliminar dao = new DAO_Eliminar();
 		private Tienda a = Fachada.getTienda();
 
 		
@@ -54,6 +52,7 @@ import Modelo.Fachada;
 			this.crearEtiquetas();
 			this.crearIngresoDatos();
 			this.crearBotones();
+			daoEmpleado = new Dao_Empleado();
 		}
 		
 		private void crearEtiquetas() {
@@ -151,15 +150,12 @@ import Modelo.Fachada;
 			
 			if(e.getSource()==btnEliminarEmpleado){
 
-
-				DAO_Eliminar daoelim = new DAO_Eliminar();
 				try {
-					daoelim.Empleado(id);
+					daoEmpleado.Eliminar(id);
 				} catch (SQLException ex) {
 					System.out.println(ex.toString());
 				}
-				DAO_Consultar daoConsulta = new DAO_Consultar();
-				a.setLstProductos(daoConsulta.Productos());
+
 				EliminarEmpleado eli= new EliminarEmpleado();
 				this.setVisible(false);
 				eli.setVisible(true);

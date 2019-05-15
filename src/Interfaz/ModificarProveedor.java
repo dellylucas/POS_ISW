@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,10 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import ConexionBD.DAO_Modificar;
 import Modelo.Fachada;
-import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
@@ -40,7 +36,6 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 
 	private Proveedor proveedor = new Proveedor();
 
-//	private DAO_Modificar dao = new DAO_Modificar();
 	private Tienda a = Fachada.getTienda();
 	
 	public ModificarProveedor(){

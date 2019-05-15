@@ -12,8 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Consultar;
-import ConexionBD.DAO_Eliminar;
+import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Tienda;
@@ -35,7 +34,7 @@ public class EliminarProducto extends JFrame implements ActionListener{
 	private JComboBox listaproductos;
 	private String identificacion,nombre,fecha;
 	private Producto producto = new Producto();
-	private DAO_Eliminar daoelim ;
+	private Dao_Producto daoProducts ;
 	private Tienda tienda = Fachada.getTienda();
 	private JTextField txtPrecioVenta;
 	private JTextField txtfechaIngreso;
@@ -52,6 +51,7 @@ public class EliminarProducto extends JFrame implements ActionListener{
 		this.crearEtiquetas();
 		this.crearIngresoDatos();
 		this.crearBotones();
+		daoProducts = new Dao_Producto();
 	}
 	
 	private void crearEtiquetas() {
@@ -165,14 +165,12 @@ public class EliminarProducto extends JFrame implements ActionListener{
 		
 		if(e.getSource()==btnEliminarProducto){
 
-			daoelim = new DAO_Eliminar();
 			try {
-				daoelim.Producto(id);
+				daoProducts.Eliminar(id);
 			} catch (SQLException ex) {
 				System.out.println(ex.toString());
 			}
-			DAO_Consultar daoConsulta = new DAO_Consultar();
-			tienda.setLstProductos(daoConsulta.Productos());
+			tienda.setLstProductos(daoProducts.ConsultaTodos());
 			EliminarProducto eli= new EliminarProducto();
 			this.setVisible(false);
 			eli.setVisible(true);

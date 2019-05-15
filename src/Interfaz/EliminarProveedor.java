@@ -35,7 +35,6 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 	private JTextField txtTipoDeProducto;
 	private JComboBox listaProveedor;
 	private Proveedor proveedor = new Proveedor();
-//	private DAO_Eliminar dao = new DAO_Eliminar();
 	private Tienda a = Fachada.getTienda();
 
 	

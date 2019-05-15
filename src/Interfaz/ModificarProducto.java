@@ -11,8 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Consultar;
-import ConexionBD.DAO_Modificar;
+import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
 import Modelo.Producto;
 import Modelo.Tienda;
@@ -36,7 +35,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	private JTextField txtFechaIngreso;
 	private JTextField txtFechaDeVencimiento;
 	private JComboBox listaProductos;
-	private DAO_Modificar dao_modificar;
+	private Dao_Producto daoProducto;
 	private Producto producto = new Producto();
 	private Tienda tienda = Fachada.getTienda();
 	
@@ -168,8 +167,8 @@ public class ModificarProducto extends JFrame implements ActionListener{
 			producto.setPrecioVenta(txtPrecioVenta.getText());
 			producto.setFechaIngreso(txtFechaIngreso.getText());
 			producto.setFechaVencimiento(txtFechaDeVencimiento.getText());
-			dao_modificar = new DAO_Modificar();
-			dao_modificar.Producto(producto);
+			daoProducto = new Dao_Producto();
+			daoProducto.Modificar(producto);
 			ModificarProducto eli= new ModificarProducto();
 			this.setVisible(false);
 			eli.setVisible(true);
@@ -179,8 +178,8 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	}
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-		DAO_Consultar daoConsulta = new DAO_Consultar();
-		tienda.setLstProductos(daoConsulta.Productos());
+		Dao_Producto daoProducts = new Dao_Producto();
+		tienda.setLstProductos(daoProducts.ConsultaTodos());
 		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
 			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}
