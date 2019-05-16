@@ -13,14 +13,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import ConexionBD.Dao_Empleado;
+import ConexionBD.Dao_Fachada;
 import ConexionBD.Dao_Producto;
-import Modelo.Fachada;
-import Modelo.Producto;
-import Modelo.Proveedor;
-import Modelo.Tienda;
+import Modelo.*;
 
 
-public class VentanaAdministrador extends JFrame implements ActionListener{
+public class VentanaUsuario extends JFrame implements ActionListener{
 	private JMenuBar menu;
 	private JMenu producto;
 	private JMenu proveedores;
@@ -41,34 +39,40 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 	
 	private JMenuItem cerrarSesion;
 	private JLabel label;
-	private Tienda tienda = Fachada.getTienda();
+	private Persona usuario;
+	private Tienda tienda;
 	private JMenuItem CrearProveedor;
 	private JMenuItem ConsultarProveedor;
 	private JMenuItem EliminarProveedor;
 	private JMenuItem modificarProveedor;
 	
-	public VentanaAdministrador(){
+	public VentanaUsuario(Persona persona){
 		super();
-		this.setTitle("SuperMercado ALL RETAILER(Ventana Admin)");
-		this.setSize(500, 400);
+		switch (persona.getRol()){
+			case 2:
+				usuario = new Administrador(persona);
+				break;
+			case 3:
+				usuario = new Empleado(persona);
+				break;
+		}
+		//Singleton Una tienda
+		tienda = Fachada.getInstance(usuario);
+
+		this.setTitle(usuario.getNombre()+"("+usuario.toString()+ ") - SuperMercado "+tienda.getNombre());
+		this.setSize(750, 400);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.crearFondo();
+		this.setContentPane(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagenes/SupermercadoVentanaPrincipal.jpg"))));
 		this.crearMenu();
 		daoProduct = new Dao_Producto();
 		daoEmpleado = new Dao_Empleado();
-		tienda.setLstProductos(daoProduct.ConsultaTodos());
-		tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos());
+
+		//tienda.setLstProductos(daoProduct.ConsultaTodos());
+	//	tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos());
 	}
-	private void crearFondo() {
-		label = new JLabel();
-		label.setIcon(new ImageIcon(
-		(ClassLoader.getSystemResource("Imagenes/ImagenVentanaAdministrador.jpg"))));
-		label.setBounds(0, 0, 494, 350);
-		getContentPane().add(label);
-	}
+
 	private void crearMenu() {
 		menu = new JMenuBar();
 		setJMenuBar(menu);
@@ -284,7 +288,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener{
 						
 						
 						if(e.getSource()==salir){
-							VentanaPrincipal ventana = new VentanaPrincipal(Fachada.getTienda());
+							VentanaPrincipal ventana = new VentanaPrincipal();
 							ventana.setVisible(true);
 							setVisible(false);
 						}

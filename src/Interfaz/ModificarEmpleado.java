@@ -159,9 +159,9 @@ public class ModificarEmpleado extends JFrame implements ActionListener{
 		String nombreEmpleado = (String) listaEmpleado.getSelectedItem();
 		empleado = a.buscarEmpleado(empleado, nombreEmpleado);
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+		/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnVerEmpleado){

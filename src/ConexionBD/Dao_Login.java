@@ -1,5 +1,7 @@
 package ConexionBD;
 
+import Modelo.Persona;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,28 +11,39 @@ import java.sql.Statement;
 public class Dao_Login {
     private Connection conex ;
     private ResultSet resultSet;
+    private Persona persona;
     public Dao_Login() {
-        this.conex = Conexion.connection ;
+        this.conex =  new Conexion().getConnection() ;
     }
 
-    public int Consultar(String user, String pass) {
-        int rolid=0;
+    public Persona Consultar(String user, String pass) {
+
         try {
             Statement queryLogin = conex.createStatement();
-            resultSet = queryLogin.executeQuery("select rp.rolId " +
+            resultSet = queryLogin.executeQuery("select p.id,p.nombre,p.correo,p.direccion,p.telefono,rp.rolId " +
                     "from PERSONA p " +
                     "join ROL_PERSONA rp ON p.id = rp.personaId " +
                     "WHERE P.usuario = '" +user+"' "+
-                    "AND p.clave = '" +pass+"'");
+                    "AND p.clave = '" +pass+"' "+
+                    "AND P.activo = 1");
 
-            while (resultSet.next()) {
-                rolid =  resultSet.getInt(1);
+            if (resultSet.next()) {
+                persona= new Persona (resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        user,
+                        pass,
+                        resultSet.getInt(6)
+                );
+
             }
 
         } catch (SQLException | NullPointerException e) {
 
-            JOptionPane.showMessageDialog(null, "Sin Conexion Base de Datos");
+            JOptionPane.showMessageDialog(null, "Error: "+e.toString());
         }
-        return rolid;
+        return persona;
     }
 }

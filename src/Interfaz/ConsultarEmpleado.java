@@ -1,5 +1,4 @@
 package Interfaz;
-	import java.awt.Toolkit;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 
@@ -12,8 +11,7 @@ package Interfaz;
 
 import Modelo.Empleado;
 import Modelo.Fachada;
-import Modelo.Proveedor;
-	import Modelo.Tienda;
+    import Modelo.Tienda;
 
 	public class ConsultarEmpleado extends JFrame implements ActionListener{
 		
@@ -135,9 +133,9 @@ import Modelo.Proveedor;
 
 		public void actionPerformed(ActionEvent e) {	
 			if(e.getSource()==btnVolver){
-				VentanaAdministrador ventana = new VentanaAdministrador();
+			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
 				ventana.setVisible(true);
-				setVisible(false);
+				setVisible(false);*/
 			}
 			
 			if(e.getSource()==btnVerEmpleado){

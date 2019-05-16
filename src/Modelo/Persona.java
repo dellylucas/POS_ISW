@@ -7,18 +7,22 @@ public class Persona extends Login{
 	private String ciudad;
 	private String direccion;
 	private String correo;
+	private int rol;
 
-	public Persona(String id, String nombre, String correo,String direccion,String telefono,  String usu,String cla) {
+
+	Persona() {
+	}
+
+	public Persona(String id, String nombre, String correo, String direccion, String telefono, String usu, String cla, int rol) {
 		super(usu,cla);
 		this.id = id;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.correo = correo;
+		this.rol =rol;
 	}
 
-	public Persona() {
-	}
 
 	public String getId() {
 		return id;
@@ -55,6 +59,13 @@ public class Persona extends Login{
 	}
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+	public int getRol() {
+		return rol;
+	}
+
+	public void setRol(int rol) {
+		this.rol = rol;
 	}
 
 }

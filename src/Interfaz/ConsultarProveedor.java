@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import Modelo.Fachada;
-import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
@@ -143,9 +141,9 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnVerProveedor){

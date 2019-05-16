@@ -145,9 +145,9 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 		String nombreProveedor = (String) listaProveedor.getSelectedItem();
 		proveedor = a.buscarProveedor(proveedor, nombreProveedor);
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnVerProveedor){

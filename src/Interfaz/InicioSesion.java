@@ -14,32 +14,34 @@ package Interfaz;
 	import javax.swing.JTextField;
 
     import ConexionBD.Dao_Login;
-	import Modelo.Fachada;
+	import Modelo.Persona;
 
-	public class InicioSesion extends JFrame implements ActionListener{
+public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
 		private JLabel contrasena;
 		private JTextField txtUsuario;
 		private JPasswordField txtContrasena;
 		private JButton btnIniciarSesion;
 		private JButton btnSalir;
+		private VentanaPrincipal ventanaAnterior;
+		private Persona persona;
+
 		
-		public InicioSesion(){
+		public InicioSesion(VentanaPrincipal ventanaAnt){
 			super();
-			setIconImage(Toolkit.getDefaultToolkit().getImage
-			(ClassLoader.getSystemResource("Imagenes/Login.jpg")));
-			this.setTitle("Login");
+			ventanaAnterior = ventanaAnt;
+			ventanaAnterior.setVisible(false);
+			setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Login.jpg")));
+			this.setTitle("Inicio de sesion");
 			this.setSize(400, 200);
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
 			getContentPane().setLayout(null);		
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.crearEtiquetas();
-			this.crearIngresoDeDatos();
-			this.crearBotones();
+			this.crearInterfaz();
 		}
 		
-		private void crearEtiquetas() {
+		private void crearInterfaz() {
 			this.usuario=new JLabel();
 			this.usuario.setText("Usuario");
 			this.usuario.setBounds(10, 5, 200, 80);
@@ -49,25 +51,21 @@ package Interfaz;
 			this.contrasena.setText("Contrasena");
 			this.contrasena.setBounds(10, 35, 200, 80);
 			getContentPane().add(contrasena);
-		}
 
-		private void crearIngresoDeDatos() {
 			this.txtUsuario=new JTextField();
 			this.txtUsuario.setBounds(90, 35, 180, 20);
 			getContentPane().add(txtUsuario);
-			
+
 			this.txtContrasena=new JPasswordField();
 			this.txtContrasena.setBounds(90, 65, 180, 20);
 			getContentPane().add(txtContrasena);
-		}
 
-		private void crearBotones() {
 			this.btnIniciarSesion=new JButton();
 			this.btnIniciarSesion.setText("Iniciar Sesion");
 			this.btnIniciarSesion.setBounds(60, 110, 120, 20);
 			btnIniciarSesion.addActionListener(this);
 			getContentPane().add(btnIniciarSesion);
-			
+
 			this.btnSalir=new JButton();
 			this.btnSalir.setText("Salir");
 			this.btnSalir.setBounds(200, 110, 120, 20);
@@ -78,8 +76,7 @@ package Interfaz;
 		public void actionPerformed(ActionEvent e) {
 			
 			if(e.getSource()==btnSalir){
-				VentanaPrincipal login = new VentanaPrincipal(Fachada.tienda);
-				login.setVisible(true);
+				ventanaAnterior.setVisible(true);
 				setVisible(false);
 				limpiarFormulario();
 				return;
@@ -89,24 +86,21 @@ package Interfaz;
 			String user = txtUsuario.getText();
 			
 			Dao_Login dao = new Dao_Login();
-			int rolid=dao.Consultar(user,pass);
-			/**
-			 * 1	SuperAdmin
-			 * 2	Administrador
-			 * 3	Empleado
-			 */
+			persona=dao.Consultar(user,pass);
 
-			if(rolid==1){//desabilitado primera entrega
-				JOptionPane.showMessageDialog(null, "Usuario y contrasena incorrectos");
-				limpiarFormulario();
-			}else if(rolid==2){
-				VentanaAdministrador ventana = new VentanaAdministrador();
-				ventana.setVisible(true);
-				setVisible(false);
-			}else if(rolid==3){
-				VentanaEmpleado ventana = new VentanaEmpleado();
-				ventana.setVisible(true);
-				setVisible(false);
+			//Evalua si el usuario es correcto
+			if(persona != null  ){
+				//Ventana Super Admin
+				if (persona.getRol()== 1 ){
+
+					//TODO hacer ventana Superadmin
+
+				}else {//Ventana Empleado y Admin
+					VentanaUsuario ventana = new VentanaUsuario(persona);
+					ventana.setVisible(true);
+				}
+				ventanaAnterior.dispose();
+				dispose();
 			}else{
 				JOptionPane.showMessageDialog(null, "Usuario y contrasena incorrectos");
 				limpiarFormulario();

@@ -147,9 +147,7 @@ import Modelo.Tienda;
 						|| txtusuarioEmpleado.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Completa el formulario");
 				} else {
-					empleado = new Empleado(
-							null,null,null,null,null,null,null
-					);
+					empleado = new Empleado();
 
 					daoEmpleado = new Dao_Empleado();
 					empleado.setId(txtIdEmpleado.getText());
@@ -167,9 +165,9 @@ import Modelo.Tienda;
 			}
 			
 			if(e.getSource()==btnVolver){
-				VentanaAdministrador ventana = new VentanaAdministrador();
+			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
 				ventana.setVisible(true);
-				setVisible(false);
+				setVisible(false);*/
 			}
 		}
 		

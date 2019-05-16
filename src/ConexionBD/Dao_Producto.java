@@ -13,7 +13,7 @@ public class Dao_Producto {
     private Connection conex ;
     private ResultSet resultSet;
     public Dao_Producto() {
-        this.conex = Conexion.connection ;
+        this.conex =  new Conexion().getConnection();
     }
 
     public ArrayList<Producto> ConsultaTodos() {

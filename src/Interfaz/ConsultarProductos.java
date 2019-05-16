@@ -144,11 +144,10 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource()==btnVolver){
 			if (rolid==2){
-				VentanaAdministrador ventana = new VentanaAdministrador();
-				ventana.setVisible(true);
+			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
+				ventana.setVisible(true);*/
 			} else if(rolid==3){
-				VentanaEmpleado ventana = new VentanaEmpleado();
-				ventana.setVisible(true);
+				//abreventana emp
 			}
 			setVisible(false);
 		}

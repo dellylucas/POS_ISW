@@ -8,14 +8,8 @@ import Modelo.Fachada;
 public class Main {
 		
 		public static void main(String[] args) {
-			String nombreTienda;
 			new Conexion();
-
-			Dao_Fachada dao = new Dao_Fachada();
-			nombreTienda=dao.Obtener();
-			Fachada.getInstance().setNombre(nombreTienda);
-			VentanaPrincipal login = new VentanaPrincipal(Fachada.tienda);
+			VentanaPrincipal login = new VentanaPrincipal();
 			login.setVisible(true);
-
 		}
 	}

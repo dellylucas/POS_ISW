@@ -158,9 +158,9 @@ public class EliminarProducto extends JFrame implements ActionListener{
 		String id = (String) listaproductos.getSelectedItem();
 		
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnEliminarProducto){

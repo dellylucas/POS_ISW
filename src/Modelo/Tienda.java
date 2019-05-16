@@ -3,6 +3,7 @@ package Modelo;
 import java.util.ArrayList;
 
 public class Tienda {
+	private int id;
 private String nombre;
 private String ciudad;
 private String direccion;
@@ -11,8 +12,23 @@ private ArrayList<Producto> lstProductos = new ArrayList<Producto>();
 private ArrayList<Empleado> lstSEmpleados = new ArrayList<Empleado>();
 private ArrayList<Proveedor> lstProveedor = new ArrayList<Proveedor>();
 
+	public Tienda(int id, String nombre, String ciudad, String direccion, String telefono) {
+		this.id = id;
+		this.nombre = nombre;
+		this.ciudad = ciudad;
+		this.direccion = direccion;
+		this.telefono = telefono;
+	}
 
-public Tienda() {
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Tienda() {
 
 }
 

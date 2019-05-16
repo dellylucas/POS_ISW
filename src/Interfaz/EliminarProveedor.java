@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -146,9 +145,9 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 		String id = (String) listaProveedor.getSelectedItem();
 		
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+		/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnEliminarProveedor){

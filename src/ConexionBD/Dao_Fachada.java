@@ -1,5 +1,7 @@
 package ConexionBD;
 
+import Modelo.Tienda;
+
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,25 +12,35 @@ public class Dao_Fachada {
 
         private Connection conex ;
         private ResultSet resultSet;
+        private Tienda tienda;
         public Dao_Fachada() {
-            this.conex = Conexion.connection;
+            this.conex =  new Conexion().getConnection();
         }
 
-        public String Obtener() {
-            String nombre="Sin Conexion Base de Datos";
+        public Tienda Obtener(int rol, String id) {
+
             try {
                 Statement GetFachada = conex.createStatement();
-                resultSet = GetFachada.executeQuery("SELECT top 1 nombre FROM TIENDA WHERE id !=0");
+                resultSet = GetFachada.executeQuery("select t.id,t.nombre,t.ciudad,t.direccion,t.telefono " +
+                        "from tienda t " +
+                        "join rol_persona rp ON t.id  = rp.tiendaId " +
+                        "where rp.rolId = " +rol +
+                        " and rp.personaId = '"+id +"'");
 
-                while (resultSet.next()) {
-                    nombre =  resultSet.getString(1);
+                if (resultSet.next()) {
+                    tienda= new Tienda (resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getString(5)
+                    );
                 }
 
             } catch (SQLException | NullPointerException e) {
 
                 JOptionPane.showMessageDialog(null, "Sin Conexion Base de Datos");
             }
-            return nombre;
+            return tienda;
         }
 
 }

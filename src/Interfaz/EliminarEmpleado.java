@@ -143,9 +143,9 @@ import Modelo.Fachada;
 			String id = (String) listaEmpleado.getSelectedItem();
 			
 			if(e.getSource()==btnVolver){
-				VentanaAdministrador ventana = new VentanaAdministrador();
+				/*VentanaUsuario ventana = new VentanaUsuario(rolid);
 				ventana.setVisible(true);
-				setVisible(false);
+				setVisible(false);*/
 			}
 			
 			if(e.getSource()==btnEliminarEmpleado){

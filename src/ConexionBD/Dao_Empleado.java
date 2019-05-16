@@ -13,7 +13,7 @@ public class Dao_Empleado {
     private Connection conex ;
     private ResultSet resultSet;
     public Dao_Empleado() {
-        this.conex = Conexion.connection ;
+        this.conex =  new Conexion().getConnection() ;
     }
 
     public ArrayList<Empleado> ConsultarTodos() {
@@ -29,13 +29,13 @@ public class Dao_Empleado {
                     "clave  from PERSONA");
 
             while (resultSet.next()) {
-                lista.add(new Empleado(resultSet.getString(1),
+               /* lista.add(new Empleado(resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getString(6),
-                        resultSet.getString(7)));
+                        resultSet.getString(7)));*/
             }
 
         } catch (SQLException | NullPointerException e) {

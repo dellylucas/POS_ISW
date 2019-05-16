@@ -150,9 +150,9 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		String nombreProducto = (String) listaProductos.getSelectedItem();
 		producto = tienda.buscarProducto(producto, nombreProducto);
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
 			ventana.setVisible(true);
-			setVisible(false);
+			setVisible(false);*/
 		}
 		
 		if(e.getSource()==btnVerProducto){
