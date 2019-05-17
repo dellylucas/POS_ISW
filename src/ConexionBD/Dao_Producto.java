@@ -16,7 +16,7 @@ public class Dao_Producto {
         this.conex =  new Conexion().getConnection();
     }
 
-    public ArrayList<Producto> ConsultaTodos() {
+    public ArrayList<Producto> ConsultaTodos(int id) {
         ArrayList<Producto> lista = new ArrayList<>();
         try {
             Statement queryLogin = conex.createStatement();
@@ -27,7 +27,9 @@ public class Dao_Producto {
                     "precioVenta," +
                     "fechaIngreso," +
                     "fechaVencimiento," +
-                    "proveedorId from PRODUCTO");
+                    "proveedorId " +
+                    "from PRODUCTO" +
+                    " where tiendaId = "+id);
 
             while (resultSet.next()) {
                 lista.add(new Producto(resultSet.getString(1),

@@ -179,7 +179,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
 		Dao_Producto daoProducts = new Dao_Producto();
-		tienda.setLstProductos(daoProducts.ConsultaTodos());
+		tienda.setLstProductos(daoProducts.ConsultaTodos(tienda.getId()));
 		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
 			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}

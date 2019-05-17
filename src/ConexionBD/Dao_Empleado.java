@@ -16,7 +16,7 @@ public class Dao_Empleado {
         this.conex =  new Conexion().getConnection() ;
     }
 
-    public ArrayList<Empleado> ConsultarTodos() {
+    public ArrayList<Empleado> ConsultarTodos(int id) {
         ArrayList<Empleado> lista = new ArrayList<>();
         try {
             Statement queryLogin = conex.createStatement();
@@ -26,16 +26,21 @@ public class Dao_Empleado {
                     "direccion," +
                     "telefono," +
                     "usuario," +
-                    "clave  from PERSONA");
+                    "clave " +
+                    "from PERSONA p" +
+                    " join rol_persona rp ON p.id = rp.personaId" +
+                    " where rp.tiendaid = "+id+
+                    " AND rp.rolid = 3");
 
             while (resultSet.next()) {
-               /* lista.add(new Empleado(resultSet.getString(1),
+                lista.add(new Empleado(resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
                         resultSet.getString(6),
-                        resultSet.getString(7)));*/
+                        resultSet.getString(7),
+                        3));
             }
 
         } catch (SQLException | NullPointerException e) {

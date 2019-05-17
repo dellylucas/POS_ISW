@@ -170,7 +170,7 @@ public class EliminarProducto extends JFrame implements ActionListener{
 			} catch (SQLException ex) {
 				System.out.println(ex.toString());
 			}
-			tienda.setLstProductos(daoProducts.ConsultaTodos());
+			tienda.setLstProductos(daoProducts.ConsultaTodos(tienda.getId()));
 			EliminarProducto eli= new EliminarProducto();
 			this.setVisible(false);
 			eli.setVisible(true);
