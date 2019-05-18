@@ -166,28 +166,12 @@ public class VentanaUsuario extends JFrame implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-        Producto productos = new Producto();
-        Proveedor proveedor = new Proveedor();
-
-
-        if (e.getSource() == CrearProveedor) {
-            CrearProveedores ventana = new CrearProveedores(proveedor);
-            ventana.setVisible(true);
-            setVisible(false);
-        }
-
-        if (e.getSource() == crearEmpleado) {
-            CrearEmpleado ventana = new CrearEmpleado();
-            ventana.setVisible(true);
-            setVisible(false);
-        }
 
         if (e.getSource() == crearProducto) {
-            CrearProducto ventana = new CrearProducto(productos);
+            CrearProducto ventana = new CrearProducto();
             ventana.setVisible(true);
-            setVisible(false);
+            dispose();
         }
-
         if (e.getSource() == consultarProducto) {
             if (tienda.getLstProductos().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
@@ -197,7 +181,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
         if (e.getSource() == modificarProducto) {
             if (tienda.getLstProductos().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
@@ -207,7 +190,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
         if (e.getSource() == eliminarProducto) {
             if (tienda.getLstProductos().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Producto Registrado");
@@ -218,7 +200,11 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             }
         }
 
-
+        if (e.getSource() == CrearProveedor) {
+            CrearProveedores ventana = new CrearProveedores(null);
+            ventana.setVisible(true);
+            setVisible(false);
+        }
         if (e.getSource() == ConsultarProveedor) {
             if (tienda.getLstProveedor().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
@@ -228,7 +214,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
         if (e.getSource() == modificarProveedor) {
             if (tienda.getLstProveedor().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
@@ -238,7 +223,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
         if (e.getSource() == EliminarProveedor) {
             if (tienda.getLstProveedor().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
@@ -249,6 +233,11 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             }
         }
 
+        if (e.getSource() == crearEmpleado) {
+            CrearEmpleado ventana = new CrearEmpleado();
+            ventana.setVisible(true);
+            setVisible(false);
+        }
         if (e.getSource() == consultarEmpleado) {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
@@ -258,7 +247,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
         if (e.getSource() == modificarEmpleado) {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
@@ -268,8 +256,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
                 setVisible(false);
             }
         }
-
-
         if (e.getSource() == eliminarEmpleado) {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
@@ -280,7 +266,6 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             }
         }
 
-
         if (e.getSource() == salir) {
             VentanaPrincipal ventana = new VentanaPrincipal();
             ventana.setVisible(true);
@@ -290,12 +275,12 @@ public class VentanaUsuario extends JFrame implements ActionListener {
 
     private void Initialization(int rol) {
         this.crearMenu();
-      /*  if (rol == 2) {
+        if (rol == 2) {
             daoEmpleado = new Dao_Empleado();
             tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos(tienda.getId()));
         }
         daoProduct = new Dao_Producto();
-        tienda.setLstProductos(daoProduct.ConsultaTodos(tienda.getId()));*/
+        tienda.setLstProductos(daoProduct.ConsultaTodos(tienda.getId()));
     }
 }
 
