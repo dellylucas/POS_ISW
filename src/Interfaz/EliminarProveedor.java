@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
@@ -37,7 +38,7 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 	private Tienda a = Fachada.getTienda();
 
 	
-	public EliminarProveedor(){
+	public EliminarProveedor(Persona usuario){
 		super();
 		this.setTitle("Eliminar Proveedor");
 		this.setSize(400, 300);
@@ -154,9 +155,9 @@ public class EliminarProveedor extends JFrame implements ActionListener{
 			
 			
 			a.eliminarProveedor(id);
-			EliminarProveedor eli= new EliminarProveedor();
+			/*EliminarProveedor eli= new EliminarProveedor(usuario);
 			this.setVisible(false);
-			eli.setVisible(true);
+			eli.setVisible(true);*/
 			JOptionPane.showMessageDialog(null, "Proveedor Eliminado");
 		}
 		

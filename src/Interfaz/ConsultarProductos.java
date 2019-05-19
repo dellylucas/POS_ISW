@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Producto;
 import Modelo.Tienda;
 
@@ -34,9 +35,9 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 	private JTextField txtFechaVencimiento;
 	private Producto producto = new Producto();
     private Tienda tienda = Fachada.getTienda();
-	private int rolid;
+	private Persona persona;
 
-	public ConsultarProductos(int rol){
+	public ConsultarProductos(Persona persona){
 		super();
 		this.setTitle("Consultar Productos");
 		this.setSize(460, 350);
@@ -46,7 +47,7 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 		this.crearEtiquetas();
 		this.crearIngresoDatos();
 		this.crearBotones();
-		this.rolid=rol;
+		this.persona=persona;
 	}
 	
 	private void crearEtiquetas() {
@@ -143,13 +144,9 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource()==btnVolver){
-			if (rolid==2){
-			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
-				ventana.setVisible(true);*/
-			} else if(rolid==3){
-				//abreventana emp
-			}
-			setVisible(false);
+				VentanaUsuario ventana = new VentanaUsuario(persona);
+				ventana.setVisible(true);
+				dispose();
 		}
 		
 		if(e.getSource()==listaProductos){
@@ -177,6 +174,6 @@ public class ConsultarProductos extends JFrame implements ActionListener{
 		txtPrecioVenta.setText(producto.getPrecioVenta());
 		txtFechaIngreso.setText(producto.getFechaIngreso());
 		txtFechaVencimiento.setText(producto.getFechaVencimiento());
-	
+
 	}
 }

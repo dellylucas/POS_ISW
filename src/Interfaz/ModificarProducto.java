@@ -13,12 +13,12 @@ import javax.swing.JTextField;
 
 import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Producto;
 import Modelo.Tienda;
 
 public class ModificarProducto extends JFrame implements ActionListener{
 	private JButton btnVolver;
-	private JButton btnVerProducto;
 	private JButton btnModificarProducto;
     private JLabel idProducto;
 	private JLabel nombreProducto;
@@ -38,13 +38,15 @@ public class ModificarProducto extends JFrame implements ActionListener{
 	private Dao_Producto daoProducto;
 	private Producto producto = new Producto();
 	private Tienda tienda = Fachada.getTienda();
+	private Persona persona;
 	
-	public ModificarProducto(){
+	public ModificarProducto(Persona usuario){
 		super();
+		persona=usuario;
+		daoProducto = new Dao_Producto();
 		this.setTitle("Modificar Productos");
-		this.setSize(500, 350);
+		this.setSize(500, 400);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearEtiquetas();
@@ -86,12 +88,11 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		this.fechaDeVencimiento.setText("Fecha De Vencimiento");
 		this.fechaDeVencimiento.setBounds(10, 200, 200, 80);
 		getContentPane().add(fechaDeVencimiento);
-		
-
 	}
 	
 	private void crearIngresoDatos() {
 		this.txtIdProducto=new JTextField();
+		this.txtIdProducto.setEditable(false);
 		this.txtIdProducto.setBounds(90, 50, 180, 20);
 		getContentPane().add(txtIdProducto);
 		
@@ -112,14 +113,13 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		getContentPane().add(txtPrecioVenta);
 		
 		this.txtFechaIngreso=new JTextField();
+		this.txtFechaIngreso.setEditable(false);
 		this.txtFechaIngreso.setBounds(126, 201, 180, 20);
 		getContentPane().add(txtFechaIngreso);
 		
 		this.txtFechaDeVencimiento=new JTextField();
 		this.txtFechaDeVencimiento.setBounds(160, 231, 180, 20);
 		getContentPane().add(txtFechaDeVencimiento);
-		
-
 	}
 	private void crearBotones() {
 		this.btnVolver=new JButton();
@@ -131,17 +131,13 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		this.btnModificarProducto=new JButton();
 		this.btnModificarProducto.setText("Modificar Producto");
 		this.btnModificarProducto.setBounds(20, 290, 150, 20);
+		btnModificarProducto.setEnabled(false);
 		btnModificarProducto.addActionListener(this);
 		getContentPane().add(btnModificarProducto);
-		
-		this.btnVerProducto=new JButton();
-		this.btnVerProducto.setText("Visualizar Producto");
-		this.btnVerProducto.setBounds(200, 20, 140, 20);
-		btnVerProducto.addActionListener(this);
-		getContentPane().add(btnVerProducto);
-		
+
 		this.listaProductos = new JComboBox();
 		this.listaProductos.setBounds(10, 20, 149, 20);
+		this.listaProductos.addActionListener(this);
 		getContentPane().add(listaProductos);
 		this.leerProducto();
 
@@ -150,36 +146,32 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		String nombreProducto = (String) listaProductos.getSelectedItem();
 		producto = tienda.buscarProducto(producto, nombreProducto);
 		if(e.getSource()==btnVolver){
-			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
+			VentanaUsuario ventana = new VentanaUsuario(persona);
 			ventana.setVisible(true);
-			setVisible(false);*/
+			dispose();
 		}
-		
-		if(e.getSource()==btnVerProducto){
+
+		if(e.getSource()==listaProductos){
 			llenarProducto();
+			btnModificarProducto.setEnabled(true);
 		}
-		
 		if(e.getSource()==btnModificarProducto){
 			producto.setNombre(txtNombreProducto.getText());
-			producto.setId(txtIdProducto.getText());
 			producto.setCantidad(txtCantidadProducto.getText());
 			producto.setPrecioIngreso(txtPrecioIngreso.getText());
 			producto.setPrecioVenta(txtPrecioVenta.getText());
-			producto.setFechaIngreso(txtFechaIngreso.getText());
 			producto.setFechaVencimiento(txtFechaDeVencimiento.getText());
-			daoProducto = new Dao_Producto();
 			daoProducto.Modificar(producto);
-			ModificarProducto eli= new ModificarProducto();
-			this.setVisible(false);
-			eli.setVisible(true);
+			leerProducto();
+			limpiarFormulario();
+			btnModificarProducto.setEnabled(false);
 			JOptionPane.showMessageDialog(null, "Producto Modificado");
 		}
 		
 	}
 	private void leerProducto() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-		Dao_Producto daoProducts = new Dao_Producto();
-		tienda.setLstProductos(daoProducts.ConsultaTodos(tienda.getId()));
+		tienda.setLstProductos(daoProducto.ConsultaTodos(tienda.getId()));
 		for (int i = 0; i < tienda.getLstProductos().size(); i++) {
 			mlista.addElement(tienda.getLstProductos().get(i).getId());
 		}
@@ -199,6 +191,15 @@ public class ModificarProducto extends JFrame implements ActionListener{
 		txtFechaDeVencimiento.setText(producto.getFechaVencimiento());
 		
 	}
-	
-	
+
+	private void limpiarFormulario() {
+		txtIdProducto.setText("");
+		txtNombreProducto.setText("");
+		txtCantidadProducto.setText("");
+		txtPrecioIngreso.setText("");
+		txtPrecioVenta.setText("");
+		txtFechaDeVencimiento.setText("");
+		txtFechaIngreso.setText("");
+
+	}
 }

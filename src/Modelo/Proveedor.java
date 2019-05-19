@@ -7,8 +7,19 @@ public class Proveedor {
 	private String ciudad;
 	private String direccion;
 	private String tipoDeProducto;
-	
-	
+
+	public Proveedor() {
+	}
+
+	public Proveedor(String id, String nombre, String telefono,  String direccion,String ciudad, String tipoDeProducto) {
+		this.id = id;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.ciudad = ciudad;
+		this.direccion = direccion;
+		this.tipoDeProducto = tipoDeProducto;
+	}
+
 	public String getId() {
 		return id;
 	}

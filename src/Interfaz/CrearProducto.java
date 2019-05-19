@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import ConexionBD.Dao_Producto;
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Producto;
 import Modelo.Tienda;
 
@@ -33,11 +34,13 @@ public class CrearProducto extends JFrame implements ActionListener {
     private Tienda tienda;
     private JTextField txtPrecioVenta;
     private JTextField txtFechaVencimiento;
-    private JTextField txtFechaIngreso;
+    private Persona persona;
 
-    public CrearProducto() {
+    public CrearProducto(Persona persona) {
         super();
+        this.persona =persona;
         tienda = Fachada.getTienda();
+        daoProducto = new Dao_Producto();
         this.setTitle("Crear Producto");
         this.setSize(400, 350);
         this.setLocationRelativeTo(null);
@@ -72,11 +75,6 @@ public class CrearProducto extends JFrame implements ActionListener {
         precioVenta.setBounds(10, 154, 79, 29);
         getContentPane().add(precioVenta);
 
-        JLabel fechaIngreso = new JLabel();
-        fechaIngreso.setText("Fecha Ingreso");
-        fechaIngreso.setBounds(10, 188, 79, 29);
-        getContentPane().add(fechaIngreso);
-
         JLabel fechaDeVencimiento = new JLabel();
         fechaDeVencimiento.setText("Fecha De Vencimiento");
         fechaDeVencimiento.setBounds(10, 220, 105, 29);
@@ -102,12 +100,9 @@ public class CrearProducto extends JFrame implements ActionListener {
         txtPrecioVenta.setBounds(90, 161, 180, 20);
         getContentPane().add(txtPrecioVenta);
 
-        txtFechaIngreso = new JTextField();
-        txtFechaIngreso.setBounds(90, 194, 180, 20);
-        getContentPane().add(txtFechaIngreso);
-
         txtFechaVencimiento = new JTextField();
         txtFechaVencimiento.setBounds(120, 224, 180, 20);
+        txtFechaVencimiento.setText("2019-05-18 13:46");
         getContentPane().add(txtFechaVencimiento);
 
         //Botones
@@ -133,14 +128,14 @@ public class CrearProducto extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Completa el formulario");
             } else {
                 producto = new Producto();
-                daoProducto = new Dao_Producto();
                 producto.setId(txtIdProducto.getText());
                 producto.setNombre(txtNombreProducto.getText());
                 producto.setCantidad(txtCantidad.getText());
                 producto.setPrecioIngreso(txtPrecioIngreso.getText());
                 producto.setPrecioVenta(txtPrecioVenta.getText());
                 producto.setFechaVencimiento(txtFechaVencimiento.getText());
-                daoProducto.Crear(producto);
+
+                daoProducto.Crear(producto,tienda.getId());
 
                 JOptionPane.showMessageDialog(null, "Producto Creado Exitosamente");
 
@@ -149,9 +144,9 @@ public class CrearProducto extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == btnVolver) {
-		/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
+			VentanaUsuario ventana = new VentanaUsuario(persona);
 			ventana.setVisible(true);
-			setVisible(false);*/
+			dispose();
         }
     }
 

@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
@@ -38,7 +39,7 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 
 	private Tienda a = Fachada.getTienda();
 	
-	public ModificarProveedor(){
+	public ModificarProveedor(Persona usuario){
 		super();
 		this.setTitle("Modificar Proveedor");
 		this.setSize(500, 350);
@@ -162,9 +163,9 @@ public class ModificarProveedor extends JFrame implements ActionListener{
 			proveedor.setCiudad(txtCiudadProveedor.getText());
 			proveedor.setTipoDeProducto(txtTipoDeProducto.getText());
 		
-			ModificarProveedor eli= new ModificarProveedor();
+			/*ModificarProveedor eli= new ModificarProveedor(usuario);
 			this.setVisible(false);
-			eli.setVisible(true);
+			eli.setVisible(true);*/
 			JOptionPane.showMessageDialog(null, "Proveedor  Modificado");
 		}
 		

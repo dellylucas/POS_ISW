@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 
@@ -39,7 +40,7 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 
     private Tienda a = Fachada.getTienda();
 	
-	public ConsultarProveedor(){
+	public ConsultarProveedor(Persona usuario){
 		super();
 		this.setTitle("Consultar Proveedor");
 		this.setSize(460, 350);

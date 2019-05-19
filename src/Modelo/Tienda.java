@@ -58,7 +58,7 @@ public void eliminarProveedor(String id) {
 	}
 	
 	}
-public void crearProveedor(Proveedor proveedor) {
+public void crearProveedor(Proveedor proveedor, int id) {
 	lstProveedor.add(proveedor);
 }
 

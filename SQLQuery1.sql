@@ -68,25 +68,23 @@ BEGIN
 		
 END;
 GO
-
 IF OBJECT_ID(N'PROVEEDOR', N'U') IS NULL
 BEGIN
 
 	EXECUTE (
 		N'CREATE TABLE PROVEEDOR (
-			id					NVARCHAR(30) PRIMARY KEY,
+			id					NVARCHAR(30) ,
 			nombre				NVARCHAR(50),
 			telefono			NVARCHAR(13),
 			direccion			NVARCHAR(50),
 			ciudad				NVARCHAR(30),
-			cantidad			INT,
-			precioIngreso		INT,
-			precioVenta			INT,
-			fechaIngreso		DATETIME,
-			fechaVencimiento	DATETIME
-		)'		
+			tipoDeProducto		NVARCHAR(30),
+			tiendaId			INT NOT NULL,
+			primary key (tiendaId, id),
+			CONSTRAINT FK02_PROVEEDOR FOREIGN KEY (tiendaId) REFERENCES TIENDA (id)
+		)'
 	);
-		
+
 END;
 GO
 
@@ -94,8 +92,8 @@ IF OBJECT_ID(N'PRODUCTO', N'U') IS NULL
 BEGIN
 
 	EXECUTE (
-		N'CREATE TABLE PRODUCTO (
-			id					NVARCHAR(30) PRIMARY KEY,
+		N'CREATE  TABLE PRODUCTO (
+			id					NVARCHAR(30),
 			nombre				NVARCHAR(50),
 			cantidad			INT,
 			precioIngreso		INT,
@@ -103,12 +101,12 @@ BEGIN
 			fechaIngreso		DATETIME NOT NULL DEFAULT Getdate(),
 			fechaVencimiento	DATETIME,
 			proveedorId			NVARCHAR(30) null,
-			tiendaId			INT NOT NULL,
-			CONSTRAINT FK01_PRODUCTO FOREIGN KEY (proveedorId) REFERENCES PROVEEDOR (id),
+			tiendaId			INT NOT NULL ,
+			primary key (tiendaId, id),
 			CONSTRAINT FK02_PRODUCTO FOREIGN KEY (tiendaId) REFERENCES TIENDA (id)
-		)'		
+		)'
 	);
-		
+
 END;
 GO
 IF OBJECT_ID(N'FACTURA', N'U') IS NULL
