@@ -26,7 +26,10 @@ public class Dao_Empleado {
                     "direccion," +
                     "telefono," +
                     "usuario," +
-                    "clave " +
+                    "clave ," +
+                    "salario ," +
+                    "bonificacion, " +
+                    "activo " +
                     "from PERSONA p" +
                     " join rol_persona rp ON p.id = rp.personaId" +
                     " where rp.tiendaid = "+id+
@@ -40,7 +43,10 @@ public class Dao_Empleado {
                         resultSet.getString(5),
                         resultSet.getString(6),
                         resultSet.getString(7),
-                        3));
+                        3,
+                        resultSet.getInt (8),
+                        resultSet.getInt(9),
+                        resultSet.getInt(10)));
             }
 
         } catch (SQLException | NullPointerException e) {
@@ -50,7 +56,7 @@ public class Dao_Empleado {
         return lista;
     }
 
-    public void Crear(Empleado emp) {
+    public void Crear(Empleado emp, int id) {
 
         try {
             String queryIn="INSERT INTO PERSONA  VALUES ('"
@@ -60,12 +66,14 @@ public class Dao_Empleado {
                     + emp.getDireccion() + "' , '"
                     + emp.getTelefono() + "' , '"
                     + emp.getUsuario() + "' , '"
-                    + emp.getClave() + "' , 0,1,0)";
+                    + emp.getClave() + "' ,"
+                    +emp.getSalario()+",1, "
+                    +emp.getBonificacion()+")";
             Statement addPEmple = conex.createStatement();
             addPEmple.execute(queryIn);
             addPEmple.close();
 
-            queryIn="INSERT INTO ROL_PERSONA  VALUES (3,"+emp.getId() +",1)";
+            queryIn="INSERT INTO ROL_PERSONA  VALUES (3,'"+emp.getId() +"',"+id+")";
             addPEmple = conex.createStatement();
             addPEmple.execute(queryIn);
             addPEmple.close();
@@ -105,8 +113,5 @@ public class Dao_Empleado {
         EliminaPersona.executeQuery("DELETE FROM PERSONA WHERE id ='"+id+"'");
         EliminaPersona.executeBatch();
         EliminaPersona.close();
-
-
-
     }
 }

@@ -11,17 +11,22 @@ package Interfaz;
 
 import Modelo.Empleado;
 import Modelo.Fachada;
+    import Modelo.Persona;
     import Modelo.Tienda;
 
 	public class ConsultarEmpleado extends JFrame implements ActionListener{
 		
 		private JButton btnVolver;
-		private JButton btnVerEmpleado;
 		private JLabel idEmpleado;
 		private JLabel nombreEmpleado;
 		private JLabel telefonoEmpleado;
 		private JLabel direccionEmpleado;
 		private JLabel correoEmpleado;
+		private JLabel usrEmpleado;
+		private JLabel clavEmpleado;
+		private JLabel salarioEmpleado;
+		private JLabel bonificaEmpleado;
+		private JLabel activoEmpleado;
 		
 		
 		private JTextField txtIdEmpleado;
@@ -29,18 +34,24 @@ import Modelo.Fachada;
 		private JTextField txtTelefonoEmpleado;
 		private JTextField txtDireccionEmpleado;
 		private JTextField txtCorreoEmpleado;
-		
+		private JTextField txtusrEmpleado;
+		private JTextField txtclaveEmpleado;
+		private JTextField txtsalarioEmpleado;
+		private JTextField txtbonoEmpleado;
+		private JTextField txtactivoEmpleado;
+		private Persona persona;
 		private JComboBox listaEmpleado;
 
 		private JTextField txtFechaVencimiento;
 		private Empleado empleado = new Empleado();
 
-	    private Tienda a = Fachada.getTienda();
+	    private Tienda tienda = Fachada.getTienda();
 		
-		public ConsultarEmpleado(){
+		public ConsultarEmpleado(Persona usuario){
 			super();
+			persona=usuario;
 			this.setTitle("Consultar Empleado");
-			this.setSize(460, 350);
+			this.setSize(460, 420);
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
 			getContentPane().setLayout(null);
@@ -60,22 +71,46 @@ import Modelo.Fachada;
 			this.nombreEmpleado.setText("Nombre");
 			this.nombreEmpleado.setBounds(10, 73, 70, 35);
 			getContentPane().add(nombreEmpleado);
-			
-			this.telefonoEmpleado=new JLabel();
-			this.telefonoEmpleado.setText("Telefono");
-			this.telefonoEmpleado.setBounds(10, 130, 77, 40);
-			getContentPane().add(telefonoEmpleado);
-			
+
 			this.direccionEmpleado=new JLabel();
 			this.direccionEmpleado.setText("Direccion");
 			this.direccionEmpleado.setBounds(10, 105, 70, 30);
 			getContentPane().add(direccionEmpleado);
-			
+
+			this.telefonoEmpleado=new JLabel();
+			this.telefonoEmpleado.setText("Telefono");
+			this.telefonoEmpleado.setBounds(10, 130, 77, 40);
+			getContentPane().add(telefonoEmpleado);
+
 			this.correoEmpleado=new JLabel();
-			this.correoEmpleado.setText("Ciudad");
+			this.correoEmpleado.setText("correo");
 			this.correoEmpleado.setBounds(10, 163, 77, 35);
 			getContentPane().add(correoEmpleado);
-			
+
+			this.usrEmpleado=new JLabel();
+			this.usrEmpleado.setText("Usuario");
+			this.usrEmpleado.setBounds(10, 193, 70, 35);
+			getContentPane().add(usrEmpleado);
+
+			this.clavEmpleado=new JLabel();
+			this.clavEmpleado.setText("Clave");
+			this.clavEmpleado.setBounds(10, 223, 70, 35);
+			getContentPane().add(clavEmpleado);
+
+			this.salarioEmpleado=new JLabel();
+			this.salarioEmpleado.setText("Salario");
+			this.salarioEmpleado.setBounds(10, 253, 77, 40);
+			getContentPane().add(salarioEmpleado);
+
+			this.bonificaEmpleado=new JLabel();
+			this.bonificaEmpleado.setText("Bonificacion");
+			this.bonificaEmpleado.setBounds(10, 283, 70, 30);
+			getContentPane().add(bonificaEmpleado);
+
+			this.activoEmpleado=new JLabel();
+			this.activoEmpleado.setText("Activo");
+			this.activoEmpleado.setBounds(10, 313, 77, 35);
+			getContentPane().add(activoEmpleado);
 
 
 		}
@@ -105,49 +140,65 @@ import Modelo.Fachada;
 			this.txtCorreoEmpleado.setEditable(false);
 			this.txtCorreoEmpleado.setBounds(90, 170, 180, 20);
 			getContentPane().add(txtCorreoEmpleado);
+
+			this.txtusrEmpleado=new JTextField();
+			this.txtusrEmpleado.setEditable(false);
+			this.txtusrEmpleado.setBounds(90, 200, 180, 20);
+			getContentPane().add(txtusrEmpleado);
+
+			this.txtclaveEmpleado=new JTextField();
+			this.txtclaveEmpleado.setEditable(false);
+			this.txtclaveEmpleado.setBounds(90, 230, 180, 20);
+			getContentPane().add(txtclaveEmpleado);
+
+			this.txtsalarioEmpleado=new JTextField();
+			this.txtsalarioEmpleado.setEditable(false);
+			this.txtsalarioEmpleado.setBounds(90, 260, 180, 20);
+			getContentPane().add(txtsalarioEmpleado);
+
+			this.txtbonoEmpleado=new JTextField();
+			this.txtbonoEmpleado.setEditable(false);
+			this.txtbonoEmpleado.setBounds(90, 290, 180, 20);
+			getContentPane().add(txtbonoEmpleado);
+
+			this.txtactivoEmpleado=new JTextField();
+			this.txtactivoEmpleado.setEditable(false);
+			this.txtactivoEmpleado.setBounds(90, 320, 180, 20);
+			getContentPane().add(txtactivoEmpleado);
 			
 	
 		}
 		private void crearBotones() {
 			this.btnVolver=new JButton();
 			this.btnVolver.setText("Volver");
-			this.btnVolver.setBounds(167, 272, 120, 20);
+			this.btnVolver.setBounds(167, 350, 120, 20);
 			btnVolver.addActionListener(this);
 			getContentPane().add(btnVolver);
 			
-			this.btnVerEmpleado=new JButton();
-			this.btnVerEmpleado.setText("Visualizar Empleado");
-			this.btnVerEmpleado.setBounds(200, 20, 140, 20);
-			btnVerEmpleado.addActionListener(this);
-			getContentPane().add(btnVerEmpleado);
-			
 			this.listaEmpleado = new JComboBox();
 			this.listaEmpleado.setBounds(10, 20, 149, 20);
+			listaEmpleado.addActionListener(this);
 			getContentPane().add(listaEmpleado);
 			this.leerEmpleado();
-			
-
-			
 			this.llenarEmpleado();
 		}
 
 		public void actionPerformed(ActionEvent e) {	
 			if(e.getSource()==btnVolver){
-			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
+				VentanaUsuario ventana = new VentanaUsuario(persona);
 				ventana.setVisible(true);
-				setVisible(false);*/
+				dispose();
 			}
 			
-			if(e.getSource()==btnVerEmpleado){
+			if(e.getSource()==listaEmpleado){
 				llenarEmpleado();
 			}
 		}
 		
 		private void leerEmpleado() {
 			DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-			
-			for (int i = 0; i < a.getLstSEmpleados().size(); i++) {
-				mlista.addElement(a.getLstSEmpleados().get(i).getId());
+			for (int i = 0; i < tienda.getLstSEmpleados().size(); i++) {
+				mlista.addElement(tienda.getLstSEmpleados().get(i).getId());
 			}
 			listaEmpleado.setModel(mlista);
 		}
@@ -156,13 +207,17 @@ import Modelo.Fachada;
 		
 		private void llenarEmpleado() {
 			String id = (String) listaEmpleado.getSelectedItem();
-			empleado = a.buscarEmpleado(empleado, id);
+			empleado = tienda.buscarEmpleado(empleado, id);
 			txtIdEmpleado.setText(empleado.getId());
 			txtNombreEmpleado.setText(empleado.getNombre());
 			txtTelefonoEmpleado.setText(empleado.getTelefono());
 			txtDireccionEmpleado.setText(empleado.getDireccion());
 			txtCorreoEmpleado.setText(empleado.getCorreo());
-		
+			txtusrEmpleado.setText(empleado.getUsuario());
+			txtclaveEmpleado.setText(empleado.getClave());
+			txtsalarioEmpleado.setText(String.valueOf(empleado.getSalario()));
+			txtbonoEmpleado.setText(String.valueOf(empleado.getBonificacion()));
+			txtactivoEmpleado.setText(String.valueOf(empleado.getActivo()));
 		
 		}
 	}

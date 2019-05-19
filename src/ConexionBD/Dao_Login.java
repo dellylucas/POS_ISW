@@ -20,12 +20,12 @@ public class Dao_Login {
 
         try {
             Statement queryLogin = conex.createStatement();
-            resultSet = queryLogin.executeQuery("select p.id,p.nombre,p.correo,p.direccion,p.telefono,rp.rolId " +
+            resultSet = queryLogin.executeQuery("select p.id,p.nombre,p.correo,p.direccion,p.telefono,rp.rolId,p.salario,p.bonificacion,p.activo " +
                     "from PERSONA p " +
                     "join ROL_PERSONA rp ON p.id = rp.personaId " +
                     "WHERE P.usuario = '" +user+"' "+
                     "AND p.clave = '" +pass+"' "+
-                    "AND P.activo = 1");
+                    "AND p.activo = 1");
 
             if (resultSet.next()) {
                 persona= new Persona (resultSet.getString(1),
@@ -35,7 +35,10 @@ public class Dao_Login {
                         resultSet.getString(5),
                         user,
                         pass,
-                        resultSet.getInt(6)
+                        resultSet.getInt(6),
+                        resultSet.getInt(7),
+                        resultSet.getInt(8),
+                        resultSet.getInt(9)
                 );
 
             }

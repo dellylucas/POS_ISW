@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import ConexionBD.Dao_Proveedor;
 import Modelo.Fachada;
 import Modelo.Persona;
 import Modelo.Proveedor;
@@ -19,7 +20,6 @@ import Modelo.Tienda;
 public class ConsultarProveedor extends JFrame implements ActionListener{
 	
 	private JButton btnVolver;
-	private JButton btnVerProveedor;
 	private JLabel idProveedor;
 	private JLabel nombreProveedor;
 	private JLabel telefonoProveedor;
@@ -34,18 +34,20 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 	private JTextField txtCiudadProveedor;
 	private JTextField txtTipoDeProveedor;
 	private JComboBox listaProveedor;
-	;
+	private Persona persona;
+	private Dao_Proveedor daoProveedor;
 	private JTextField txtFechaVencimiento;
 	private Proveedor proveedor = new Proveedor();
 
-    private Tienda a = Fachada.getTienda();
+    private Tienda tienda = Fachada.getTienda();
 	
 	public ConsultarProveedor(Persona usuario){
 		super();
+		persona = usuario;
+		daoProveedor = new Dao_Proveedor();
 		this.setTitle("Consultar Proveedor");
 		this.setSize(460, 350);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearEtiquetas();
@@ -124,54 +126,41 @@ public class ConsultarProveedor extends JFrame implements ActionListener{
 		btnVolver.addActionListener(this);
 		getContentPane().add(btnVolver);
 		
-		this.btnVerProveedor=new JButton();
-		this.btnVerProveedor.setText("Visualizar Proveedor");
-		this.btnVerProveedor.setBounds(200, 20, 140, 20);
-		btnVerProveedor.addActionListener(this);
-		getContentPane().add(btnVerProveedor);
-		
 		this.listaProveedor = new JComboBox();
 		this.listaProveedor.setBounds(10, 20, 149, 20);
 		getContentPane().add(listaProveedor);
+		listaProveedor.addActionListener(this);
 		this.leerProveedor();
-		
-
-		
 		this.llenarProveedor();
 	}
 
 	public void actionPerformed(ActionEvent e) {	
 		if(e.getSource()==btnVolver){
-			/*VentanaUsuario ventana = new VentanaUsuario(rolid);
+			VentanaUsuario ventana = new VentanaUsuario(persona);
 			ventana.setVisible(true);
-			setVisible(false);*/
+			dispose();
 		}
 		
-		if(e.getSource()==btnVerProveedor){
+		if(e.getSource()==listaProveedor){
 			llenarProveedor();
 		}
 	}
 	
 	private void leerProveedor() {
 		DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-		
-		for (int i = 0; i < a.getLstProveedor().size(); i++) {
-			mlista.addElement(a.getLstProveedor().get(i).getId());
+		for (int i = 0; i < tienda.getLstProveedor().size(); i++) {
+			mlista.addElement(tienda.getLstProveedor().get(i).getId());
 		}
 		listaProveedor.setModel(mlista);
 	}
-	
-	
-	
 	private void llenarProveedor() {
 		String id = (String) listaProveedor.getSelectedItem();
-		proveedor = a.buscarProveedor(proveedor, id);
+		proveedor = tienda.buscarProveedor(proveedor, id);
 		txtIdProveedor.setText(proveedor.getId());
 		txtNombreProveedor.setText(proveedor.getNombre());
 		txtTelefonoProveedor.setText(proveedor.getTelefono());
 		txtDireccionProveedor.setText(proveedor.getDireccion());
 		txtCiudadProveedor.setText(proveedor.getCiudad());
 		txtTipoDeProveedor.setText(proveedor.getTipoDeProducto());
-	
 	}
 }

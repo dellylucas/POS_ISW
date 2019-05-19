@@ -17,7 +17,8 @@
 	import Modelo.Empleado;
 import Modelo.Fachada;
 
-	import Modelo.Tienda;
+    import Modelo.Persona;
+    import Modelo.Tienda;
 
 	public class EliminarEmpleado extends JFrame implements ActionListener{
 		private JButton btnVolver;
@@ -41,7 +42,7 @@ import Modelo.Fachada;
 		private Tienda a = Fachada.getTienda();
 
 		
-		public EliminarEmpleado(){
+		public EliminarEmpleado(Persona usuario){
 			super();
 			this.setTitle("Eliminar Proveedor");
 			this.setSize(400, 300);
@@ -156,9 +157,9 @@ import Modelo.Fachada;
 					System.out.println(ex.toString());
 				}
 
-				EliminarEmpleado eli= new EliminarEmpleado();
+				/*EliminarEmpleado eli= new EliminarEmpleado(usuario);
 				this.setVisible(false);
-				eli.setVisible(true);
+				eli.setVisible(true);*/
 				JOptionPane.showMessageDialog(null, "Empleado Eliminado");
 			}
 			

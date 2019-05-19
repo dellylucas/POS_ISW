@@ -165,7 +165,7 @@ public class EliminarProducto extends JFrame implements ActionListener {
 
         if (e.getSource() == btnEliminarProducto) {
 
-                daoProducts.Eliminar(id);
+                daoProducts.Eliminar(id,tienda.getId());
 
             limpiarFormulario();
             leerProducto();

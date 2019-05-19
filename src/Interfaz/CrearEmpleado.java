@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import ConexionBD.Dao_Empleado;
 import Modelo.Empleado;
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Tienda;
 
 	public class CrearEmpleado extends JFrame implements ActionListener{
@@ -23,6 +24,8 @@ import Modelo.Tienda;
 		private JLabel correoEmpleado;
 		private JLabel usuarioEmpleado;
 		private JLabel claveEmpleado;
+		private JLabel salarioEmpleado;
+		private JLabel bonificacionEmpleado;
 
 		private JTextField txtIdEmpleado;
 		private JTextField txtNombreEmpleado;
@@ -31,20 +34,21 @@ import Modelo.Tienda;
 		private JTextField txtCorreoEmpleado;
 		private JTextField txtusuarioEmpleado;
 		private JTextField txtclaveEmpleado;
-
+		private JTextField txtsalarioEmpleado;
+		private JTextField txtbonificacionEmpleado;
 
 		private JButton btnCrearEmpleado;
 		private JButton btnVolver;
 		private Empleado empleado;
-
 		private Dao_Empleado daoEmpleado;
-		private Tienda a = Fachada.getTienda();
+		private Persona persona;
+		private Tienda tienda = Fachada.getTienda();
 
-		
-		public CrearEmpleado(){
+		public CrearEmpleado(Persona usuario){
 			super();
+			persona=usuario;
 			this.setTitle("Crear Empleado");
-			this.setSize(400, 350);
+			this.setSize(400, 450);
 			this.setLocationRelativeTo(null);
 			getContentPane().setLayout(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,7 +92,18 @@ import Modelo.Tienda;
 			this.claveEmpleado.setBounds(10, 154+(2*(154-121)), 79, 29);
 			getContentPane().add(claveEmpleado);
 
-				}
+			this.salarioEmpleado=new JLabel();
+			this.salarioEmpleado.setText("Salario");
+			this.salarioEmpleado.setBounds(10, 165+(3*(154-121)), 79, 29);
+			getContentPane().add(salarioEmpleado);
+
+			this.bonificacionEmpleado=new JLabel();
+			this.bonificacionEmpleado.setText("bonificacion");
+			this.bonificacionEmpleado.setBounds(10, 165+(4*(154-121)), 79, 29);
+			getContentPane().add(bonificacionEmpleado);
+
+
+		}
 		
 		private void crearIngreseDatos() {
 			this.txtIdEmpleado=new JTextField();
@@ -119,23 +134,27 @@ import Modelo.Tienda;
 			this.txtclaveEmpleado.setBounds(90, 161+(2*(161-125)), 180, 20);
 			getContentPane().add(txtclaveEmpleado);
 
+			this.txtsalarioEmpleado=new JTextField();
+			this.txtsalarioEmpleado.setBounds(90, 161+(3*(161-125)), 180, 20);
+			getContentPane().add(txtsalarioEmpleado);
+
+			this.txtbonificacionEmpleado=new JTextField();
+			this.txtbonificacionEmpleado.setBounds(90, 161+(4*(161-125)), 180, 20);
+			getContentPane().add(txtbonificacionEmpleado);
 		}
 		
 		private void crearBotones() {
 			this.btnCrearEmpleado=new JButton();
 			this.btnCrearEmpleado.setText("Crear");
-			this.btnCrearEmpleado.setBounds(35, 255, 120, 20);
+			this.btnCrearEmpleado.setBounds(35, 350, 120, 20);
 			btnCrearEmpleado.addActionListener(this);
 			getContentPane().add(btnCrearEmpleado);
 			
 			this.btnVolver=new JButton();
 			this.btnVolver.setText("Volver");
-			this.btnVolver.setBounds(220, 255, 120, 20);
+			this.btnVolver.setBounds(220, 350, 120, 20);
 			btnVolver.addActionListener(this);
 			getContentPane().add(btnVolver);
-			
-		;
-			
 
 		}
 		
@@ -144,7 +163,8 @@ import Modelo.Tienda;
 				if (txtIdEmpleado.getText().equals("") || txtNombreEmpleado.getText().equals("")
 						|| txtTelefonoEmpleado.getText().equals("") || txtDireccionEmpleado.getText().equals("")
 						|| txtCorreoEmpleado.getText().equals("")|| txtclaveEmpleado.getText().equals("")
-						|| txtusuarioEmpleado.getText().equals("")){
+						|| txtusuarioEmpleado.getText().equals("")|| txtsalarioEmpleado
+						.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Completa el formulario");
 				} else {
 					empleado = new Empleado();
@@ -157,7 +177,14 @@ import Modelo.Tienda;
 					empleado.setCorreo(txtCorreoEmpleado.getText());
 					empleado.setUsuario(txtusuarioEmpleado.getText());
 					empleado.setClave(txtclaveEmpleado.getText());
-					daoEmpleado.Crear(empleado);
+
+					empleado.setSalario(Integer.parseInt(txtsalarioEmpleado.getText()));
+					if (txtbonificacionEmpleado.getText().isEmpty()) {
+						empleado.setBonificacion(0);
+					}else {
+						empleado.setBonificacion(Integer.parseInt(txtbonificacionEmpleado.getText()));
+					}
+					daoEmpleado.Crear(empleado,tienda.getId());
 
 					JOptionPane.showMessageDialog(null, "Empleado Creado Exitosamente");
 					limpiarFormulario();
@@ -165,9 +192,9 @@ import Modelo.Tienda;
 			}
 			
 			if(e.getSource()==btnVolver){
-			/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
+				VentanaUsuario ventana = new VentanaUsuario(persona);
 				ventana.setVisible(true);
-				setVisible(false);*/
+				dispose();
 			}
 		}
 		
@@ -179,6 +206,8 @@ import Modelo.Tienda;
 			txtCorreoEmpleado.setText("");
 			txtusuarioEmpleado.setText("");
 			txtclaveEmpleado.setText("");
+			txtsalarioEmpleado.setText("");
+			txtbonificacionEmpleado.setText("");
 		}
 	}
 

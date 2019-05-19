@@ -235,7 +235,7 @@ public class VentanaUsuario extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == crearEmpleado) {
-            CrearEmpleado ventana = new CrearEmpleado();
+            CrearEmpleado ventana = new CrearEmpleado(usuario);
             ventana.setVisible(true);
             dispose();
         }
@@ -243,7 +243,7 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
             } else {
-                ConsultarEmpleado ventana = new ConsultarEmpleado();
+                ConsultarEmpleado ventana = new ConsultarEmpleado(usuario);
                 ventana.setVisible(true);
                 dispose();
             }
@@ -252,7 +252,7 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Empleado Registrado");
             } else {
-                ModificarEmpleado ventana = new ModificarEmpleado();
+                ModificarEmpleado ventana = new ModificarEmpleado(usuario);
                 ventana.setVisible(true);
                 dispose();
             }
@@ -261,7 +261,7 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             if (tienda.getLstSEmpleados().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
             } else {
-                EliminarEmpleado ventana = new EliminarEmpleado();
+                EliminarEmpleado ventana = new EliminarEmpleado(usuario);
                 ventana.setVisible(true);
                 dispose();
             }
@@ -278,7 +278,7 @@ public class VentanaUsuario extends JFrame implements ActionListener {
         this.crearMenu();
         if (rol == 2) {
             daoEmpleado = new Dao_Empleado();
-            daoProveedor= new Dao_Proveedor();
+            daoProveedor = new Dao_Proveedor();
             tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos(tienda.getId()));
             tienda.setLstProveedor(daoProveedor.ConsultaTodos(tienda.getId()));
         }

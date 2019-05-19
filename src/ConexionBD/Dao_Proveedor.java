@@ -65,17 +65,16 @@ public class Dao_Proveedor {
             JOptionPane.showMessageDialog(null, "Error insertando "+e.toString());
         }
     }
-    public void Modificar(Producto pro) {
+    public void Modificar(Proveedor pro, int id) {
 
         try {
-            String queryIn="UPDATE PRODUCTO SET nombre ='"
-                    + pro.getNombre() + "' , cantidad="
-                    + pro.getCantidad() + " , precioIngreso="
-                    + pro.getPrecioIngreso() + " , precioVenta="
-                    + pro.getPrecioVenta() + " , fechaIngreso='"
-                    + pro.getFechaIngreso() + "' , fechaVencimiento='"
-                    + pro.getFechaVencimiento() + "' WHERE ID='"
-                    + pro.getId() + "' --' ";
+            String queryIn="UPDATE PROVEEDOR SET nombre ='"
+                    + pro.getNombre() + "' , telefono='"
+                    + pro.getTelefono() + "' , direccion='"
+                    + pro.getDireccion() + "' , ciudad='"
+                    + pro.getCiudad() + "' , tipoDeProducto='"
+                    + pro.getTipoDeProducto() + "'  WHERE ID='"
+                    + pro.getId() + "' AND tiendaId = "+id;
             Statement addProduct = conex.createStatement();
             addProduct.executeUpdate(queryIn);
             addProduct.close();
@@ -86,14 +85,13 @@ public class Dao_Proveedor {
         }
     }
 
-    public void Eliminar(String id)  {
+    public void Eliminar(String id, int tiendaId)  {
         try {
             Statement GetFachada = conex.createStatement();
-            GetFachada.execute("DELETE FROM PRODUCTO WHERE id ='" + id + "'");
+            GetFachada.execute("DELETE FROM PROVEEDOR WHERE id ='" + id + "' AND tiendaId = "+tiendaId);
             GetFachada.close();
         } catch (SQLException | NullPointerException e) {
-
-            JOptionPane.showMessageDialog(null, "Error actualizando " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error eliminando " + e.toString());
         }
     }
 }

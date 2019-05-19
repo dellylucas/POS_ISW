@@ -161,7 +161,7 @@ public class ModificarProducto extends JFrame implements ActionListener{
 			producto.setPrecioIngreso(txtPrecioIngreso.getText());
 			producto.setPrecioVenta(txtPrecioVenta.getText());
 			producto.setFechaVencimiento(txtFechaDeVencimiento.getText());
-			daoProducto.Modificar(producto);
+			daoProducto.Modificar(producto,tienda.getId());
 			leerProducto();
 			limpiarFormulario();
 			btnModificarProducto.setEnabled(false);
