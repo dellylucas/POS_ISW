@@ -1,7 +1,6 @@
 
 	package Interfaz;
 
-	import java.awt.Toolkit;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import java.sql.SQLException;
@@ -14,12 +13,12 @@
 	import javax.swing.JOptionPane;
 	import javax.swing.JTextField;
 
-	import ConexionBD.DAO_Consultar;
-	import ConexionBD.DAO_Eliminar;
+	import ConexionBD.Dao_Empleado;
 	import Modelo.Empleado;
 import Modelo.Fachada;
 
-	import Modelo.Tienda;
+    import Modelo.Persona;
+    import Modelo.Tienda;
 
 	public class EliminarEmpleado extends JFrame implements ActionListener{
 		private JButton btnVolver;
@@ -36,19 +35,20 @@ import Modelo.Fachada;
 		private JTextField txtTelefonoEmpleado;
 		private JTextField txtDireccionEmpleado;
 		private JTextField txtCorreoEmpleado;
-
+		private Persona persona;
+		private Dao_Empleado daoEmpleado;
 		private JComboBox listaEmpleado;
 		private Empleado empleado = new Empleado();
-//		private DAO_Eliminar dao = new DAO_Eliminar();
 		private Tienda a = Fachada.getTienda();
 
 		
-		public EliminarEmpleado(){
+		public EliminarEmpleado(Persona usuario){
 			super();
+			persona = usuario;
+			daoEmpleado = new Dao_Empleado();
 			this.setTitle("Eliminar Proveedor");
 			this.setSize(400, 300);
 			this.setLocationRelativeTo(null);
-			this.setResizable(false);
 			getContentPane().setLayout(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.crearEtiquetas();
@@ -81,8 +81,6 @@ import Modelo.Fachada;
 			this.correoEmpleado.setText("Ciudad");
 			this.correoEmpleado.setBounds(10, 152, 75, 32);
 			getContentPane().add(correoEmpleado);
-			
-
 		}
 		
 		private void crearIngresoDatos() {
@@ -144,25 +142,14 @@ import Modelo.Fachada;
 			String id = (String) listaEmpleado.getSelectedItem();
 			
 			if(e.getSource()==btnVolver){
-				VentanaAdministrador ventana = new VentanaAdministrador();
+				VentanaUsuario ventana = new VentanaUsuario(persona);
 				ventana.setVisible(true);
-				setVisible(false);
+				dispose();
 			}
 			
 			if(e.getSource()==btnEliminarEmpleado){
 
-
-				DAO_Eliminar daoelim = new DAO_Eliminar();
-				try {
-					daoelim.Empleado(id);
-				} catch (SQLException ex) {
-					System.out.println(ex.toString());
-				}
-				DAO_Consultar daoConsulta = new DAO_Consultar();
-				a.setLstProductos(daoConsulta.Productos());
-				EliminarEmpleado eli= new EliminarEmpleado();
-				this.setVisible(false);
-				eli.setVisible(true);
+					daoEmpleado.Eliminar(id);
 				JOptionPane.showMessageDialog(null, "Empleado Eliminado");
 			}
 			

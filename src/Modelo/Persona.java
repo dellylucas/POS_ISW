@@ -4,21 +4,30 @@ public class Persona extends Login{
 	private String id;
 	private String nombre;
 	private String telefono;
-	private String ciudad;
 	private String direccion;
 	private String correo;
+	private int salario;
+	private int bonificacion;
+	private int activo;
+	private int rol;
 
-	public Persona(String id, String nombre, String correo,String direccion,String telefono,  String usu,String cla) {
+
+	Persona() {
+	}
+
+	public Persona(String id, String nombre, String correo, String direccion, String telefono, String usu, String cla, int rol, int salario, int bonificacion, int activo) {
 		super(usu,cla);
 		this.id = id;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.correo = correo;
+		this.salario = salario;
+		this.bonificacion = bonificacion;
+		this.activo = activo;
+		this.rol =rol;
 	}
 
-	public Persona() {
-	}
 
 	public String getId() {
 		return id;
@@ -38,12 +47,6 @@ public class Persona extends Login{
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getCiudad() {
-		return ciudad;
-	}
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
 	public String getDireccion() {
 		return direccion;
 	}
@@ -56,5 +59,35 @@ public class Persona extends Login{
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+	public int getRol() {
+		return rol;
+	}
 
+	public void setRol(int rol) {
+		this.rol = rol;
+	}
+
+	public int getSalario() {
+		return salario;
+	}
+
+	public void setSalario(int salario) {
+		this.salario = salario;
+	}
+
+	public int getBonificacion() {
+		return bonificacion;
+	}
+
+	public void setBonificacion(int bonificacion) {
+		this.bonificacion = bonificacion;
+	}
+
+	public int getActivo() {
+		return activo;
+	}
+
+	public void setActivo(int activo) {
+		this.activo = activo;
+	}
 }

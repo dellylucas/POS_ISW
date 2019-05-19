@@ -1,6 +1,5 @@
 package Interfaz;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import ConexionBD.DAO_Crear;
+import ConexionBD.Dao_Proveedor;
 import Modelo.Fachada;
+import Modelo.Persona;
 import Modelo.Proveedor;
 import Modelo.Tienda;
 public class CrearProveedores extends JFrame implements ActionListener{
@@ -31,18 +31,18 @@ public class CrearProveedores extends JFrame implements ActionListener{
 	private JButton btnCrearProveedor;
 	private JButton btnVolver;
 	private Proveedor proveedor;
-
-	private DAO_Crear dao;
-	private Tienda a = Fachada.getTienda();
+	private Dao_Proveedor daoProveedor;
+	private Persona persona;
+	private Tienda tienda = Fachada.getTienda();
 
 	
-	public CrearProveedores(Proveedor proveedor){
+	public CrearProveedores(Persona usuario){
 		super();
-
+		persona=usuario;
+		daoProveedor = new Dao_Proveedor();
 		this.setTitle("Crear Proveedor");
 		this.setSize(400, 350);
 		this.setLocationRelativeTo(null);
-		this.setResizable(false);
 		getContentPane().setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.crearEtiquetas();
@@ -74,8 +74,8 @@ public class CrearProveedores extends JFrame implements ActionListener{
 		this.ciudadProveedor.setText("Ciudad");
 		this.ciudadProveedor.setBounds(10, 154, 79, 29);
 		getContentPane().add(ciudadProveedor);
-		
-			}
+
+}
 	
 	private void crearIngreseDatos() {
 		this.txtIdProveedor=new JTextField();
@@ -137,24 +137,23 @@ public class CrearProveedores extends JFrame implements ActionListener{
 			} else {
 				proveedor = new Proveedor();
 
-//				dao = new DAO_Crear();
 				proveedor.setId(txtIdProveedor.getText());
 				proveedor.setNombre(txtNombreProveedor.getText());
 				proveedor.setTelefono(txtTelefonoProveedor.getText());
 				proveedor.setDireccion(txtDireccionProveedor.getText());
 				proveedor.setCiudad(txtciudadProveedor.getText());
 				proveedor.setTipoDeProducto(txtTipoDeProducto.getText());
-				
-				a.crearProveedor(proveedor);
+
+				daoProveedor.Crear(proveedor,tienda.getId());
 				JOptionPane.showMessageDialog(null, "Proveedor Creado Exitosamente");
 				limpiarFormulario();
 			}
 		}
 		
 		if(e.getSource()==btnVolver){
-			VentanaAdministrador ventana = new VentanaAdministrador();
+			VentanaUsuario ventana = new VentanaUsuario(persona);
 			ventana.setVisible(true);
-			setVisible(false);
+			dispose();
 		}
 	}
 	
