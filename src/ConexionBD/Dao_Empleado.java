@@ -92,8 +92,11 @@ public class Dao_Empleado {
                     + emp.getDireccion() + "' , telefono='"
                     + emp.getTelefono() + "' , usuario='"
                     + emp.getUsuario() + "' , clave='"
-                    + emp.getClave() + "' WHERE ID='"
-                    + emp.getId() + "' --' ";
+                    + emp.getClave() + "' , salario="
+                    + emp.getSalario() + " , activo="
+                    + emp.getActivo() + " , bonificacion="
+                    + emp.getBonificacion()+ " WHERE ID='"
+                    + emp.getId() + "' ";
             Statement addProduct = conex.createStatement();
             addProduct.executeUpdate(queryIn);
             addProduct.close();
@@ -103,15 +106,21 @@ public class Dao_Empleado {
             JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
         }
     }
-    public void Eliminar(String id) throws SQLException {
+    public void Eliminar(String id) {
 
-        Statement EliminaRelacion = conex.createStatement();
-        EliminaRelacion.executeQuery("DELETE FROM ROL_PERSONA WHERE personaid ='"+id+"'");
-        EliminaRelacion.executeBatch();
-        EliminaRelacion.close();
-        Statement EliminaPersona = conex.createStatement();
-        EliminaPersona.executeQuery("DELETE FROM PERSONA WHERE id ='"+id+"'");
-        EliminaPersona.executeBatch();
-        EliminaPersona.close();
+        Statement EliminaRelacion = null;
+        try {
+            EliminaRelacion = conex.createStatement();
+            EliminaRelacion.executeQuery("DELETE FROM ROL_PERSONA WHERE personaid ='"+id+"'");
+            EliminaRelacion.executeBatch();
+            EliminaRelacion.close();
+            Statement EliminaPersona = conex.createStatement();
+            EliminaPersona.executeQuery("DELETE FROM PERSONA WHERE id ='"+id+"'");
+            EliminaPersona.executeBatch();
+            EliminaPersona.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error eliminando "+e.toString());
+        }
+
     }
 }

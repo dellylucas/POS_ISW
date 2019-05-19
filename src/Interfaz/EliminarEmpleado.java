@@ -35,7 +35,7 @@ import Modelo.Fachada;
 		private JTextField txtTelefonoEmpleado;
 		private JTextField txtDireccionEmpleado;
 		private JTextField txtCorreoEmpleado;
-
+		private Persona persona;
 		private Dao_Empleado daoEmpleado;
 		private JComboBox listaEmpleado;
 		private Empleado empleado = new Empleado();
@@ -44,16 +44,16 @@ import Modelo.Fachada;
 		
 		public EliminarEmpleado(Persona usuario){
 			super();
+			persona = usuario;
+			daoEmpleado = new Dao_Empleado();
 			this.setTitle("Eliminar Proveedor");
 			this.setSize(400, 300);
 			this.setLocationRelativeTo(null);
-			this.setResizable(false);
 			getContentPane().setLayout(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			this.crearEtiquetas();
 			this.crearIngresoDatos();
 			this.crearBotones();
-			daoEmpleado = new Dao_Empleado();
 		}
 		
 		private void crearEtiquetas() {
@@ -81,8 +81,6 @@ import Modelo.Fachada;
 			this.correoEmpleado.setText("Ciudad");
 			this.correoEmpleado.setBounds(10, 152, 75, 32);
 			getContentPane().add(correoEmpleado);
-			
-
 		}
 		
 		private void crearIngresoDatos() {
@@ -144,22 +142,14 @@ import Modelo.Fachada;
 			String id = (String) listaEmpleado.getSelectedItem();
 			
 			if(e.getSource()==btnVolver){
-				/*VentanaUsuario ventana = new VentanaUsuario(rolid);
+				VentanaUsuario ventana = new VentanaUsuario(persona);
 				ventana.setVisible(true);
-				setVisible(false);*/
+				dispose();
 			}
 			
 			if(e.getSource()==btnEliminarEmpleado){
 
-				try {
 					daoEmpleado.Eliminar(id);
-				} catch (SQLException ex) {
-					System.out.println(ex.toString());
-				}
-
-				/*EliminarEmpleado eli= new EliminarEmpleado(usuario);
-				this.setVisible(false);
-				eli.setVisible(true);*/
 				JOptionPane.showMessageDialog(null, "Empleado Eliminado");
 			}
 			

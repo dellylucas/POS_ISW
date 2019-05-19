@@ -20,7 +20,6 @@ import Modelo.Tienda;
 
 public class ModificarEmpleado extends JFrame implements ActionListener {
     private JButton btnVolver;
-    private JButton btnVerEmpleado;
     private JButton btnModificarEmpleador;
     private JLabel idEmpleado;
     private JLabel nombreEmpleado;
@@ -29,6 +28,9 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
     private JLabel correoEmpleadoo;
     private JLabel usuarioEmpleado;
     private JLabel claveEmpleado;
+    private JLabel salarioEmpleadoo;
+    private JLabel bonificacionEmpleado;
+    private JLabel activoEmpleado;
 
     private JTextField txtIdEmpleado;
     private JTextField txtNombreEmpleador;
@@ -37,18 +39,23 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
     private JTextField txtCorreoEmpleado;
     private JTextField txtusuarioEmpleado;
     private JTextField txtclaveEmpleado;
-
-
+    private JTextField txtSalarioEmpleado;
+    private JTextField txtBonificaEmpleado;
+    private JTextField txtActivoEmpleado;
+    private Dao_Empleado daoEmpleado;
+    private Persona persona;
     private JComboBox listaEmpleado;
 
     private Empleado empleado = new Empleado();
 
-    private Tienda a = Fachada.getTienda();
+    private Tienda tienda = Fachada.getTienda();
 
     public ModificarEmpleado(Persona usuario) {
         super();
+        persona = usuario;
+        daoEmpleado = new Dao_Empleado();
         this.setTitle("Modificar Empleado");
-        this.setSize(500, 350);
+        this.setSize(400, 450);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         getContentPane().setLayout(null);
@@ -87,20 +94,34 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
 
         this.usuarioEmpleado = new JLabel();
         this.usuarioEmpleado.setText("Usuario");
-        this.usuarioEmpleado.setBounds(10, 154 + (154 - 121), 79, 29);
+        this.usuarioEmpleado.setBounds(10, 165 + (154 - 121), 79, 29);
         getContentPane().add(usuarioEmpleado);
 
         this.claveEmpleado = new JLabel();
         this.claveEmpleado.setText("clave");
-        this.claveEmpleado.setBounds(10, 154 + (2 * (154 - 121)), 79, 29);
+        this.claveEmpleado.setBounds(10, 165 + (2 * (154 - 121)), 79, 29);
         getContentPane().add(claveEmpleado);
 
+        this.salarioEmpleadoo = new JLabel();
+        this.salarioEmpleadoo.setText("Salario");
+        this.salarioEmpleadoo.setBounds(10, 165 + (3 * (154 - 121)), 79, 29);
+        getContentPane().add(salarioEmpleadoo);
 
+        this.bonificacionEmpleado = new JLabel();
+        this.bonificacionEmpleado.setText("Bonificacion");
+        this.bonificacionEmpleado.setBounds(10, 165 + (4 * (154 - 121)), 79, 29);
+        getContentPane().add(bonificacionEmpleado);
+
+        this.activoEmpleado = new JLabel();
+        this.activoEmpleado.setText("Activo");
+        this.activoEmpleado.setBounds(10, 165 + (5 * (154 - 121)), 79, 29);
+        getContentPane().add(activoEmpleado);
     }
 
     private void crearIngresoDatos() {
         this.txtIdEmpleado = new JTextField();
         this.txtIdEmpleado.setBounds(90, 50, 180, 20);
+        txtIdEmpleado.setEditable(false);
         getContentPane().add(txtIdEmpleado);
 
         this.txtNombreEmpleador = new JTextField();
@@ -120,38 +141,44 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
         getContentPane().add(txtCorreoEmpleado);
 
         this.txtusuarioEmpleado = new JTextField();
-        this.txtusuarioEmpleado.setBounds(90, 161 + (161 - 125), 180, 20);
+        this.txtusuarioEmpleado.setBounds(90, 170 + (161 - 125), 180, 20);
         getContentPane().add(txtusuarioEmpleado);
 
         this.txtclaveEmpleado = new JTextField();
         this.txtclaveEmpleado.setBounds(90, 161 + (2 * (161 - 125)), 180, 20);
         getContentPane().add(txtclaveEmpleado);
 
+        this.txtSalarioEmpleado = new JTextField();
+        this.txtSalarioEmpleado.setBounds(90, 161 + (3 * (161 - 125)), 180, 20);
+        getContentPane().add(txtSalarioEmpleado);
 
+        this.txtBonificaEmpleado = new JTextField();
+        this.txtBonificaEmpleado.setBounds(90, 161 + (4 * (161 - 125)), 180, 20);
+        getContentPane().add(txtBonificaEmpleado);
+
+        this.txtActivoEmpleado = new JTextField();
+        this.txtActivoEmpleado.setBounds(90, 161 + (5 * (161 - 125)), 180, 20);
+        getContentPane().add(txtActivoEmpleado);
     }
 
     private void crearBotones() {
         this.btnVolver = new JButton();
         this.btnVolver.setText("Volver");
-        this.btnVolver.setBounds(300, 290, 120, 20);
+        this.btnVolver.setBounds(200, 390, 120, 20);
         btnVolver.addActionListener(this);
         getContentPane().add(btnVolver);
 
 
         this.btnModificarEmpleador = new JButton();
         this.btnModificarEmpleador.setText("Modificar Empleado");
-        this.btnModificarEmpleador.setBounds(20, 290, 150, 20);
+        this.btnModificarEmpleador.setBounds(20, 390, 150, 20);
+        btnModificarEmpleador.setEnabled(false);
         btnModificarEmpleador.addActionListener(this);
         getContentPane().add(btnModificarEmpleador);
 
-        this.btnVerEmpleado = new JButton();
-        this.btnVerEmpleado.setText("Visualizar Empleado");
-        this.btnVerEmpleado.setBounds(200, 20, 140, 20);
-        btnVerEmpleado.addActionListener(this);
-        getContentPane().add(btnVerEmpleado);
-
         this.listaEmpleado = new JComboBox();
         this.listaEmpleado.setBounds(10, 20, 149, 20);
+        listaEmpleado.addActionListener(this);
         getContentPane().add(listaEmpleado);
         this.leerEmpleado();
 
@@ -159,41 +186,58 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         String nombreEmpleado = (String) listaEmpleado.getSelectedItem();
-        empleado = a.buscarEmpleado(empleado, nombreEmpleado);
+        empleado = tienda.buscarEmpleado(empleado, nombreEmpleado);
         if (e.getSource() == btnVolver) {
-		/*	VentanaUsuario ventana = new VentanaUsuario(rolid);
-			ventana.setVisible(true);
-			setVisible(false);*/
+            VentanaUsuario ventana = new VentanaUsuario(persona);
+            ventana.setVisible(true);
+            dispose();
         }
 
-        if (e.getSource() == btnVerEmpleado) {
+        if (e.getSource() == listaEmpleado) {
             llenarProducto();
         }
 
         if (e.getSource() == btnModificarEmpleador) {
-            empleado.setNombre(txtNombreEmpleador.getText());
-            empleado.setId(txtIdEmpleado.getText());
-            empleado.setTelefono(txtTelefonoEmpleado.getText());
-            empleado.setDireccion(txtDireccionEmpleado.getText());
-            empleado.setCorreo(txtCorreoEmpleado.getText());
-            empleado.setUsuario(txtusuarioEmpleado.getText());
-            empleado.setClave(txtclaveEmpleado.getText());
+            if (txtIdEmpleado.getText().equals("") || txtNombreEmpleador.getText().equals("")
+                    || txtTelefonoEmpleado.getText().equals("") || txtDireccionEmpleado.getText().equals("")
+                    || txtCorreoEmpleado.getText().equals("") || txtclaveEmpleado.getText().equals("")
+                    || txtusuarioEmpleado.getText().equals("") || txtSalarioEmpleado.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Completa el formulario");
+            } else {
+                empleado.setNombre(txtNombreEmpleador.getText());
+                empleado.setId(txtIdEmpleado.getText());
+                empleado.setTelefono(txtTelefonoEmpleado.getText());
+                empleado.setDireccion(txtDireccionEmpleado.getText());
+                empleado.setCorreo(txtCorreoEmpleado.getText());
+                empleado.setUsuario(txtusuarioEmpleado.getText());
+                empleado.setClave(txtclaveEmpleado.getText());
+                try {
+                    empleado.setSalario(Integer.parseInt(txtSalarioEmpleado.getText()));
+                    empleado.setActivo(Integer.parseInt(txtActivoEmpleado.getText()));
 
-            Dao_Empleado daoEmpleado = new Dao_Empleado();
-            daoEmpleado.Modifica(empleado);
-		
-			/*ModificarEmpleado eli= new ModificarEmpleado(usuario);
-			this.setVisible(false);
-			eli.setVisible(true);*/
-            JOptionPane.showMessageDialog(null, "Empleado  Modificado");
+                    if (txtBonificaEmpleado.getText().isEmpty()) {
+                        empleado.setBonificacion(0);
+                    } else {
+                        empleado.setBonificacion(Integer.parseInt(txtBonificaEmpleado.getText()));
+                    }
+
+                    daoEmpleado.Modifica(empleado);
+                    leerEmpleado();
+                    btnModificarEmpleador.setEnabled(false);
+                    limpiarFormulario();
+                    JOptionPane.showMessageDialog(null, "Empleado  Modificado");
+                } catch (NumberFormatException nfe) {
+                    JOptionPane.showMessageDialog(null, "Campo numerico no usar letras");
+                }
+            }
         }
     }
 
     private void leerEmpleado() {
         DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-
-        for (int i = 0; i < a.getLstSEmpleados().size(); i++) {
-            mlista.addElement(a.getLstSEmpleados().get(i).getId());
+        tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos(tienda.getId()));
+        for (int i = 0; i < tienda.getLstSEmpleados().size(); i++) {
+            mlista.addElement(tienda.getLstSEmpleados().get(i).getId());
         }
         listaEmpleado.setModel(mlista);
         getContentPane().add(listaEmpleado);
@@ -201,7 +245,7 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
 
     private void llenarProducto() {
         String id = (String) listaEmpleado.getSelectedItem();
-        empleado = a.buscarEmpleado(empleado, id);
+        empleado = tienda.buscarEmpleado(empleado, id);
         txtIdEmpleado.setText(empleado.getId());
         txtNombreEmpleador.setText(empleado.getNombre());
         txtTelefonoEmpleado.setText(empleado.getTelefono());
@@ -209,8 +253,23 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
         txtCorreoEmpleado.setText(empleado.getCorreo());
         txtusuarioEmpleado.setText(empleado.getUsuario());
         txtclaveEmpleado.setText(empleado.getClave());
+        txtSalarioEmpleado.setText(String.valueOf(empleado.getSalario()));
+        txtBonificaEmpleado.setText(String.valueOf(empleado.getBonificacion()));
+        txtActivoEmpleado.setText(String.valueOf(empleado.getActivo()));
 
+        btnModificarEmpleador.setEnabled(true);
     }
 
-
+    private void limpiarFormulario() {
+        txtIdEmpleado.setText("");
+        txtNombreEmpleador.setText("");
+        txtTelefonoEmpleado.setText("");
+        txtDireccionEmpleado.setText("");
+        txtCorreoEmpleado.setText("");
+        txtusuarioEmpleado.setText("");
+        txtclaveEmpleado.setText("");
+        txtSalarioEmpleado.setText("");
+        txtBonificaEmpleado.setText("");
+        txtActivoEmpleado.setText("");
+    }
 }

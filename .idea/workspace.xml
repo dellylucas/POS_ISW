@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Crear.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Eliminar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Modificar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Controlador/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controlador/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ConsultarProductos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ConsultarProductos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/CrearProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/CrearProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/EliminarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/EliminarProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/InicioSesion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/InicioSesion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ModificarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ModificarProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaAdministrador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/VentanaPrincipal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Administrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Caja.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Caja.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Empleado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Fachada.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Fachada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Factura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Persona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Producto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Proveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Proveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/SuperAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/SuperAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Tienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Tienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" afterDir="false" />
+    </list>
+    <list id="04fb154e-2a65-4125-846b-5f1ec1bc656c" name="onCommit" comment="Add multi-store entity Proveedor , first Empleado" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="263" column="55" selection-start-line="263" selection-start-column="55" selection-end-line="263" selection-end-column="55" />
+              <folding>
+                <element signature="method#VentanaUsuario#0;class#VentanaUsuario#0" />
+                <element signature="e#1465#1665#0" />
+                <element signature="method#crearMenu#0;class#VentanaUsuario#0" />
+                <element signature="e#6088#6224#1" />
+                <element signature="e#6273#6610#1" />
+                <element signature="e#6327#6432#1" />
+                <element signature="e#6438#6600#1" />
+                <element signature="e#6659#6994#1" />
+                <element signature="e#6713#6818#1" />
+                <element signature="e#6824#6984#1" />
+                <element signature="e#7042#7375#1" />
+                <element signature="e#7096#7201#1" />
+                <element signature="e#7207#7365#1" />
+                <element signature="e#7422#7564#1" />
+                <element signature="e#7614#7952#1" />
+                <element signature="e#7668#7774#1" />
+                <element signature="e#7780#7942#1" />
+                <element signature="e#8002#8340#1" />
+                <element signature="e#8056#8162#1" />
+                <element signature="e#8168#8330#1" />
+                <element signature="e#8389#8725#1" />
+                <element signature="e#8443#8549#1" />
+                <element signature="e#8555#8715#1" />
+                <element signature="e#8771#8907#1" />
+                <element signature="e#8956#9292#1" />
+                <element signature="e#9011#9116#1" />
+                <element signature="e#9122#9282#1" />
+                <element signature="method#Initialization#0;class#VentanaUsuario#0" />
+                <element signature="e#10332#10598#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1717">
+              <caret line="110" column="41" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>produ</find>
+      <find>ingreso</find>
+      <find>llena``</find>
+      <find>lstProductos</find>
+      <find>emplea</find>
+      <find>medico</find>
+      <find>hospi</find>
+      <find>espec</find>
+      <find>proveedores</find>
+      <find>empleados</find>
+      <find>daoConsulta</find>
+      <find>AllEmpleados</find>
+      <find>AllProducts</find>
+      <find>dao</find>
+      <find>Secion</find>
+      <find>txtFechaVencimiento</find>
+      <find>rolid</find>
+      <find>daoProducts</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Delly Fabian Lucas &lt;dellylucas@hotmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/.classpath" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Productos.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/DAO_Consultar.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/DAO_Crear.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/DAO_Modificar.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/DAO_Eliminar.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Conexion.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/VentanaAdministrador.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/VentanaEmpleado.java" />
+        <option value="$PROJECT_DIR$/src/Controlador/Main.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/VentanaPrincipal.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Login.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/InicioSesion.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/SuperAdmin.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Fachada.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Fachada.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/Testeo.form" />
+        <option value="$PROJECT_DIR$/src/Interfaz/Testeo.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Producto.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/CrearProducto.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ConsultarProductos.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Proveedor.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/CrearProveedores.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ConsultarProveedor.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ModificarProducto.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/EliminarProducto.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Producto.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ModificarProveedor.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Proveedor.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/EliminarProveedor.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Tienda.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Administrador.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Empleado.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Login.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Persona.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java" />
+        <option value="$PROJECT_DIR$/SQLQuery1.sql" />
+        <option value="$PROJECT_DIR$/src/Interfaz/CrearEmpleado.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" />
+        <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ConexionBD" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controlador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/Microsoft JDBC Driver 6.4 for SQL Server/sqljdbc_6.4/esn/mssql-jdbc-6.4.0.jre8.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ConexionBD" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\delly\IdeaProjects\POS_ISW" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Controlador.Main" />
+      <module name="ProyectoSoftware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Controlador.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="" />
+      <changelist id="04fb154e-2a65-4125-846b-5f1ec1bc656c" name="onCommit" comment="" />
+      <created>1556598071537</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556598071537</updated>
+      <workItem from="1556598093307" duration="2408000" />
+      <workItem from="1556632809134" duration="21930000" />
+      <workItem from="1557600829736" duration="2721000" />
+      <workItem from="1557948168264" duration="6167000" />
+      <workItem from="1557961011160" duration="188000" />
+      <workItem from="1557961598561" duration="13034000" />
+      <workItem from="1558058541975" duration="2308000" />
+      <workItem from="1558068598582" duration="1994000" />
+      <workItem from="1558070735205" duration="596000" />
+      <workItem from="1558197104601" duration="40300000" />
+      <workItem from="1558285193994" duration="6998000" />
+      <workItem from="1558297611234" duration="381000" />
+    </task>
+    <task id="LOCAL-00001" summary="union proyecto">
+      <created>1556599897521</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556599897521</updated>
+    </task>
+    <task id="LOCAL-00002" summary="last">
+      <created>1556674355777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1556674355777</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Structure project Daos implements">
+      <created>1557954548877</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557954548877</updated>
+    </task>
+    <task id="LOCAL-00004" summary="To implement user window">
+      <created>1557974731922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557974731922</updated>
+    </task>
+    <task id="LOCAL-00005" summary="To implement user window">
+      <created>1558070567560</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558070567560</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix to Window User">
+      <created>1558203672012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1558203672012</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add multi-store entity Products">
+      <created>1558227657444</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1558227657444</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add multi-store entity Proveedor , first Empleado">
+      <created>1558247024906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558247024907</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="99025000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16442953" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.4490085" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.28328612" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.30169973" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.58498585" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.48725212" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26107383" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.28470254" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.13597734" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <confirmRemoveEmptyChangelist value="1" />
+    <MESSAGE value="union proyecto" />
+    <MESSAGE value="last" />
+    <MESSAGE value="Structure project Daos implements" />
+    <MESSAGE value="To implement user window" />
+    <MESSAGE value="Fix to Window User" />
+    <MESSAGE value="Add multi-store entity Products" />
+    <MESSAGE value="Add multi-store entity Proveedor , first Empleado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add multi-store entity Proveedor , first Empleado" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ConexionBD/Dao_Proveedor.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/POS_ISW$Main.ic" NAME="Main Coverage Results" MODIFIED="1556670203305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Controlador.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>txtbonificacionEmpleado.getText().isEmpty()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>txtbonificacionEmpleado.getText()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseInt(txtbonificacionEmpleado.getText())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>usuario.toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>persona.getClass().toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>persona.toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ProyectoSoftware.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Consultar.java" />
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Crear.java" />
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Modificar.java" />
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Eliminar.java" />
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSecion.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controlador/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Conexion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaEmpleado.java" />
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Persona.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="1162" column="9" selection-start-line="1162" selection-start-column="9" selection-end-line="1162" selection-end-column="9" />
+          <folding>
+            <element signature="e#40240#40241#0" expanded="true" />
+            <element signature="e#40267#40268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/SuperAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+          <folding>
+            <element signature="e#10065#10066#0" expanded="true" />
+            <element signature="e#10148#10149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Fachada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/test.java" />
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/Testeo.java" />
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/Testeo.form" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/javax/swing/JComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="598" column="18" selection-start-line="598" selection-start-column="18" selection-end-line="598" selection-end-column="18" />
+          <folding>
+            <element signature="e#20050#20051#0" expanded="true" />
+            <element signature="e#20100#20101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaPrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/CrearProducto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="152" selection-start-line="152" selection-end-line="160" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="103" column="14" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Proveedor.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Fachada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Producto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Proveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="13" column="96" selection-start-line="13" selection-start-column="96" selection-end-line="13" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/CrearProveedores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="109" column="33" lean-forward="true" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ConsultarProductos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="157" column="29" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="29" />
+          <folding>
+            <element signature="method#crearEtiquetas#0;class#ConsultarProductos#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ConsultarProveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="137" column="37" lean-forward="true" selection-start-line="137" selection-start-column="37" selection-end-line="137" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarProducto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="167" column="33" lean-forward="true" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ModificarProveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="188" selection-start-line="188" selection-end-line="196" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarProveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Tienda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
+          <folding>
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#2977#2978#0" expanded="true" />
+            <element signature="e#3014#3015#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Producto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+          <folding>
+            <element signature="method#ConsultaTodos#0;class#Dao_Producto#0" />
+            <element signature="e#1040#1456#1" />
+            <element signature="e#1514#1589#0" />
+            <element signature="e#2278#2372#0" />
+            <element signature="e#3170#3266#0" />
+            <element signature="e#3592#3689#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Proveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="87" column="22" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Administrador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="142" selection-start-line="8" selection-start-column="142" selection-end-line="8" selection-end-column="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Empleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSesion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="2065" column="18" selection-start-line="2065" selection-start-column="18" selection-end-line="2065" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Persona.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+          <folding>
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1642#1643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3434">
+          <caret line="202" column="9" lean-forward="true" selection-start-line="202" selection-start-column="9" selection-end-line="202" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="45" column="57" lean-forward="true" selection-start-line="45" selection-start-column="57" selection-end-line="45" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ModificarProducto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="173" column="74" lean-forward="true" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQLQuery1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/CrearEmpleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="190" column="17" lean-forward="true" selection-start-line="162" selection-start-column="16" selection-end-line="190" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="234" lean-forward="true" selection-start-line="234" selection-end-line="234" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="263" column="55" selection-start-line="263" selection-start-column="55" selection-end-line="263" selection-end-column="55" />
+          <folding>
+            <element signature="method#VentanaUsuario#0;class#VentanaUsuario#0" />
+            <element signature="e#1465#1665#0" />
+            <element signature="method#crearMenu#0;class#VentanaUsuario#0" />
+            <element signature="e#6088#6224#1" />
+            <element signature="e#6273#6610#1" />
+            <element signature="e#6327#6432#1" />
+            <element signature="e#6438#6600#1" />
+            <element signature="e#6659#6994#1" />
+            <element signature="e#6713#6818#1" />
+            <element signature="e#6824#6984#1" />
+            <element signature="e#7042#7375#1" />
+            <element signature="e#7096#7201#1" />
+            <element signature="e#7207#7365#1" />
+            <element signature="e#7422#7564#1" />
+            <element signature="e#7614#7952#1" />
+            <element signature="e#7668#7774#1" />
+            <element signature="e#7780#7942#1" />
+            <element signature="e#8002#8340#1" />
+            <element signature="e#8056#8162#1" />
+            <element signature="e#8168#8330#1" />
+            <element signature="e#8389#8725#1" />
+            <element signature="e#8443#8549#1" />
+            <element signature="e#8555#8715#1" />
+            <element signature="e#8771#8907#1" />
+            <element signature="e#8956#9292#1" />
+            <element signature="e#9011#9116#1" />
+            <element signature="e#9122#9282#1" />
+            <element signature="method#Initialization#0;class#VentanaUsuario#0" />
+            <element signature="e#10332#10598#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="110" column="41" selection-start-line="110" selection-start-column="41" selection-end-line="110" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ProyectoSoftware</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>mssql-jdbc-7.2.2.jre11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -189,12 +189,11 @@ import Modelo.Fachada;
 				ventana.setVisible(true);
 				dispose();
 			}
-			
 			if(e.getSource()==listaEmpleado){
 				llenarEmpleado();
 			}
 		}
-		
+
 		private void leerEmpleado() {
 			DefaultComboBoxModel mlista = new DefaultComboBoxModel();
 			for (int i = 0; i < tienda.getLstSEmpleados().size(); i++) {
@@ -202,9 +201,6 @@ import Modelo.Fachada;
 			}
 			listaEmpleado.setModel(mlista);
 		}
-		
-		
-		
 		private void llenarEmpleado() {
 			String id = (String) listaEmpleado.getSelectedItem();
 			empleado = tienda.buscarEmpleado(empleado, id);
@@ -218,8 +214,5 @@ import Modelo.Fachada;
 			txtsalarioEmpleado.setText(String.valueOf(empleado.getSalario()));
 			txtbonoEmpleado.setText(String.valueOf(empleado.getBonificacion()));
 			txtactivoEmpleado.setText(String.valueOf(empleado.getActivo()));
-		
 		}
 	}
-
-
