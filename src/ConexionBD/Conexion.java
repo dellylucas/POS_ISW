@@ -2,6 +2,9 @@ package ConexionBD;
 
 import java.sql.*;
 
+
+//Hola mundo
+
 import javax.swing.JOptionPane;
 
 public  class Conexion {
