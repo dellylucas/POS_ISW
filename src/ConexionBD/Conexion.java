@@ -2,16 +2,13 @@ package ConexionBD;
 
 import java.sql.*;
 
-
-//Hola mundo
-
 import javax.swing.JOptionPane;
 
 public  class Conexion {
 	private static String bd = "ALL_RETAILER";
 	private static String login = "sa";
-	private static String password = "123";
-	private static String server = "PCDFL9";
+	private static String password = "12345";
+	private static String server = "LAPTOP-T4D8FR34\\SQLEXPRESS";
 	private static  Connection connection ;
 
 	public Conexion() {

@@ -20,6 +20,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	private JMenuBar menuClientes;
 	private JMenu empleados;
 	private JMenuItem iniciarSesion;
+	private JMenu SuperAdministrador;
+	private JMenuItem menuItem;
 
 	public VentanaPrincipal(){
 		super();
@@ -45,7 +47,16 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		iniciarSesion = new JMenuItem("Iniciar Sesion");
 		iniciarSesion.setIcon(new ImageIcon((ClassLoader.getSystemResource("Imagenes/LoginEmpleado.jpg"))));
 		iniciarSesion.addActionListener(this);
-		empleados.add(iniciarSesion);
+		empleados.add(iniciarSesion);	
+		
+		
+		SuperAdministrador = new JMenu("Super Administrador");
+		menuClientes.add(SuperAdministrador);
+		
+		menuItem = new JMenuItem("Iniciar Sesion");
+		iniciarSesion.setIcon(new ImageIcon((ClassLoader.getSystemResource("Imagenes/LoginEmpleado.jpg"))));
+		iniciarSesion.addActionListener(this);
+		SuperAdministrador.add(menuItem);
 
 
 	}
