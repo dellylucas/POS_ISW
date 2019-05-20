@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/Dao_Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ConexionBD/Dao_Empleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/EliminarEmpleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/EliminarEmpleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ModificarEmpleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ModificarEmpleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/VentanaUsuario.class" afterDir="false" />
-    </list>
+    <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="" />
     <list id="04fb154e-2a65-4125-846b-5f1ec1bc656c" name="onCommit" comment="Add multi-store entity Proveedor , first Empleado" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -44,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="95" column="54" lean-forward="true" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+            <state relative-caret-position="370">
+              <caret line="100" column="55" lean-forward="true" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,7 +167,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="POS_ISW" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\delly\IdeaProjects\POS_ISW" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -187,34 +190,6 @@
               <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
               <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ConexionBD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controlador" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Interfaz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="POS_ISW" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="POS_ISW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -302,7 +277,7 @@
       <workItem from="1558197104601" duration="40300000" />
       <workItem from="1558285193994" duration="6998000" />
       <workItem from="1558297611234" duration="381000" />
-      <workItem from="1558312921707" duration="780000" />
+      <workItem from="1558312921707" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="union proyecto">
       <created>1556599897521</created>
@@ -360,11 +335,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558247024907</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add multi-store entity Proveedor , first Empleado">
+      <created>1558316287480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558316287480</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99805000" />
+    <option name="totallyTimeSpent" value="100112000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,7 +359,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16644295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -386,7 +367,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4490085" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.28328612" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.28328612" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.30169973" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -394,8 +375,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.25779036" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.25637394" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4986577" visible="true" weight="0.25637394" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.48725212" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -499,9 +480,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ProyectoSoftware.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Consultar.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Crear.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Modificar.java" />
@@ -858,10 +836,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="95" column="54" lean-forward="true" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+        <state relative-caret-position="370">
+          <caret line="100" column="55" lean-forward="true" selection-start-line="100" selection-start-column="55" selection-end-line="100" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
