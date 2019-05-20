@@ -93,7 +93,8 @@ public class InicioSesion extends JFrame implements ActionListener{
 				//Ventana Super Admin
 				if (persona.getRol()== 1 ){
 
-					//TODO hacer ventana Superadmin
+					VentanaSuperAd ventana = new VentanaSuperAd(persona);
+					ventana.setVisible(true);
 
 				}else {//Ventana Empleado y Admin
 					VentanaUsuario ventana = new VentanaUsuario(persona);

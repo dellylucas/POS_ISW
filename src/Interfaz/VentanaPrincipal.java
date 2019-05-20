@@ -47,18 +47,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		iniciarSesion = new JMenuItem("Iniciar Sesion");
 		iniciarSesion.setIcon(new ImageIcon((ClassLoader.getSystemResource("Imagenes/LoginEmpleado.jpg"))));
 		iniciarSesion.addActionListener(this);
-		empleados.add(iniciarSesion);	
-		
-		
-		SuperAdministrador = new JMenu("Super Administrador");
-		menuClientes.add(SuperAdministrador);
-		
-		menuItem = new JMenuItem("Iniciar Sesion");
-		iniciarSesion.setIcon(new ImageIcon((ClassLoader.getSystemResource("Imagenes/LoginEmpleado.jpg"))));
-		iniciarSesion.addActionListener(this);
-		SuperAdministrador.add(menuItem);
-
-
+		empleados.add(iniciarSesion);
 	}
 
 	public void actionPerformed(ActionEvent e) {
