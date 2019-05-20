@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ConexionBD/Conexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Crear.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Eliminar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/DAO_Modificar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Controlador/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Controlador/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ConsultarProductos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ConsultarProductos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/CrearProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/CrearProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/EliminarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/EliminarProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/InicioSesion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/InicioSesion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ModificarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ModificarProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaAdministrador.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/VentanaPrincipal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Administrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Administrador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Caja.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Caja.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Empleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Fachada.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Fachada.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Persona.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Persona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Proveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Proveedor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/SuperAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/SuperAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Modelo/Tienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Tienda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/ConsultarEmpleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ConexionBD/Dao_Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ConexionBD/Dao_Empleado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/EliminarEmpleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/EliminarEmpleado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/ModificarEmpleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/ModificarEmpleado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Interfaz/VentanaUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Interfaz/VentanaUsuario.class" afterDir="false" />
     </list>
     <list id="04fb154e-2a65-4125-846b-5f1ec1bc656c" name="onCommit" comment="Add multi-store entity Proveedor , first Empleado" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -52,36 +31,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="263" column="55" selection-start-line="263" selection-start-column="55" selection-end-line="263" selection-end-column="55" />
+            <state relative-caret-position="4420">
+              <caret line="274" column="55" selection-start-line="274" selection-start-column="55" selection-end-line="274" selection-end-column="55" />
               <folding>
-                <element signature="method#VentanaUsuario#0;class#VentanaUsuario#0" />
-                <element signature="e#1465#1665#0" />
-                <element signature="method#crearMenu#0;class#VentanaUsuario#0" />
-                <element signature="e#6088#6224#1" />
-                <element signature="e#6273#6610#1" />
-                <element signature="e#6327#6432#1" />
-                <element signature="e#6438#6600#1" />
-                <element signature="e#6659#6994#1" />
-                <element signature="e#6713#6818#1" />
-                <element signature="e#6824#6984#1" />
-                <element signature="e#7042#7375#1" />
-                <element signature="e#7096#7201#1" />
-                <element signature="e#7207#7365#1" />
-                <element signature="e#7422#7564#1" />
-                <element signature="e#7614#7952#1" />
-                <element signature="e#7668#7774#1" />
-                <element signature="e#7780#7942#1" />
-                <element signature="e#8002#8340#1" />
-                <element signature="e#8056#8162#1" />
-                <element signature="e#8168#8330#1" />
-                <element signature="e#8389#8725#1" />
-                <element signature="e#8443#8549#1" />
-                <element signature="e#8555#8715#1" />
-                <element signature="e#8771#8907#1" />
-                <element signature="e#8956#9292#1" />
-                <element signature="e#9011#9116#1" />
-                <element signature="e#9122#9282#1" />
                 <element signature="method#Initialization#0;class#VentanaUsuario#0" />
                 <element signature="e#10332#10598#1" />
               </folding>
@@ -92,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+            <state relative-caret-position="285">
+              <caret line="95" column="54" lean-forward="true" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -211,7 +163,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -223,6 +175,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,10 +220,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="C:/Microsoft JDBC Driver 6.4 for SQL Server/sqljdbc_6.4/esn/mssql-jdbc-6.4.0.jre8.jar!/" />
@@ -349,6 +302,7 @@
       <workItem from="1558197104601" duration="40300000" />
       <workItem from="1558285193994" duration="6998000" />
       <workItem from="1558297611234" duration="381000" />
+      <workItem from="1558312921707" duration="780000" />
     </task>
     <task id="LOCAL-00001" summary="union proyecto">
       <created>1556599897521</created>
@@ -410,7 +364,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99025000" />
+    <option name="totallyTimeSpent" value="99805000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,15 +377,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16442953" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16644295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.4490085" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.28328612" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.28328612" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.30169973" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,7 +395,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.58498585" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.25779036" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.48725212" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -551,13 +506,6 @@
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Crear.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Modificar.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Eliminar.java" />
-    <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSecion.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controlador/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -884,36 +832,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="263" column="55" selection-start-line="263" selection-start-column="55" selection-end-line="263" selection-end-column="55" />
+        <state relative-caret-position="4420">
+          <caret line="274" column="55" selection-start-line="274" selection-start-column="55" selection-end-line="274" selection-end-column="55" />
           <folding>
-            <element signature="method#VentanaUsuario#0;class#VentanaUsuario#0" />
-            <element signature="e#1465#1665#0" />
-            <element signature="method#crearMenu#0;class#VentanaUsuario#0" />
-            <element signature="e#6088#6224#1" />
-            <element signature="e#6273#6610#1" />
-            <element signature="e#6327#6432#1" />
-            <element signature="e#6438#6600#1" />
-            <element signature="e#6659#6994#1" />
-            <element signature="e#6713#6818#1" />
-            <element signature="e#6824#6984#1" />
-            <element signature="e#7042#7375#1" />
-            <element signature="e#7096#7201#1" />
-            <element signature="e#7207#7365#1" />
-            <element signature="e#7422#7564#1" />
-            <element signature="e#7614#7952#1" />
-            <element signature="e#7668#7774#1" />
-            <element signature="e#7780#7942#1" />
-            <element signature="e#8002#8340#1" />
-            <element signature="e#8056#8162#1" />
-            <element signature="e#8168#8330#1" />
-            <element signature="e#8389#8725#1" />
-            <element signature="e#8443#8549#1" />
-            <element signature="e#8555#8715#1" />
-            <element signature="e#8771#8907#1" />
-            <element signature="e#8956#9292#1" />
-            <element signature="e#9011#9116#1" />
-            <element signature="e#9122#9282#1" />
             <element signature="method#Initialization#0;class#VentanaUsuario#0" />
             <element signature="e#10332#10598#1" />
           </folding>
@@ -930,10 +851,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSecion.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="67" column="49" selection-start-line="67" selection-start-column="49" selection-end-line="67" selection-end-column="49" />
+        <state relative-caret-position="285">
+          <caret line="95" column="54" lean-forward="true" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
