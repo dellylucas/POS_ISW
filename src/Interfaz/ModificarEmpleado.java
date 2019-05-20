@@ -57,7 +57,6 @@ public class ModificarEmpleado extends JFrame implements ActionListener {
         this.setTitle("Modificar Empleado");
         this.setSize(400, 450);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
         getContentPane().setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.crearEtiquetas();

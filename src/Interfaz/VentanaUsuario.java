@@ -23,8 +23,11 @@ public class VentanaUsuario extends JFrame implements ActionListener {
     private JMenu producto;
     private JMenu proveedores;
     private JMenu empleados;
-    private JMenu contratos;
+    private JMenu caja;
     private JMenu salir;
+    private JMenuItem salirInt;
+    private JMenuItem Compras;
+
     private JMenuItem crearProducto;
     private JMenuItem consultarProducto;
     private JMenuItem modificarProducto;
@@ -107,18 +110,26 @@ public class VentanaUsuario extends JFrame implements ActionListener {
         empleados = new JMenu("Empleados");
         menu.add(empleados);
 
-        contratos = new JMenu("Compras");
-        menu.add(contratos);
+        caja = new JMenu("Caja");
+        menu.add(caja);
 
-        salir = new JMenu("Salir");
+        salir = new JMenu("Opciones");
         salir.addActionListener(this);
         menu.add(salir);
-
+        
+        salirInt = new JMenuItem("Salir");
+        salirInt.addActionListener(this);
+        salir.add(salirInt);
+        
         crearProducto = new JMenuItem("Crear Producto");
         crearProducto.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Crear.png"))));
         crearProducto.addActionListener(this);
         producto.add(crearProducto);
+        
+        Compras = new JMenuItem("Compras");
+        Compras.addActionListener(this);
+        caja.add(Compras);
 
         consultarProducto = new JMenuItem("Consultar Producto");
         consultarProducto.setIcon(new ImageIcon(
@@ -267,11 +278,17 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             }
         }
 
-        if (e.getSource() == salir) {
+        if (e.getSource() == salir || e.getSource() ==  salirInt) {
             VentanaPrincipal ventana = new VentanaPrincipal();
             ventana.setVisible(true);
             dispose();
         }
+        if (e.getSource() == Compras ) {
+        /*	VentanaCompras ventana = new VentanaCompras(usuario);
+            ventana.setVisible(true);
+            dispose();*/
+        }
+        
     }
 
     private void Initialization(int rol) {

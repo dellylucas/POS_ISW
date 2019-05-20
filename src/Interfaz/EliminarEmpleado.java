@@ -22,7 +22,6 @@ import Modelo.Fachada;
 
 	public class EliminarEmpleado extends JFrame implements ActionListener{
 		private JButton btnVolver;
-		private JButton btnVerEmpleado;
 		private JButton btnEliminarEmpleado;
 		private JLabel idEmpleado;
 		private JLabel nombreEmpleado;
@@ -39,7 +38,7 @@ import Modelo.Fachada;
 		private Dao_Empleado daoEmpleado;
 		private JComboBox listaEmpleado;
 		private Empleado empleado = new Empleado();
-		private Tienda a = Fachada.getTienda();
+		private Tienda tienda = Fachada.getTienda();
 
 		
 		public EliminarEmpleado(Persona usuario){
@@ -47,7 +46,7 @@ import Modelo.Fachada;
 			persona = usuario;
 			daoEmpleado = new Dao_Empleado();
 			this.setTitle("Eliminar Proveedor");
-			this.setSize(400, 300);
+			this.setSize(370, 300);
 			this.setLocationRelativeTo(null);
 			getContentPane().setLayout(null);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,29 +112,25 @@ import Modelo.Fachada;
 		private void crearBotones() {
 			this.btnVolver=new JButton();
 			this.btnVolver.setText("Volver");
-			this.btnVolver.setBounds(212, 249, 120, 20);
+			this.btnVolver.setBounds(206, 204, 120, 20);
 			btnVolver.addActionListener(this);
 			getContentPane().add(btnVolver);
 			
-			this.btnVerEmpleado=new JButton();
-			this.btnVerEmpleado.setText("Visualizar Proveedor");
-			this.btnVerEmpleado.setBounds(211, 11, 140, 20);
-			btnVerEmpleado.addActionListener(this);
-			getContentPane().add(btnVerEmpleado);
 			
 			this.btnEliminarEmpleado=new JButton();
 			this.btnEliminarEmpleado.setText("Eliminar Proveedor");
-			this.btnEliminarEmpleado.setBounds(20, 249, 130, 20);
+			this.btnEliminarEmpleado.setBounds(50, 204, 130, 20);
 			btnEliminarEmpleado.addActionListener(this);
+			btnEliminarEmpleado.setEnabled(false);
 			getContentPane().add(btnEliminarEmpleado);
 			
 			this.listaEmpleado = new JComboBox();
 			this.listaEmpleado.setBounds(10, 11, 149, 20);
+			listaEmpleado.addActionListener(this);
 			getContentPane().add(listaEmpleado);
 			
 
 			this.leerEmpleado();
-			this.llenarEmpleado();
 		}
 		public void actionPerformed(ActionEvent e) {	
 			
@@ -150,19 +145,22 @@ import Modelo.Fachada;
 			if(e.getSource()==btnEliminarEmpleado){
 
 					daoEmpleado.Eliminar(id);
+					 leerEmpleado();
+					 limpiarFormulario();
+					btnEliminarEmpleado.setEnabled(false);
 				JOptionPane.showMessageDialog(null, "Empleado Eliminado");
 			}
 			
-			if(e.getSource()==btnVerEmpleado){
+			if(e.getSource()==listaEmpleado){
 				llenarEmpleado();
 			}
 		}
 		
 		private void leerEmpleado() {
 			DefaultComboBoxModel mlista = new DefaultComboBoxModel();
-			
-			for (int i = 0; i < a.getLstSEmpleados().size(); i++) {
-				mlista.addElement(a.getLstSEmpleados().get(i).getId());
+			 tienda.setLstSEmpleados(daoEmpleado.ConsultarTodos(tienda.getId()));
+			for (int i = 0; i < tienda.getLstSEmpleados().size(); i++) {
+				mlista.addElement(tienda.getLstSEmpleados().get(i).getId());
 			}
 			listaEmpleado.setModel(mlista);
 		}
@@ -170,16 +168,21 @@ import Modelo.Fachada;
 		
 		private void llenarEmpleado() {
 			String id = (String) listaEmpleado.getSelectedItem();
-			empleado = a.buscarEmpleado(empleado, id);
+			empleado = tienda.buscarEmpleado(empleado, id);
 			txtId.setText(empleado.getId());
 			txtNombreEmpleado.setText(empleado.getNombre());
 			txtTelefonoEmpleado.setText(empleado.getTelefono());
 			txtDireccionEmpleado.setText(empleado.getDireccion());
 			txtCorreoEmpleado.setText(empleado.getCorreo());
-			
-			
-			
+			btnEliminarEmpleado.setEnabled(true);
 		}
+	    private void limpiarFormulario() {
+	    	txtId.setText("");
+	    	txtNombreEmpleado.setText("");
+	        txtTelefonoEmpleado.setText("");
+	        txtDireccionEmpleado.setText("");
+	        txtCorreoEmpleado.setText("");
+	    }
 	}
 
 

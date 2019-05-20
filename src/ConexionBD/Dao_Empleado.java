@@ -111,13 +111,10 @@ public class Dao_Empleado {
         Statement EliminaRelacion = null;
         try {
             EliminaRelacion = conex.createStatement();
-            EliminaRelacion.executeQuery("DELETE FROM ROL_PERSONA WHERE personaid ='"+id+"'");
+            EliminaRelacion.addBatch("DELETE FROM ROL_PERSONA WHERE personaid ='"+id+"'");
+            EliminaRelacion.addBatch("DELETE FROM PERSONA WHERE id ='"+id+"'");
             EliminaRelacion.executeBatch();
             EliminaRelacion.close();
-            Statement EliminaPersona = conex.createStatement();
-            EliminaPersona.executeQuery("DELETE FROM PERSONA WHERE id ='"+id+"'");
-            EliminaPersona.executeBatch();
-            EliminaPersona.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error eliminando "+e.toString());
         }
