@@ -11,8 +11,19 @@ public class Tienda {
     private ArrayList<Producto> lstProductos = new ArrayList<Producto>();
     private ArrayList<Empleado> lstSEmpleados = new ArrayList<Empleado>();
     private ArrayList<Proveedor> lstProveedor = new ArrayList<Proveedor>();
+    private ArrayList<Compra> lstCompra = new ArrayList<Compra>();
 
-    public Tienda(int id, String nombre, String ciudad, String direccion, String telefono) {
+    public ArrayList<Compra> getLstCompra() {
+		return lstCompra;
+	}
+
+	public void setLstCompra(ArrayList<Compra> lstCompra) {
+		this.lstCompra = lstCompra;
+	}
+	public void AddOneProduct(Compra compra) {
+		this.lstCompra.add(compra);
+	}
+	public Tienda(int id, String nombre, String ciudad, String direccion, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.ciudad = ciudad;

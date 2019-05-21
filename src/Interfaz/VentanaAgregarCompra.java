@@ -43,6 +43,8 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class VentanaAgregarCompra extends JFrame implements ActionListener {
@@ -58,26 +60,30 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
     private Persona usuario;
     private Tienda tienda;
   
-    private VentanaCompras ventanaAnt;
     private JPanel panel;
-    private JTextField textField;
+    private JTextField txtCantidad;
     private JLabel lblNewLabel;
-    private JButton btnNewButton;
+    private JButton btnAgrega;
     private JLabel lblNewLabel_1;
-    private JLabel lblNewLabel_2;
+    private JLabel lblMostraTotal;
     private JTable table;
     private JLabel lblNewLabel_3;
-    private JTextField textField_1;
+    private JTextField txtBusqueda;
     private Dao_Producto daoProducto;
     private DefaultTableModel modelo;
     private ArrayList<Producto> lista;
     private ArrayList<Proveedor> listaProvee;
+    private String idselect;
+    private String total;
+    private  Producto getP; 
     
-    public VentanaAgregarCompra(VentanaCompras ventanaCompra) {
+    public VentanaAgregarCompra(Persona persona) {
         super();
-        ventanaAnt = ventanaCompra;
+        total="0";
+        idselect="";
+        getP= new Producto();
         daoProducto = new Dao_Producto();
-        usuario = ventanaCompra.getPerona();
+        usuario = persona;
         tienda = Fachada.getInstance(usuario);
         
         tienda.setLstProductos(daoProducto.ConsultaTodos(tienda.getId()));
@@ -89,25 +95,7 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.crearMenu();
-        
- 
-                             
-                                    
-                                          // Initializing the JTable 
-                                          /*
-                                          j.setBounds(30, 40, 200, 300); 
-                                          
-                                                // adding it to JScrollPane 
-                                                JScrollPane sp = new JScrollPane(j); 
-                                                GridBagConstraints gbc_sp = new GridBagConstraints();
-                                                gbc_sp.fill = GridBagConstraints.BOTH;
-                                                gbc_sp.gridx = 0;
-                                                gbc_sp.gridy = 0;
-                                                getContentPane().add(sp, gbc_sp);*/
-            
- 
-        
-    
+           
     }
 
     private void crearMenu() {
@@ -131,7 +119,7 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
         gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         getContentPane().setLayout(gridBagLayout);
         
-        lblNewLabel_3 = new JLabel("New label");
+        lblNewLabel_3 = new JLabel("Busqueda");
         GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
         gbc_lblNewLabel_3.gridwidth = 3;
         gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
@@ -139,15 +127,60 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
         gbc_lblNewLabel_3.gridy = 0;
         getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
         
-        textField_1 = new JTextField();
-        GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-        gbc_textField_1.gridwidth = 11;
-        gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_1.gridx = 6;
-        gbc_textField_1.gridy = 0;
-        getContentPane().add(textField_1, gbc_textField_1);
-        textField_1.setColumns(10);
+        txtBusqueda = new JTextField();
+        txtBusqueda.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent arg0) {
+        		Object O[]=null;
+        		
+        		 modelo.setRowCount(0);
+        		for (int i = 0; i < lista.size(); i++) {
+
+        			getP = (Producto) lista.get(i);
+        			if (getP.getNombre().toLowerCase().contains(txtBusqueda.getText().toLowerCase()) || txtBusqueda.getText().equals("")) {
+        				O=new Object[] {getP.getId(),
+            					getP.getNombre(),
+            					getP.getCantidad(),
+            					getP.getPrecioVenta(),
+            					tienda.getProveedorName(getP.getProveedorId())
+            					};
+            			
+            			 modelo.addRow (O);
+            			 }
+					} 
+        			
+        		
+        	}
+        	@Override
+        	public void keyReleased(KeyEvent e) {
+        		Object O[]=null;
+        		
+       		 modelo.setRowCount(0);
+       		for (int i = 0; i < lista.size(); i++) {
+
+       			getP = (Producto) lista.get(i);
+       			if (getP.getNombre().toLowerCase().contains(txtBusqueda.getText().toLowerCase()) || txtBusqueda.getText().equals("")) {
+       				O=new Object[] {getP.getId(),
+           					getP.getNombre(),
+           					getP.getCantidad(),
+           					getP.getPrecioVenta(),
+           					tienda.getProveedorName(getP.getProveedorId())
+           					};
+           			
+           			 modelo.addRow (O);
+           			 }
+					} 
+       			
+        	}
+        });
+        GridBagConstraints gbc_txtBusqueda = new GridBagConstraints();
+        gbc_txtBusqueda.gridwidth = 12;
+        gbc_txtBusqueda.insets = new Insets(0, 0, 5, 5);
+        gbc_txtBusqueda.fill = GridBagConstraints.HORIZONTAL;
+        gbc_txtBusqueda.gridx = 5;
+        gbc_txtBusqueda.gridy = 0;
+        getContentPane().add(txtBusqueda, gbc_txtBusqueda);
+        txtBusqueda.setColumns(10);
         
         modelo = new DefaultTableModel(0, columnNames.length) ;
         modelo.setColumnIdentifiers(columnNames);
@@ -173,21 +206,23 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
 			
 			JTable source = (JTable)e.getSource();
 		            int row = source.rowAtPoint(e.getPoint() );
-		            String s=source.getModel().getValueAt(row, 0)+"";
+		            idselect=source.getModel().getValueAt(row, 0)+"";
+		            
+		            if (idselect.equals("") || txtCantidad.getText().equals("") ) {
+		        		  JOptionPane.showMessageDialog(null, "Selecciona un item y una cantidad");
+					} else {						
+						total=String.valueOf((Integer.parseInt(source.getModel().getValueAt(row, 3)+"")*Integer.parseInt(txtCantidad.getText())));
+					}
+		            lblMostraTotal.setText(total);
 
-		            JOptionPane.showMessageDialog(null, s);
 			}
 
 	
         });
-        getContentPane().add(sp);
-        
-        
+        getContentPane().add(sp);        
         getContentPane().add(sp, gbc_table);
         
-
-        
-        lblNewLabel = new JLabel("New label");
+        lblNewLabel = new JLabel("Cantidad");
         GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
         gbc_lblNewLabel.anchor = GridBagConstraints.SOUTH;
         gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
@@ -195,66 +230,79 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
         gbc_lblNewLabel.gridy = 1;
         getContentPane().add(lblNewLabel, gbc_lblNewLabel);
         
-        textField = new JTextField();
-        GridBagConstraints gbc_textField = new GridBagConstraints();
-        gbc_textField.insets = new Insets(0, 0, 5, 0);
-        gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField.gridx = 22;
-        gbc_textField.gridy = 2;
-        getContentPane().add(textField, gbc_textField);
-        textField.setColumns(10);
+        txtCantidad = new JTextField();
+        GridBagConstraints gbc_txtCantidad = new GridBagConstraints();
+        gbc_txtCantidad.insets = new Insets(0, 0, 5, 0);
+        gbc_txtCantidad.fill = GridBagConstraints.HORIZONTAL;
+        gbc_txtCantidad.gridx = 22;
+        gbc_txtCantidad.gridy = 2;
+        getContentPane().add(txtCantidad, gbc_txtCantidad);
+        txtCantidad.setColumns(10);
         
-        lblNewLabel_1 = new JLabel("New label");
+        lblNewLabel_1 = new JLabel("Sub-total");
         GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
         gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
         gbc_lblNewLabel_1.gridx = 22;
         gbc_lblNewLabel_1.gridy = 4;
         getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
         
-        lblNewLabel_2 = new JLabel("New label");
-        GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-        gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
-        gbc_lblNewLabel_2.gridx = 22;
-        gbc_lblNewLabel_2.gridy = 5;
-        getContentPane().add(lblNewLabel_2, gbc_lblNewLabel_2);
+        lblMostraTotal = new JLabel("0");
+        GridBagConstraints gbc_lblMostraTotal = new GridBagConstraints();
+        gbc_lblMostraTotal.insets = new Insets(0, 0, 5, 0);
+        gbc_lblMostraTotal.gridx = 22;
+        gbc_lblMostraTotal.gridy = 5;
+        getContentPane().add(lblMostraTotal, gbc_lblMostraTotal);
         
-        btnNewButton = new JButton("New button");
-        GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-        gbc_btnNewButton.gridx = 22;
-        gbc_btnNewButton.gridy = 9;
-        getContentPane().add(btnNewButton, gbc_btnNewButton);
+        btnAgrega = new JButton("Agregar");
+        GridBagConstraints gbc_btnAgrega = new GridBagConstraints();
+        gbc_btnAgrega.gridx = 22;
+        gbc_btnAgrega.gridy = 9;
+        btnAgrega.addActionListener(this);
+        getContentPane().add(btnAgrega, gbc_btnAgrega);
 
     }
 	public void obtenerProductos() {
 		Object O[]=null;
 		for (int i = 0; i < lista.size(); i++) {
 
-			 Producto getP = (Producto) lista.get(i);
+			getP = (Producto) lista.get(i);
 			O=new Object[] {getP.getId(),
 					getP.getNombre(),
 					getP.getCantidad(),
 					getP.getPrecioVenta(),
-					"ads"
+					tienda.getProveedorName(getP.getProveedorId())
 					};
 			 modelo.addRow (O);
 			 }
 		
 	}
-	public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
-	     /*JTable source = (JTable)evt.getSource();
-	            int row = source.rowAtPoint( evt.getPoint() );
-	            int column = source.columnAtPoint( evt.getPoint() );
-	            String s=source.getModel().getValueAt(row, column)+"";*/
 
-	            JOptionPane.showMessageDialog(null, "rhdrbdfb");
-
-
-	} 
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() ==  salirInt) {
-        	ventanaAnt.setVisible(true);
+        	VentanaCompras ventana = new VentanaCompras(usuario);
+        	ventana.setVisible(true);
             dispose();
+        }
+        if (e.getSource() ==  btnAgrega ) {
+        	if (idselect.equals("") || txtCantidad.getText().equals("") || txtCantidad.getText().equals("0")) {
+        		  JOptionPane.showMessageDialog(null, "Selecciona un item y una cantidad valida");
+			} else {
+				
+				for (int i = 0; i < lista.size(); i++) {
+
+					 getP = (Producto) lista.get(i);
+						if (getP.getId().equals(idselect)) {
+							break;
+						}
+					 }
+				total=String.valueOf((Integer.parseInt(getP.getPrecioVenta())*Integer.parseInt(txtCantidad.getText())));
+				tienda.AddOneProduct(new Compra(getP,txtCantidad.getText(), total));
+				VentanaCompras ventana = new VentanaCompras(usuario);
+	        	ventana.setVisible(true);
+	            dispose();
+			}
+        	
         }
         
     }
