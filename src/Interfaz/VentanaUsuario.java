@@ -284,9 +284,9 @@ public class VentanaUsuario extends JFrame implements ActionListener {
             dispose();
         }
         if (e.getSource() == Compras ) {
-        /*	VentanaCompras ventana = new VentanaCompras(usuario);
+        	VentanaCompras ventana = new VentanaCompras(usuario);
             ventana.setVisible(true);
-            dispose();*/
+            dispose();
         }
         
     }

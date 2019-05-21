@@ -116,6 +116,17 @@ public class Tienda {
     public void setLstProveedor(ArrayList<Proveedor> lstProveedor) {
         this.lstProveedor = lstProveedor;
     }
-
+    
+    public String getProveedorName (String id) {
+    	for (Proveedor proveedor : lstProveedor) {
+			if(proveedor.getId().equals(id)) {
+				
+				 return proveedor.getNombre();
+			}
+		}
+    	 return null;
+    	
+      
+    }
 
 }
