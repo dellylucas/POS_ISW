@@ -231,7 +231,7 @@ public class VentanaCompras extends JFrame implements ActionListener {
         	agregar.setVisible(true);
         	dispose();
         }
-        
+        //hola
     }
 
 
