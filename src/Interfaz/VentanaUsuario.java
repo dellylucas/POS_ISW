@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import ConexionBD.Dao_Empleado;
+import ConexionBD.Dao_Login;
 import ConexionBD.Dao_Producto;
 import ConexionBD.Dao_Proveedor;
 import Modelo.*;
@@ -279,6 +280,8 @@ public class VentanaUsuario extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == salir || e.getSource() ==  salirInt) {
+        	Dao_Login dao = new Dao_Login();
+        	dao.ModificarSesion(usuario.getId(),0);
             VentanaPrincipal ventana = new VentanaPrincipal();
             ventana.setVisible(true);
             dispose();

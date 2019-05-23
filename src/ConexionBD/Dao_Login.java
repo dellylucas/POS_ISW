@@ -24,8 +24,7 @@ public class Dao_Login {
                     "from PERSONA p " +
                     "join ROL_PERSONA rp ON p.id = rp.personaId " +
                     "WHERE P.usuario = '" +user+"' "+
-                    "AND p.clave = '" +pass+"' "+
-                    "AND p.activo = 1");
+                    "AND p.clave = '" +pass+"' ");
 
             if (resultSet.next()) {
                 persona= new Persona (resultSet.getString(1),
@@ -48,5 +47,19 @@ public class Dao_Login {
             JOptionPane.showMessageDialog(null, "Error: "+e.toString());
         }
         return persona;
+    }
+    public void ModificarSesion(String id,int activo) {
+
+        try {
+            String queryIn="UPDATE PERSONA SET  activo="
+                    + activo + " WHERE ID ='"
+                    + id+"' " ;
+            Statement modProduct = conex.createStatement();
+            modProduct.executeUpdate(queryIn);
+            modProduct.close();
+
+        } catch (SQLException | NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
+        }
     }
 }

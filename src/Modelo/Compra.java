@@ -2,14 +2,22 @@ package Modelo;
 
 public class Compra {
 	private Producto producto;
-	private String cantidad;
-	private String ValorTotal;
+	private int cantidad;
+	private int ValorTotal;
+	private int TiendaId;
 	
-	public Compra(Producto producto, String cantidad, String valorTotal) {
+	public Compra(Producto producto, int cantidad, int valorTotal, int tienda) {
 		super();
 		this.producto = producto;
 		this.cantidad = cantidad;
-		ValorTotal = valorTotal;
+		this.ValorTotal = valorTotal;
+		this.TiendaId = tienda;
+	}
+	public int getTiendaId() {
+		return TiendaId;
+	}
+	public void setTiendaId(int tiendaId) {
+		TiendaId = tiendaId;
 	}
 	public Producto getProducto() {
 		return producto;
@@ -17,16 +25,16 @@ public class Compra {
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
-	public String getCantidad() {
+	public int getCantidad() {
 		return cantidad;
 	}
-	public void setCantidad(String cantidad) {
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public String getValorTotal() {
+	public int getValorTotal() {
 		return ValorTotal;
 	}
-	public void setValorTotal(String valorTotal) {
+	public void setValorTotal(int valorTotal) {
 		ValorTotal = valorTotal;
 	}
 	

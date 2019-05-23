@@ -74,13 +74,16 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
     private ArrayList<Producto> lista;
     private ArrayList<Proveedor> listaProvee;
     private String idselect;
-    private String total;
+    private String  idselectPrecio;
+    private String  idselectcantidadactual;
+    private int total;
     private  Producto getP; 
     
     public VentanaAgregarCompra(Persona persona) {
         super();
-        total="0";
+        total=0;
         idselect="";
+        idselectPrecio="";
         getP= new Producto();
         daoProducto = new Dao_Producto();
         usuario = persona;
@@ -207,17 +210,16 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
 			JTable source = (JTable)e.getSource();
 		            int row = source.rowAtPoint(e.getPoint() );
 		            idselect=source.getModel().getValueAt(row, 0)+"";
+		            idselectPrecio=source.getModel().getValueAt(row, 3)+"";
+		            idselectcantidadactual=source.getModel().getValueAt(row, 2)+"";
 		            
-		            if (idselect.equals("") || txtCantidad.getText().equals("") ) {
+		            if (idselectPrecio.equals("") || txtCantidad.getText().equals("") ) {
 		        		  JOptionPane.showMessageDialog(null, "Selecciona un item y una cantidad");
 					} else {						
-						total=String.valueOf((Integer.parseInt(source.getModel().getValueAt(row, 3)+"")*Integer.parseInt(txtCantidad.getText())));
+						total=(Integer.parseInt(idselectPrecio)*Integer.parseInt(txtCantidad.getText()));
 					}
-		            lblMostraTotal.setText(total);
-
+		            lblMostraTotal.setText(String.valueOf(total));
 			}
-
-	
         });
         getContentPane().add(sp);        
         getContentPane().add(sp, gbc_table);
@@ -266,15 +268,17 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
 		for (int i = 0; i < lista.size(); i++) {
 
 			getP = (Producto) lista.get(i);
-			O=new Object[] {getP.getId(),
-					getP.getNombre(),
-					getP.getCantidad(),
-					getP.getPrecioVenta(),
-					tienda.getProveedorName(getP.getProveedorId())
-					};
-			 modelo.addRow (O);
+			if(!getP.getCantidad().equals("0")) {
+				O=new Object[] {getP.getId(),
+						getP.getNombre(),
+						getP.getCantidad(),
+						getP.getPrecioVenta(),
+						tienda.getProveedorName(getP.getProveedorId())
+						};
+				 modelo.addRow (O);				
+			}
+			
 			 }
-		
 	}
 
     public void actionPerformed(ActionEvent e) {
@@ -285,7 +289,7 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
             dispose();
         }
         if (e.getSource() ==  btnAgrega ) {
-        	if (idselect.equals("") || txtCantidad.getText().equals("") || txtCantidad.getText().equals("0")) {
+        	if (idselect.equals("") || txtCantidad.getText().equals("") || txtCantidad.getText().equals("0")  )  {
         		  JOptionPane.showMessageDialog(null, "Selecciona un item y una cantidad valida");
 			} else {
 				
@@ -296,14 +300,17 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
 							break;
 						}
 					 }
-				total=String.valueOf((Integer.parseInt(getP.getPrecioVenta())*Integer.parseInt(txtCantidad.getText())));
-				tienda.AddOneProduct(new Compra(getP,txtCantidad.getText(), total));
+				total=(Integer.parseInt(getP.getPrecioVenta())*Integer.parseInt(txtCantidad.getText()));
+				int cantiTotal=Integer.parseInt(idselectcantidadactual) - Integer.parseInt(txtCantidad.getText()); 
+				if(cantiTotal >= 0) {
+				tienda.AddOneProduct(new Compra(getP, Integer.parseInt(txtCantidad.getText()), total, tienda.getId()),cantiTotal);
 				VentanaCompras ventana = new VentanaCompras(usuario);
 	        	ventana.setVisible(true);
 	            dispose();
+	            }else {
+	            	JOptionPane.showMessageDialog(null, "La cantidad debe ser menor o igual a la de inventaio");
+	            }
 			}
-        	
         }
-        
     }
 }

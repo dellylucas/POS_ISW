@@ -15,6 +15,7 @@ package Interfaz;
 
     import ConexionBD.Dao_Login;
 	import Modelo.Persona;
+import Modelo.Tienda;
 
 public class InicioSesion extends JFrame implements ActionListener{
 		private JLabel usuario;
@@ -90,18 +91,28 @@ public class InicioSesion extends JFrame implements ActionListener{
 
 			//Evalua si el usuario es correcto
 			if(persona != null  ){
-				//Ventana Super Admin
-				if (persona.getRol()== 1 ){
+				if(persona.getActivo() == 0) {
+					
+					dao.ModificarSesion(persona.getId(),1);
+					//Ventana Super Admin
+					
+					if (persona.getRol()== 1 ){
 
-					VentanaSuperAd ventana = new VentanaSuperAd(persona);
-					ventana.setVisible(true);
+						VentanaSuperAd ventana = new VentanaSuperAd(persona);
+						ventana.setVisible(true);
 
-				}else {//Ventana Empleado y Admin
-					VentanaUsuario ventana = new VentanaUsuario(persona);
-					ventana.setVisible(true);
+					}else {//Ventana Empleado y Admin
+						VentanaUsuario ventana = new VentanaUsuario(persona);
+						ventana.setVisible(true);
+					}
+					ventanaAnterior.dispose();
+					dispose();					
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Ya existe una sesion en curso de este usuario");
+					limpiarFormulario();					
 				}
-				ventanaAnterior.dispose();
-				dispose();
+
 			}else{
 				JOptionPane.showMessageDialog(null, "Usuario y contrasena incorrectos");
 				limpiarFormulario();

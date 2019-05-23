@@ -87,7 +87,21 @@ public class Dao_Producto {
             JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
         }
     }
+    public void ModificarCantidad(String id,int cantidad,int tienda) {
 
+        try {
+            String queryIn="UPDATE PRODUCTO SET  cantidad="
+                    + cantidad + " WHERE ID ='"
+                    + id+"' " +
+                    " AND tiendaId = "+tienda;
+            Statement modProduct = conex.createStatement();
+            modProduct.executeUpdate(queryIn);
+            modProduct.close();
+
+        } catch (SQLException | NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Error actualizando "+e.toString());
+        }
+    }
     public void Eliminar(String id, int tiendaId)  {
         try {
             Statement GetFachada = conex.createStatement();

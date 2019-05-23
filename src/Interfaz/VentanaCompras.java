@@ -3,9 +3,14 @@ package Interfaz;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -20,6 +25,7 @@ import ConexionBD.Dao_Proveedor;
 import Modelo.*;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JInternalFrame;
@@ -29,6 +35,7 @@ import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -40,6 +47,7 @@ public class VentanaCompras extends JFrame implements ActionListener {
     private JMenuBar menu;
     private JMenu caja;
     private JMenu salir;
+    private JMenu menProductos;
     private JMenuItem salirInt;
     private JMenuItem Compras;
 
@@ -52,14 +60,12 @@ public class VentanaCompras extends JFrame implements ActionListener {
     private Persona usuario;
     private Tienda tienda;
     private DefaultTableModel modelo;
-  
-    private JTable j = new JTable();
+    private  JLabel lblMostraTotal;
+    private JTable table;
     private JMenuItem mntmQuitar;
-    private JPanel panel;
-    private JLabel lbTotal;
-    private JLabel lblNewLabel_1;
     private  ArrayList<Compra> lista;
     private Factura factura;
+    private  Compra getP; 
 
     public VentanaCompras(Persona persona) {
         super();
@@ -74,64 +80,124 @@ public class VentanaCompras extends JFrame implements ActionListener {
         //Singleton Una tienda
         factura = new Factura();
         tienda = Fachada.getInstance(usuario);
+        lista = new ArrayList<Compra>();
        lista = tienda.getLstCompra();
-       panel = new JPanel();
-       getContentPane().add(panel, BorderLayout.NORTH);
-       panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-       
-       lblNewLabel_1 = new JLabel("Total");
-       lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-       panel.add(lblNewLabel_1);
-       
-       lbTotal = new JLabel("0");
-       lbTotal.setFont(new Font("Tahoma", Font.BOLD, 15));
-       panel.add(lbTotal);
+      
        
         this.setTitle(usuario.getNombre() + "(" + usuario.toString() + ") - SuperMercado " + tienda.getNombre());
         this.setSize(750, 400);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.crearMenu();
-        String[] columnNames = { "Id", "Nombre", "Unidades", "Precio" , "total"}; 
-        modelo = new DefaultTableModel(0, columnNames.length) ;
-        modelo.setColumnIdentifiers(columnNames);
-        obtenerProductos();
-        
-        j = new JTable (modelo);
-        j.setBorder(new LineBorder(Color.gray));
-        j.setBounds(30, 40, 200, 300); 
-          
-            // adding it to JScrollPane 
-            JScrollPane sp = new JScrollPane(j); 
-            getContentPane().add(sp);
-            
-
+     
       
     }
 
     private void crearMenu() {
-        menu = new JMenuBar();
-        setJMenuBar(menu);
-
-        caja = new JMenu("Carro");
-        menu.add(caja);
-
-        salir = new JMenu("Opciones");
-        salir.addActionListener(this);
-        menu.add(salir);
         
-        salirInt = new JMenuItem("Salir");
-        salirInt.addActionListener(this);
-        salir.add(salirInt);
-        
-        Compras = new JMenuItem("agregar");
-        Compras.addActionListener(this);
-        caja.add(Compras);
-        
-        mntmQuitar = new JMenuItem("quitar");
-        caja.add(mntmQuitar);
+        // Column Names 
+        String[] columnNames = { "Id", "Nombre", "U/Disponibles", "Precio" , "proveedor"}; 
+    menu = new JMenuBar();
+    setJMenuBar(menu);
 
-    }
+    menProductos = new JMenu("Productos");
+    menProductos.addActionListener(this);
+    menu.add(menProductos);
+    
+    salir = new JMenu("Opciones");
+    salir.addActionListener(this);
+    menu.add(salir);
+    
+    
+    Compras = new JMenuItem("Agregar");
+    Compras.addActionListener(this);
+    menProductos.add(Compras);
+    
+    salirInt = new JMenuItem("Atras");
+    salirInt.addActionListener(this);
+    salir.add(salirInt);
+    
+    GridBagLayout gridBagLayout = new GridBagLayout();
+    gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+    gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+    getContentPane().setLayout(gridBagLayout);
+    
+    JLabel lblNewLabel_3 = new JLabel("Busqueda");
+    GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+    gbc_lblNewLabel_3.gridwidth = 3;
+    gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
+    gbc_lblNewLabel_3.gridx = 2;
+    gbc_lblNewLabel_3.gridy = 0;
+    getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
+    
+    JTextField txtBusqueda = new JTextField();
+   
+    JLabel lblNewLabel_1 = new JLabel("Total");
+    lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
+    GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
+    gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
+    gbc_lblNewLabel_1.gridx = 22;
+    gbc_lblNewLabel_1.gridy = 4;
+    getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
+    
+     lblMostraTotal = new JLabel("0");
+     lblMostraTotal.setFont(new Font("Tahoma", Font.BOLD, 16));
+    GridBagConstraints gbc_lblMostraTotal = new GridBagConstraints();
+    gbc_lblMostraTotal.insets = new Insets(0, 0, 5, 0);
+    gbc_lblMostraTotal.gridx = 22;
+    gbc_lblMostraTotal.gridy = 5;
+    getContentPane().add(lblMostraTotal, gbc_lblMostraTotal);
+    
+    JButton btnAgrega = new JButton("Facturar");
+    GridBagConstraints gbc_btnAgrega = new GridBagConstraints();
+    gbc_btnAgrega.insets = new Insets(0, 0, 5, 0);
+    gbc_btnAgrega.gridx = 22;
+    gbc_btnAgrega.gridy = 7;
+    btnAgrega.addActionListener(this);
+    getContentPane().add(btnAgrega, gbc_btnAgrega);
+    
+    GridBagConstraints gbc_txtBusqueda = new GridBagConstraints();
+    gbc_txtBusqueda.gridwidth = 12;
+    gbc_txtBusqueda.insets = new Insets(0, 0, 5, 5);
+    gbc_txtBusqueda.fill = GridBagConstraints.HORIZONTAL;
+    gbc_txtBusqueda.gridx = 5;
+    gbc_txtBusqueda.gridy = 0;
+    getContentPane().add(txtBusqueda, gbc_txtBusqueda);
+    txtBusqueda.setColumns(10);
+    
+    modelo = new DefaultTableModel(0, columnNames.length) ;
+    modelo.setColumnIdentifiers(columnNames);
+    obtenerProductos();
+    table = new JTable (modelo);
+    table.setBorder(new LineBorder(Color.gray));
+    table.setBounds(30, 40, 200, 300); 
+    GridBagConstraints gbc_table = new GridBagConstraints();
+    gbc_table.gridwidth = 20;
+    gbc_table.gridheight = 9;
+    gbc_table.insets = new Insets(0, 0, 0, 5);
+    gbc_table.fill = GridBagConstraints.BOTH;
+    gbc_table.gridx = 1;
+    gbc_table.gridy = 1;
+    
+    JScrollPane sp = new JScrollPane(table); 
+    table.addMouseListener(new MouseAdapter() {
+    	
+
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+		
+		
+		}
+    });
+    getContentPane().add(sp);        
+    getContentPane().add(sp, gbc_table);
+    
+   
+
+}
 
     public void obtenerProductos() {
 		Object O[]=null;
@@ -145,12 +211,12 @@ public class VentanaCompras extends JFrame implements ActionListener {
 					getP.getProducto().getPrecioVenta(),
 					getP.getValorTotal()
 					};
-			int tes = factura.getTotalCompra()+ Integer.parseInt(getP.getValorTotal());
+			int tes = factura.getTotalCompra()+ getP.getValorTotal();
 			factura.setTotalCompra(tes);
 			 modelo.addRow (O);
 			
 			 }
-		 lbTotal.setText(String.valueOf(factura.getTotalCompra() ));
+		  lblMostraTotal.setText(String.valueOf(factura.getTotalCompra() ));
 	}
     public void actionPerformed(ActionEvent e) {
 
@@ -167,6 +233,9 @@ public class VentanaCompras extends JFrame implements ActionListener {
         }
         
     }
+
+
+
     public Persona getPerona() {
     	return this.usuario;
     	

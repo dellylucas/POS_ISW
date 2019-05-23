@@ -67,7 +67,7 @@ public class Dao_Empleado {
                     + emp.getTelefono() + "' , '"
                     + emp.getUsuario() + "' , '"
                     + emp.getClave() + "' ,"
-                    +emp.getSalario()+",1, "
+                    +emp.getSalario()+",0, "
                     +emp.getBonificacion()+")";
             Statement addPEmple = conex.createStatement();
             addPEmple.execute(queryIn);

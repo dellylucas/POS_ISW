@@ -2,6 +2,8 @@ package Modelo;
 
 import java.util.ArrayList;
 
+import ConexionBD.Dao_Producto;
+
 public class Tienda {
     private int id;
     private String nombre;
@@ -12,6 +14,7 @@ public class Tienda {
     private ArrayList<Empleado> lstSEmpleados = new ArrayList<Empleado>();
     private ArrayList<Proveedor> lstProveedor = new ArrayList<Proveedor>();
     private ArrayList<Compra> lstCompra = new ArrayList<Compra>();
+    private Dao_Producto producto;
 
     public ArrayList<Compra> getLstCompra() {
 		return lstCompra;
@@ -20,8 +23,11 @@ public class Tienda {
 	public void setLstCompra(ArrayList<Compra> lstCompra) {
 		this.lstCompra = lstCompra;
 	}
-	public void AddOneProduct(Compra compra) {
+	public void AddOneProduct(Compra compra, int cantidad) {
 		this.lstCompra.add(compra);
+		producto = new Dao_Producto();
+		producto.ModificarCantidad(compra.getProducto().getId(), cantidad,compra.getTiendaId());
+		
 	}
 	public Tienda(int id, String nombre, String ciudad, String direccion, String telefono) {
         this.id = id;
