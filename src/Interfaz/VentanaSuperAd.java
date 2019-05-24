@@ -12,9 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import ConexionBD.Dao_Empleado;
-import ConexionBD.Dao_Producto;
-import ConexionBD.Dao_Proveedor;
+import ConexionBD.*;
 import Modelo.*;
 
 
@@ -22,9 +20,8 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
     private JMenuBar menu;
     private JMenu administradores;
     private JMenu tiendas;
-    private JMenu perdidas;
-    private JMenu ganancias;
     private JMenu salir;
+    private JMenuItem salirite;
     private JMenuItem crearAdministrador;
     private JMenuItem consultarAdministrador;
     private JMenuItem modificarAdministrador;
@@ -38,18 +35,19 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
     private JLabel label;
     private Persona usuario;
     private Tienda tienda;
-    private JMenuItem crearTienda;
-    private JMenuItem consultarTienda;
     private JMenuItem eliminarTienda;
     private JMenuItem modificarTienda;
+    private JMenuItem crearTienda;
+    private JMenuItem consultarTienda;
+    private Dao_Tienda dao_Tienda;
 
     public VentanaSuperAd(Persona persona) {
         super();
-         usuario = new SuperAdmin(persona);
-
+        usuario = new SuperAdmin(persona);
+        dao_Tienda = new Dao_Tienda();
         //Singleton Una tienda
         tienda = Fachada.getInstance(usuario);
-
+        tienda.setLstTienda(dao_Tienda.ConsultaTodos());
         this.setTitle(usuario.getNombre() + "(" + usuario.toString() + ") -  " + tienda.getNombre());
         this.setSize(750, 400);
         this.setLocationRelativeTo(null);
@@ -68,86 +66,60 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
         administradores = new JMenu("administradores");
         menu.add(administradores);
 
-        perdidas = new JMenu("Perdidas");
-        menu.add(perdidas);
-
-        ganancias = new JMenu("Ganancias");
-        menu.add(ganancias);
-
         salir = new JMenu("Salir");
         salir.addActionListener(this);
         menu.add(salir);
 
 
-        crearAdministrador = new JMenuItem("Crear ");
-        crearAdministrador.setIcon(new ImageIcon(
-                (ClassLoader.getSystemResource("Imagenes/Crear.png"))));
-        crearAdministrador.addActionListener(this);
-        tiendas.add(crearAdministrador);
+        salirite = new JMenuItem("Cerrar sesion");
+        salirite.addActionListener(this);
+        salir.add(salirite);
 
-        consultarAdministrador = new JMenuItem("Consultar ");
-        consultarAdministrador.setIcon(new ImageIcon(
-                (ClassLoader.getSystemResource("Imagenes/Consultar.png"))));
-        consultarAdministrador.addActionListener(this);
-        tiendas.add(consultarAdministrador);
-
-        modificarAdministrador = new JMenuItem("Modificar ");
-        modificarAdministrador.setIcon(new ImageIcon(
-                (ClassLoader.getSystemResource("Imagenes/Modificar.png"))));
-        modificarAdministrador.addActionListener(this);
-        tiendas.add(modificarAdministrador);
-
-        eliminarAdministrador = new JMenuItem("Eliminar ");
-        eliminarAdministrador.setIcon(new ImageIcon(
-                (ClassLoader.getSystemResource("Imagenes/Borrar.png"))));        
-        eliminarAdministrador.addActionListener(this);
-        tiendas.add(eliminarAdministrador);        
-
-
-        crearTienda = new JMenuItem("Crear ");
+        crearTienda = new JMenuItem("Crear");
         crearTienda.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Crear.png"))));
         crearTienda.addActionListener(this);
         tiendas.add(crearTienda);
 
-        consultarTienda = new JMenuItem("Consultar ");
+        consultarTienda = new JMenuItem("Consultar");
         consultarTienda.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Consultar.png"))));
         consultarTienda.addActionListener(this);
         tiendas.add(consultarTienda);
 
+
+        eliminarTienda = new JMenuItem("Eliminar ");
+        eliminarTienda.setIcon(new ImageIcon(
+                (ClassLoader.getSystemResource("Imagenes/Borrar.png"))));
+        eliminarTienda.addActionListener(this);
+        tiendas.add(eliminarTienda);
+
         modificarTienda = new JMenuItem("Modificar ");
         modificarTienda.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Modificar.png"))));
-        modificarAdministrador.addActionListener(this);
-        tiendas.add(modificarAdministrador);
+        modificarTienda.addActionListener(this);
+        tiendas.add(modificarTienda);
+//////////////////////////////////////////////////////////////////////////////////
 
-        eliminarAdministrador = new JMenuItem("Eliminar ");
-        eliminarAdministrador.setIcon(new ImageIcon(
-                (ClassLoader.getSystemResource("Imagenes/Borrar.png"))));
-        eliminarAdministrador.addActionListener(this);
-        tiendas.add(eliminarAdministrador);
-
-
-        crearAdministrador = new JMenuItem("Crear Producto");
+        crearAdministrador = new JMenuItem("Crear Administrador");
         crearAdministrador.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Crear.png"))));
         crearAdministrador.addActionListener(this);
         administradores.add(crearAdministrador);
 
-        consultarAdministrador = new JMenuItem("Consultar Producto");
+        consultarAdministrador = new JMenuItem("Consultar Administrador");
         consultarAdministrador.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Consultar.png"))));
         consultarAdministrador.addActionListener(this);
         administradores.add(consultarAdministrador);
 
-        modificarAdministrador = new JMenuItem("Modificar Producto");
+        modificarAdministrador = new JMenuItem("Modificar Administrador");
         modificarAdministrador.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Modificar.png"))));
         modificarAdministrador.addActionListener(this);
         administradores.add(modificarAdministrador);
 
-        eliminarAdministrador = new JMenuItem("Eliminar Productos");
+        eliminarAdministrador = new JMenuItem("Eliminar Administrador");
         eliminarAdministrador.setIcon(new ImageIcon(
                 (ClassLoader.getSystemResource("Imagenes/Borrar.png"))));
         eliminarAdministrador.addActionListener(this);
@@ -190,12 +162,6 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
                 dispose();
             }
         }
-
-        if (e.getSource() == crearTienda) {
-            CrearProveedores ventana = new CrearProveedores(usuario);
-            ventana.setVisible(true);
-            dispose();
-        }
         if (e.getSource() == consultarAdministrador) {
             if (tienda.getLstProveedor().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No Hay Ningun Proveedor Registrado");
@@ -223,8 +189,42 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
                 dispose();
             }
         }
+        if (e.getSource() == crearTienda) {
+            CrearTienda ventana = new CrearTienda(usuario);
+            ventana.setVisible(true);
+            dispose();
+        }
+        if (e.getSource() == consultarTienda) {
+            if (tienda.getLstTienda().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Ninguna Tienda Registrada");
+            } else {
+                ConsultarTienda ventana = new ConsultarTienda(usuario);
+                ventana.setVisible(true);
+                dispose();
+            }
+        }
+        if (e.getSource() == modificarTienda) {
+            if (tienda.getLstTienda().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Ninguna Tienda Registrada");
+            } else {
+                ModificarTienda ventana = new ModificarTienda(usuario);
+                ventana.setVisible(true);
+                dispose();
+            }
+        }
+        if (e.getSource() == eliminarTienda) {
+            if (tienda.getLstTienda().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Ninguna Tienda Registrada");
+            } else {
+                EliminarTienda ventana = new EliminarTienda(usuario);
+                ventana.setVisible(true);
+                dispose();
+            }
+        }
 
-        if (e.getSource() == salir) {
+        if (e.getSource() == salirite) {
+            Dao_Login dao = new Dao_Login();
+            dao.ModificarSesion(usuario.getId(),0);
             VentanaPrincipal ventana = new VentanaPrincipal();
             ventana.setVisible(true);
             dispose();
@@ -232,3 +232,5 @@ public class VentanaSuperAd extends JFrame implements ActionListener {
     }
 
 }
+	    
+

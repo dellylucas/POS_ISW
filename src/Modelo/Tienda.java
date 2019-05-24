@@ -15,6 +15,17 @@ public class Tienda {
     private ArrayList<Proveedor> lstProveedor = new ArrayList<Proveedor>();
     private ArrayList<Compra> lstCompra = new ArrayList<Compra>();
     private Dao_Producto producto;
+    	private ArrayList<Tienda> lstTienda = new ArrayList<Tienda>();
+   
+    public ArrayList<Tienda> getLstTienda() {
+		return lstTienda;
+	}
+
+	public void setLstTienda(ArrayList<Tienda> lstTienda) {
+		this.lstTienda = lstTienda;
+	}
+
+    
 
     public ArrayList<Compra> getLstCompra() {
 		return lstCompra;
@@ -47,6 +58,15 @@ public class Tienda {
 
     public Tienda() {
 
+    }
+    
+    public Tienda buscarTienda(Tienda tienda, int id) {
+        for (int i = 0; i < getLstTienda().size(); i++) {
+            if (getLstTienda().get(i).getId()==(id)) {
+                tienda = (Tienda) getLstTienda().get(i);
+            }
+        }
+        return tienda;
     }
 
     public Producto buscarProducto(Producto producto, String id) {
