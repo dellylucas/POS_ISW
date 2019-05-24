@@ -104,7 +104,7 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
     private void crearMenu() {
              
             // Column Names 
-            String[] columnNames = { "Id", "Nombre", "U/Disponibles", "Precio" , "proveedor"}; 
+        String[] columnNames = { "Id", "Nombre", "U/Disponibles", "Precio" , "proveedor"}; 
         menu = new JMenuBar();
         setJMenuBar(menu);
 
@@ -303,10 +303,11 @@ public class VentanaAgregarCompra extends JFrame implements ActionListener {
 				total=(Integer.parseInt(getP.getPrecioVenta())*Integer.parseInt(txtCantidad.getText()));
 				int cantiTotal=Integer.parseInt(idselectcantidadactual) - Integer.parseInt(txtCantidad.getText()); 
 				if(cantiTotal >= 0) {
-				tienda.AddOneProduct(new Compra(getP, Integer.parseInt(txtCantidad.getText()), total, tienda.getId()),cantiTotal);
-				VentanaCompras ventana = new VentanaCompras(usuario);
-	        	ventana.setVisible(true);
-	            dispose();
+					tienda.AddOneProduct(new Compra(getP, Integer.parseInt(txtCantidad.getText()), total, tienda.getId()),cantiTotal);
+					VentanaCompras ventana = new VentanaCompras(usuario);
+		        	ventana.setVisible(true);
+		            dispose();
+	            
 	            }else {
 	            	JOptionPane.showMessageDialog(null, "La cantidad debe ser menor o igual a la de inventaio");
 	            }

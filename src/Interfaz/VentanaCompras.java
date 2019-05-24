@@ -66,6 +66,7 @@ public class VentanaCompras extends JFrame implements ActionListener {
     private  ArrayList<Compra> lista;
     private Factura factura;
     private  Compra getP; 
+    private  JButton btnFactura ;
 
     public VentanaCompras(Persona persona) {
         super();
@@ -123,16 +124,6 @@ public class VentanaCompras extends JFrame implements ActionListener {
     gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
     gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
     getContentPane().setLayout(gridBagLayout);
-    
-    JLabel lblNewLabel_3 = new JLabel("Busqueda");
-    GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-    gbc_lblNewLabel_3.gridwidth = 3;
-    gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
-    gbc_lblNewLabel_3.gridx = 2;
-    gbc_lblNewLabel_3.gridy = 0;
-    getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
-    
-    JTextField txtBusqueda = new JTextField();
    
     JLabel lblNewLabel_1 = new JLabel("Total");
     lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -150,22 +141,13 @@ public class VentanaCompras extends JFrame implements ActionListener {
     gbc_lblMostraTotal.gridy = 5;
     getContentPane().add(lblMostraTotal, gbc_lblMostraTotal);
     
-    JButton btnAgrega = new JButton("Facturar");
-    GridBagConstraints gbc_btnAgrega = new GridBagConstraints();
-    gbc_btnAgrega.insets = new Insets(0, 0, 5, 0);
-    gbc_btnAgrega.gridx = 22;
-    gbc_btnAgrega.gridy = 7;
-    btnAgrega.addActionListener(this);
-    getContentPane().add(btnAgrega, gbc_btnAgrega);
-    
-    GridBagConstraints gbc_txtBusqueda = new GridBagConstraints();
-    gbc_txtBusqueda.gridwidth = 12;
-    gbc_txtBusqueda.insets = new Insets(0, 0, 5, 5);
-    gbc_txtBusqueda.fill = GridBagConstraints.HORIZONTAL;
-    gbc_txtBusqueda.gridx = 5;
-    gbc_txtBusqueda.gridy = 0;
-    getContentPane().add(txtBusqueda, gbc_txtBusqueda);
-    txtBusqueda.setColumns(10);
+     btnFactura = new JButton("Facturar");
+    GridBagConstraints gbc_btnFactura = new GridBagConstraints();
+    gbc_btnFactura.insets = new Insets(0, 0, 5, 0);
+    gbc_btnFactura.gridx = 22;
+    gbc_btnFactura.gridy = 7;
+    btnFactura.addActionListener(this);
+    getContentPane().add(btnFactura, gbc_btnFactura);
     
     modelo = new DefaultTableModel(0, columnNames.length) ;
     modelo.setColumnIdentifiers(columnNames);
@@ -214,7 +196,7 @@ public class VentanaCompras extends JFrame implements ActionListener {
 			int tes = factura.getTotalCompra()+ getP.getValorTotal();
 			factura.setTotalCompra(tes);
 			 modelo.addRow (O);
-			
+		
 			 }
 		  lblMostraTotal.setText(String.valueOf(factura.getTotalCompra() ));
 	}
@@ -231,11 +213,13 @@ public class VentanaCompras extends JFrame implements ActionListener {
         	agregar.setVisible(true);
         	dispose();
         }
-        //hola
+        if (e.getSource() == btnFactura ) {
+        	GenerarPago agregar = new GenerarPago(usuario,factura);
+        	agregar.setVisible(true);
+        	dispose();
+        }
+        
     }
-
-
-
     public Persona getPerona() {
     	return this.usuario;
     	
