@@ -67,6 +67,8 @@ public class VentanaCompras extends JFrame implements ActionListener {
     private Factura factura;
     private  Compra getP; 
     private  JButton btnFactura ;
+    private String idselect;
+    private JMenuItem gtEliminar;
 
     public VentanaCompras(Persona persona) {
         super();
@@ -113,6 +115,10 @@ public class VentanaCompras extends JFrame implements ActionListener {
     Compras = new JMenuItem("Agregar");
     Compras.addActionListener(this);
     menProductos.add(Compras);
+    
+    gtEliminar = new JMenuItem("Eliminar");
+    gtEliminar.addActionListener(this);
+    menProductos.add(gtEliminar);
     
     salirInt = new JMenuItem("Atras");
     salirInt.addActionListener(this);
@@ -170,8 +176,11 @@ public class VentanaCompras extends JFrame implements ActionListener {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-		
-		
+			
+			JTable source = (JTable)e.getSource();
+            int row = source.rowAtPoint(e.getPoint() );
+            idselect=source.getModel().getValueAt(row, 0)+"";
+
 		}
     });
     getContentPane().add(sp);        
@@ -218,6 +227,13 @@ public class VentanaCompras extends JFrame implements ActionListener {
         	agregar.setVisible(true);
         	dispose();
         }
+        if (e.getSource() == gtEliminar ) {
+        	tienda.eliminaproduc(idselect);
+        	VentanaCompras agregar = new VentanaCompras(usuario);
+        	agregar.setVisible(true);
+        	dispose();
+        }
+        
         
     }
     public Persona getPerona() {

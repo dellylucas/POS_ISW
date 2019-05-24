@@ -42,7 +42,7 @@ public class GenerarPago extends JFrame implements ActionListener{
 		fac=factura;
 		persona = usuario;
 		daoProveedor=new Dao_Proveedor();
-		this.setTitle("Modificar Proveedor");
+		this.setTitle("FACTURA");
 		this.setSize(352, 259);
 		this.setLocationRelativeTo(null);
 		getContentPane().setLayout(null);

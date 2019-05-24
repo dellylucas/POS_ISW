@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="" />
+    <list default="true" id="d608c4c7-36d8-45f0-b41c-0bc3d7bbf443" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/Modelo/Tienda.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Modelo/Tienda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaz/VentanaSuperAd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaz/VentanaSuperAd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Tienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Tienda.java" afterDir="false" />
+    </list>
     <list id="04fb154e-2a65-4125-846b-5f1ec1bc656c" name="onCommit" comment="Add multi-store entity Proveedor , first Empleado" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -24,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4471">
+            <state relative-caret-position="4420">
               <caret line="275" column="55" selection-start-line="275" selection-start-column="55" selection-end-line="275" selection-end-column="55" />
               <folding>
                 <element signature="method#Initialization#0;class#VentanaUsuario#0" />
@@ -33,11 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaSuperAd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
             </state>
           </provider>
         </entry>
@@ -45,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSesion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
+            <state relative-caret-position="1479">
               <caret line="100" column="52" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
             </state>
           </provider>
@@ -157,6 +170,7 @@
         <option value="$PROJECT_DIR$/src/Interfaz/ModificarEmpleado.java" />
         <option value="$PROJECT_DIR$/src/ConexionBD/Dao_Empleado.java" />
         <option value="$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java" />
+        <option value="$PROJECT_DIR$/src/Interfaz/VentanaSuperAd.java" />
       </list>
     </option>
   </component>
@@ -181,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,6 +223,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -295,6 +309,7 @@
       <workItem from="1558297611234" duration="381000" />
       <workItem from="1558312921707" duration="1087000" />
       <workItem from="1558649392564" duration="379000" />
+      <workItem from="1558657324713" duration="187000" />
     </task>
     <task id="LOCAL-00001" summary="union proyecto">
       <created>1556599897521</created>
@@ -370,7 +385,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100506000" />
+    <option name="totallyTimeSpent" value="100693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,7 +399,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16845638" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1704698" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -504,7 +519,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Crear.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Modificar.java" />
     <entry file="file://$PROJECT_DIR$/src/ConexionBD/DAO_Eliminar.java" />
     <entry file="file://$PROJECT_DIR$/src/Controlador/Main.java">
@@ -827,9 +841,16 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaCompras.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2824">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4471">
+        <state relative-caret-position="4420">
           <caret line="275" column="55" selection-start-line="275" selection-start-column="55" selection-end-line="275" selection-end-column="55" />
           <folding>
             <element signature="method#Initialization#0;class#VentanaUsuario#0" />
@@ -839,7 +860,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/InicioSesion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
+        <state relative-caret-position="1479">
           <caret line="100" column="52" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
         </state>
       </provider>
@@ -861,17 +882,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaCompras.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2824">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Interfaz/EliminarEmpleado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interfaz/VentanaSuperAd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
         </state>
       </provider>
     </entry>

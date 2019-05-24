@@ -166,4 +166,18 @@ public class Tienda {
       
     }
 
+	public void eliminaproduc(String idselect) {
+		
+		for (int i = 0; i < lstCompra.size(); i++) {
+			if(lstCompra.get(i).getProducto().getId().equals(idselect)) {
+				lstCompra.remove(i);
+				
+			}
+			
+			
+		}
+		
+		
+	}
+
 }
